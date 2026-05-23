@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TutorKlub — Where Every Child Learns to Shine</title>
+  <meta name="description" content="TutorKlub offers expert online tutoring in Math, English, Telugu and Hindi for Grades 1-5, plus adult language classes. Maximum 5 students per class, AI-powered personalisation, Zoom-based sessions." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:wght@300;400;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================
+       TUTORKLUB DESIGN SYSTEM
+       Colour palette: Navy + Teal + Gold on Cream
+    ========================================================= */
+    :root {
+      --navy:       #1a2744;
+      --navy-deep:  #0f1a30;
+      --teal:       #0e8a7c;
+      --teal-mid:   #14a896;
+      --teal-light: #e6f5f3;
+      --gold:       #c9922a;
+      --gold-light: #fdf4e3;
+      --cream:      #faf8f4;
+      --warm-grey:  #f3f0eb;
+      --text-main:  #1a2744;
+      --text-muted: #5a6478;
+      --text-soft:  #8491a8;
+      --white:      #ffffff;
+      --radius-sm:  6px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      --shadow-card:  0 4px 24px rgba(26,39,68,0.09);
+      --shadow-hover: 0 10px 40px rgba(26,39,68,0.16);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Nunito', sans-serif;
+      --font-serif:   'Source Serif 4', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Utilities ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700; color: var(--navy);
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-title em { font-style: italic; color: var(--teal); }
+    .section-intro {
+      font-family: var(--font-serif);
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--text-muted); line-height: 1.8;
+      max-width: 640px;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-block; background: var(--teal); color: var(--white);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.04em; padding: 0.85rem 2rem; border-radius: 50px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.22s, transform 0.18s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(14,138,124,0.28);
+    }
+    .btn-primary:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,138,124,0.35); }
+    .btn-outline {
+      display: inline-block; background: transparent; color: var(--navy);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.04em; padding: 0.82rem 1.9rem; border-radius: 50px;
+      text-decoration: none; border: 2px solid var(--navy); cursor: pointer;
+      transition: all 0.22s;
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+    .btn-ghost {
+      display: inline-block; background: transparent; color: var(--white);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.04em; padding: 0.82rem 1.9rem; border-radius: 50px;
+      text-decoration: none; border: 2px solid rgba(255,255,255,0.55); cursor: pointer;
+      transition: all 0.22s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
+
+    /* ── Scroll-reveal animation ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(250,248,244,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(26,39,68,0.07);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+      color: var(--navy); text-decoration: none; letter-spacing: -0.01em;
+    }
+    .logo span { color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.86rem; font-weight: 600; color: var(--text-muted);
+      text-decoration: none; letter-spacing: 0.02em; transition: color 0.18s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-actions { display: flex; align-items: center; gap: 1rem; }
+    .nav-actions a.sign-in {
+      font-size: 0.88rem; font-weight: 600; color: var(--text-muted);
+      text-decoration: none; transition: color 0.18s;
+    }
+    .nav-actions a.sign-in:hover { color: var(--navy); }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      background: var(--navy-deep);
+      position: relative; overflow: hidden;
+      padding: 6rem 2rem 5rem;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(-55deg, transparent, transparent 60px, rgba(14,138,124,0.04) 60px, rgba(14,138,124,0.04) 61px);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; top: -120px; right: -80px;
+      width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,168,150,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(14,138,124,0.18); border: 1px solid rgba(14,168,150,0.35);
+      color: #6de4d8; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+    }
+    .hero-tag .dot {
+      width: 6px; height: 6px; background: var(--teal-mid);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.01em;
+    }
+    .hero h1 em { font-style: italic; color: #6de4d8; }
+    .hero-sub {
+      font-family: var(--font-serif); font-size: 1.15rem; font-weight: 300;
+      color: rgba(232,232,240,0.75); line-height: 1.75;
+      margin-bottom: 2.2rem; max-width: 520px;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .hero-trust { margin-top: 2.5rem; display: flex; gap: 2rem; flex-wrap: wrap; }
+    .trust-stat { display: flex; flex-direction: column; }
+    .trust-stat strong {
+      font-family: var(--font-display); font-size: 1.7rem;
+      font-weight: 700; color: #6de4d8; line-height: 1;
+    }
+    .trust-stat span {
+      font-size: 0.8rem; color: rgba(255,255,255,0.5);
+      font-weight: 500; letter-spacing: 0.03em; margin-top: 0.2rem;
+    }
+    /* Right side floating UI cards */
+    .hero-visual { display: flex; flex-direction: column; gap: 1rem; }
+    .hero-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; backdrop-filter: blur(4px);
+    }
+    .hero-card.main-card { background: rgba(14,138,124,0.15); border-color: rgba(14,168,150,0.3); }
+    .card-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
+    .avatar-stack { display: flex; }
+    .avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid var(--navy-deep); margin-left: -8px;
+      font-size: 0.7rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; color: white;
+    }
+    .avatar:first-child { margin-left: 0; }
+    .av1{background:#0e8a7c;} .av2{background:#c9922a;} .av3{background:#4a6fa5;} .av4{background:#9b59b6;} .av5{background:#e67e22;}
+    .card-label { font-size: 0.85rem; font-weight: 700; color: var(--white); }
+    .card-sub   { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.15rem; }
+    .progress-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin: 0.35rem 0; }
+    .progress-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--teal), #6de4d8); }
+    .badge-row { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.22rem 0.65rem; border-radius: 50px; }
+    .badge-teal { background: rgba(14,168,150,0.22); color: #6de4d8; border: 1px solid rgba(14,168,150,0.3); }
+    .badge-gold { background: rgba(201,146,42,0.22);  color: #e6b86a; border: 1px solid rgba(201,146,42,0.3); }
+    .ai-chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(14,138,124,0.25); border: 1px solid rgba(14,168,150,0.4);
+      border-radius: 50px; padding: 0.3rem 0.85rem;
+      font-size: 0.73rem; font-weight: 700; color: #6de4d8; letter-spacing: 0.05em;
+    }
+    .ai-chip::before { content: '✦'; font-size: 0.6rem; }
+
+    /* =========================================================
+       WHY TUTORKLUB — trust strip
+    ========================================================= */
+    .trust-strip {
+      background: var(--teal);
+      padding: 1.75rem 2rem;
+    }
+    .trust-strip-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.85rem;
+    }
+    .trust-item-icon {
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .trust-item-text strong {
+      display: block; font-size: 0.9rem; font-weight: 700;
+      color: var(--white); line-height: 1.2;
+    }
+    .trust-item-text span {
+      font-size: 0.76rem; color: rgba(255,255,255,0.7);
+    }
+
+    /* =========================================================
+       OUR PHILOSOPHY
+    ========================================================= */
+    .belief {
+      background: var(--white); padding: 5.5rem 2rem;
+      border-bottom: 1px solid rgba(26,39,68,0.07);
+    }
+    .belief-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .belief-image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .photo-block { border-radius: var(--radius-md); overflow: hidden; }
+    .photo-block img { width: 100%; display: block; object-fit: cover; }
+    .photo-block.tall img { height: 416px; }
+    .photo-block.short img { height: 196px; }
+    .belief-quote {
+      font-family: var(--font-display); font-size: 1.3rem;
+      font-weight: 400; font-style: italic; color: var(--teal);
+      border-left: 3px solid var(--teal); padding-left: 1.25rem;
+      margin: 1.5rem 0; line-height: 1.55;
+    }
+    .belief-body {
+      font-family: var(--font-serif); font-size: 1rem; font-weight: 300;
+      color: var(--text-muted); line-height: 1.85; margin-bottom: 1.25rem;
+    }
+
+    /* =========================================================
+       WHAT MAKES US DIFFERENT — 6-card grid
+    ========================================================= */
+    .diff { background: var(--cream); padding: 5.5rem 2rem; }
+    .diff-header { text-align: center; margin-bottom: 3.5rem; }
+    .diff-header .section-intro { margin: 0 auto; }
+    .diff-grid {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .diff-card {
+      background: var(--white); border: 1px solid rgba(26,39,68,0.07);
+      border-radius: var(--radius-lg); padding: 2rem;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .diff-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--teal); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .diff-card:hover::before { transform: scaleX(1); }
+    .diff-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(14,138,124,0.2); }
+    .diff-icon {
+      width: 52px; height: 52px; border-radius: var(--radius-sm);
+      background: var(--teal-light); display: flex; align-items: center;
+      justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .diff-card h3 {
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 0.65rem;
+    }
+    .diff-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; }
+    .diff-card .highlight {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: var(--teal-light); color: var(--teal);
+      font-size: 0.75rem; font-weight: 700; padding: 0.28rem 0.75rem;
+      border-radius: 50px; margin-top: 1rem; letter-spacing: 0.04em;
+    }
+
+    /* =========================================================
+       HOW WE COMPARE — comparison table
+    ========================================================= */
+    .compare { background: var(--navy); padding: 5.5rem 2rem; }
+    .compare-header { text-align: center; margin-bottom: 3rem; }
+    .compare-header .section-label { color: #6de4d8; }
+    .compare-header .section-title { color: var(--white); }
+    .compare-header .section-intro { color: rgba(232,232,240,0.65); margin: 0 auto; }
+    .compare-table-wrap {
+      max-width: 900px; margin: 0 auto;
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th {
+      padding: 1.1rem 1.5rem; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .compare-table th:first-child {
+      background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.45);
+      text-align: left; width: 40%;
+    }
+    .compare-table th.col-us {
+      background: rgba(14,138,124,0.3); color: #6de4d8;
+      text-align: center;
+    }
+    .compare-table th.col-them {
+      background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+    .compare-table td {
+      padding: 1rem 1.5rem; font-size: 0.88rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .compare-table tr:hover td { background: rgba(255,255,255,0.03); }
+    .compare-table td:first-child { color: rgba(255,255,255,0.75); font-weight: 600; }
+    .compare-table td.col-us { background: rgba(14,138,124,0.1); text-align: center; }
+    .compare-table td.col-them { background: transparent; text-align: center; color: rgba(255,255,255,0.35); }
+    .check-yes { color: #6de4d8; font-size: 1.1rem; font-weight: 700; }
+    .check-no  { color: rgba(255,255,255,0.25); font-size: 1.1rem; }
+    .check-val { color: #6de4d8; font-size: 0.85rem; font-weight: 700; }
+    .check-val-bad { color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+
+    /* =========================================================
+       COURSES & CURRICULUM
+    ========================================================= */
+    .courses { background: var(--white); padding: 5.5rem 2rem; position: relative; overflow: hidden; }
+    .courses::before {
+      content: ''; position: absolute; bottom: -100px; left: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,168,150,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .courses-header { text-align: center; margin-bottom: 3.5rem; }
+    .courses-header .section-intro { margin: 0 auto; }
+    .courses-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .tab-btn {
+      font-family: var(--font-body); font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.05em; padding: 0.5rem 1.25rem; border-radius: 50px;
+      border: 1.5px solid rgba(26,39,68,0.2); background: transparent;
+      color: var(--text-muted); cursor: pointer; transition: all 0.2s;
+    }
+    .tab-btn:hover, .tab-btn.active { background: var(--teal); border-color: var(--teal); color: var(--white); }
+    .courses-grid {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    }
+    .course-card {
+      background: var(--cream); border: 1px solid rgba(26,39,68,0.08);
+      border-radius: var(--radius-lg); padding: 2rem;
+      transition: all 0.25s; display: none;
+    }
+    .course-card.active { display: block; }
+    .course-card:hover { border-color: rgba(14,138,124,0.25); box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+    .course-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+    .course-icon-wrap { display: flex; align-items: center; gap: 0.75rem; }
+    .course-icon { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .ci-math    { background: rgba(14,138,124,0.12); }
+    .ci-english { background: rgba(74,111,165,0.12); }
+    .ci-telugu  { background: rgba(201,146,42,0.12); }
+    .ci-hindi   { background: rgba(155,89,182,0.12); }
+    .course-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--navy); }
+    .course-grades { font-size: 0.75rem; color: var(--text-soft); margin-top: 0.2rem; }
+    .course-level-badge {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.25rem 0.7rem; border-radius: 50px; white-space: nowrap; flex-shrink: 0;
+    }
+    .level-kids  { background: var(--teal-light); color: var(--teal); border: 1px solid rgba(14,138,124,0.2); }
+    .level-adult { background: var(--gold-light);  color: var(--gold); border: 1px solid rgba(201,146,42,0.2); }
+    .level-both  { background: #eef2ff; color: #4a6fa5; border: 1px solid rgba(74,111,165,0.2); }
+    .course-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.25rem; }
+    .curriculum-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem; }
+    .curriculum-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.82rem; color: var(--text-muted); }
+    .curriculum-list li::before { content: "→"; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
+    .course-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid rgba(26,39,68,0.07); }
+    .course-meta { font-size: 0.78rem; color: var(--text-soft); }
+    .course-meta strong { color: var(--navy); font-weight: 600; }
+    .course-cta { font-size: 0.8rem; font-weight: 700; color: var(--teal); background: none; border: none; cursor: pointer; letter-spacing: 0.04em; transition: color 0.2s; }
+    .course-cta:hover { color: var(--teal-mid); }
+
+    /* =========================================================
+       THE LEARNING PROCESS — how it works in detail
+    ========================================================= */
+    .process { background: var(--cream); padding: 5.5rem 2rem; }
+    .process-header { text-align: center; margin-bottom: 3.5rem; }
+    .process-header .section-intro { margin: 0 auto; }
+    .process-grid {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .process-card {
+      background: var(--white); border: 1px solid rgba(26,39,68,0.07);
+      border-radius: var(--radius-lg); padding: 2rem;
+      position: relative; transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .process-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+    .process-num {
+      position: absolute; top: -14px; left: 2rem;
+      background: var(--teal); color: white; font-family: var(--font-display);
+      font-size: 0.85rem; font-weight: 700; width: 28px; height: 28px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .process-icon { font-size: 2rem; margin-bottom: 1rem; margin-top: 0.5rem; }
+    .process-card h3 {
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 0.6rem;
+    }
+    .process-card p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.75; }
+    .process-detail {
+      margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(26,39,68,0.07);
+      font-size: 0.8rem; color: var(--teal); font-weight: 600;
+    }
+
+    /* =========================================================
+       AI + HUMAN SECTION
+    ========================================================= */
+    .ai-section { background: var(--gold-light); border-top: 1px solid rgba(201,146,42,0.15); border-bottom: 1px solid rgba(201,146,42,0.15); padding: 5rem 2rem; }
+    .ai-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .ai-feature-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .ai-feature { display: flex; gap: 1rem; align-items: flex-start; }
+    .ai-feature-icon {
+      width: 42px; height: 42px; border-radius: var(--radius-sm);
+      background: rgba(201,146,42,0.15); border: 1px solid rgba(201,146,42,0.25);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .ai-feature-text h5 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .ai-feature-text p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+    .ai-visual { background: var(--white); border-radius: var(--radius-lg); border: 1px solid rgba(201,146,42,0.2); padding: 2rem; box-shadow: var(--shadow-card); }
+    .ai-visual-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .ai-visual-title span { background: var(--teal-light); color: var(--teal); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; padding: 0.2rem 0.5rem; border-radius: 4px; }
+    .mock-chat { display: flex; flex-direction: column; gap: 0.85rem; }
+    .chat-bubble { max-width: 85%; padding: 0.75rem 1rem; border-radius: 12px; font-size: 0.83rem; line-height: 1.6; }
+    .chat-ai { background: var(--teal-light); color: #0a6057; border-bottom-left-radius: 4px; align-self: flex-start; }
+    .chat-student { background: var(--navy); color: rgba(255,255,255,0.85); border-bottom-right-radius: 4px; align-self: flex-end; }
+    .chat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 0.3rem; }
+    .chat-label.right { text-align: right; }
+    .divider-label { text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin: 1rem 0; position: relative; }
+    .divider-label::before, .divider-label::after { content: ''; position: absolute; top: 50%; width: 35%; height: 1px; background: rgba(26,39,68,0.1); }
+    .divider-label::before { left: 0; } .divider-label::after { right: 0; }
+    .tutor-note { background: var(--gold-light); border: 1px solid rgba(201,146,42,0.25); border-radius: var(--radius-md); padding: 0.85rem 1rem; font-size: 0.82rem; color: #7a5a1a; display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.5rem; }
+
+    /* =========================================================
+       TESTIMONIALS
+    ========================================================= */
+    .testimonials { background: var(--white); padding: 5.5rem 2rem; }
+    .testimonials-header { text-align: center; margin-bottom: 3rem; }
+    .testimonials-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testi-card { background: var(--cream); border: 1px solid rgba(26,39,68,0.07); border-radius: var(--radius-lg); padding: 1.75rem; transition: box-shadow 0.25s, transform 0.25s; }
+    .testi-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+    .stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .testi-text { font-family: var(--font-serif); font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: white; }
+    .author-name { font-size: 0.88rem; font-weight: 700; color: var(--navy); }
+    .author-role { font-size: 0.75rem; color: var(--text-soft); }
+
+    /* =========================================================
+       PRICING
+    ========================================================= */
+    .pricing { background: var(--cream); padding: 5.5rem 2rem; }
+    .pricing-header { text-align: center; margin-bottom: 3rem; }
+    .pricing-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
+    .pricing-card { background: var(--white); border: 1px solid rgba(26,39,68,0.09); border-radius: var(--radius-lg); padding: 2rem; position: relative; transition: box-shadow 0.25s, transform 0.25s; }
+    .pricing-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+    .pricing-card.featured { background: var(--navy); border-color: var(--navy); transform: scale(1.04); }
+    .pricing-card.featured:hover { transform: scale(1.04) translateY(-4px); }
+    .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--teal); color: white; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 50px; white-space: nowrap; }
+    .plan-name { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+    .pricing-card.featured .plan-name { color: #6de4d8; }
+    .price-amount { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.25rem; }
+    .pricing-card.featured .price-amount { color: var(--white); }
+    .price-period { font-size: 0.8rem; color: var(--text-soft); margin-bottom: 1.5rem; }
+    .pricing-card.featured .price-period { color: rgba(255,255,255,0.45); }
+    .plan-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(26,39,68,0.07); }
+    .pricing-card.featured .plan-desc { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.1); }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.75rem; }
+    .plan-features li { display: flex; gap: 0.65rem; font-size: 0.85rem; color: var(--text-muted); align-items: flex-start; }
+    .pricing-card.featured .plan-features li { color: rgba(255,255,255,0.65); }
+    .check { color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
+    .pricing-card.featured .check { color: #6de4d8; }
+    .plan-btn { display: block; text-align: center; width: 100%; background: var(--teal-light); color: var(--teal); font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; padding: 0.85rem; border-radius: 50px; border: none; cursor: pointer; transition: all 0.22s; letter-spacing: 0.04em; }
+    .plan-btn:hover { background: var(--teal); color: var(--white); }
+    .pricing-card.featured .plan-btn { background: var(--teal); color: var(--white); }
+    .pricing-card.featured .plan-btn:hover { background: var(--teal-mid); }
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+    .faq { background: var(--white); padding: 5rem 2rem; }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 3rem; }
+    .faq-item { border-bottom: 1px solid rgba(26,39,68,0.08); }
+    .faq-q {
+      width: 100%; background: none; border: none; text-align: left;
+      font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+      color: var(--navy); padding: 1.25rem 0; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--teal); }
+    .faq-chevron { color: var(--text-soft); font-size: 1.1rem; transition: transform 0.25s; flex-shrink: 0; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--teal); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-a { max-height: 400px; }
+    .faq-a-inner { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; padding-bottom: 1.25rem; }
+
+    /* =========================================================
+       BOOK A FREE TRIAL — inline Calendly section
+    ========================================================= */
+    .booking-section { background: var(--cream); padding: 5.5rem 2rem; border-top: 1px solid rgba(26,39,68,0.07); }
+    .booking-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: flex-start; }
+    .booking-info .section-intro { margin-bottom: 2rem; }
+    .booking-perks { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1.75rem; }
+    .booking-perk { display: flex; gap: 0.85rem; align-items: flex-start; }
+    .perk-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--teal-light); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .perk-text h5 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+    .perk-text p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+    .calendly-note { margin-top: 2rem; padding: 1rem 1.25rem; background: var(--teal-light); border-radius: var(--radius-md); border-left: 3px solid var(--teal); font-size: 0.82rem; color: #0a6057; line-height: 1.65; }
+    .calendly-note strong { font-weight: 700; }
+    .calendly-embed-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(26,39,68,0.08); box-shadow: var(--shadow-card); background: var(--white); min-height: 680px; }
+
+    /* =========================================================
+       CTA BANNER
+    ========================================================= */
+    .cta-banner { background: var(--navy); padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(14,168,150,0.2) 0%, transparent 70%); pointer-events: none; }
+    .cta-banner::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%); pointer-events: none; }
+    .cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    .cta-banner h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
+    .cta-banner h2 em { font-style: italic; color: #6de4d8; }
+    .cta-banner p { font-family: var(--font-serif); font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 2rem; line-height: 1.75; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer { background: var(--navy-deep); padding: 3.5rem 2rem 2rem; }
+    .footer-top { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; }
+    .footer-tagline { font-size: 0.83rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin: 0.75rem 0 1.25rem; }
+    .social-links { display: flex; gap: 0.75rem; }
+    .social-link { width: 34px; height: 34px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .social-link:hover { background: var(--teal); color: white; }
+    .footer-col h5 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a { font-size: 0.83rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.25); flex-wrap: wrap; gap: 0.5rem; }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+    /* =========================================================
+       CALENDLY BOOKING MODAL
+       This is the popup that opens when any "Book a Free Trial"
+       button is clicked anywhere on the page.
+    ========================================================= */
+    .cal-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(15,26,48,0.85);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cal-modal-overlay.open { opacity: 1; pointer-events: all; }
+    .cal-modal-panel {
+      background: var(--white); border-radius: var(--radius-lg);
+      width: 100%; max-width: 820px; max-height: 92vh;
+      overflow-y: auto; position: relative;
+      transform: translateY(24px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 24px 80px rgba(15,26,48,0.5);
+    }
+    .cal-modal-overlay.open .cal-modal-panel { transform: translateY(0); }
+    .cal-modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--warm-grey); border: none; cursor: pointer;
+      font-size: 1.1rem; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: background 0.18s, color 0.18s;
+    }
+    .cal-modal-close:hover { background: var(--navy); color: var(--white); }
+    .cal-modal-header { padding: 1.75rem 2rem 1.25rem; border-bottom: 1px solid rgba(26,39,68,0.08); }
+    .cal-modal-header h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .cal-modal-header p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .zoom-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #e8f3ff; color: #1a6fd4;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.28rem 0.75rem; border-radius: 50px;
+      border: 1px solid rgba(26,111,212,0.2); margin-top: 0.6rem;
+    }
+    /* The Calendly widget container inside the modal */
+    .cal-modal-body { min-height: 660px; }
+    /* Confirmed screen shown after booking is made */
+    .booking-confirmed {
+      display: none; flex-direction: column;
+      align-items: center; text-align: center;
+      padding: 3.5rem 2rem; gap: 1.25rem;
+    }
+    .booking-confirmed.show { display: flex; }
+    .confirmed-icon { width: 76px; height: 76px; border-radius: 50%; background: var(--teal-light); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; }
+    .booking-confirmed h3 { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--navy); }
+    .booking-confirmed > p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; max-width: 460px; }
+    .confirmed-steps { background: var(--cream); border-radius: var(--radius-md); padding: 1.5rem; text-align: left; width: 100%; max-width: 460px; }
+    .confirmed-steps h5 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem; }
+    .confirmed-step { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.85rem; }
+    .confirmed-step:last-child { margin-bottom: 0; }
+    .cstep-num { width: 22px; height: 22px; border-radius: 50%; background: var(--teal); color: white; font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+    .cstep-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .cstep-text strong { color: var(--navy); font-weight: 700; }
+    .confirm-close-btn { margin-top: 0.5rem; }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .belief-inner, .ai-inner, .booking-inner { grid-template-columns: 1fr; }
+      .diff-grid, .process-grid { grid-template-columns: 1fr 1fr; }
+      .courses-grid, .testimonials-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-card.featured { transform: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .compare-table th, .compare-table td { padding: 0.75rem 1rem; }
+    }
+    @media (max-width: 600px) {
+      .diff-grid, .process-grid, .trust-strip-inner { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Tutor<span>Klub</span></a>
+    <ul class="nav-links">
+      <li><a href="#why-us">Why TutorKlub</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#assessment">Free Assessment</a></li>
+      <li><a href="#book-trial">Book Trial</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="sign-in">Sign In</a>
+      <button onclick="openBookingModal()" class="btn-primary">Book a Free Trial</button>
+    </div>
+  </div>
+</nav>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Now enrolling &middot; Grades 1&ndash;5 &amp; Adult Learners
+      </div>
+      <h1>
+        Where Every Child<br />
+        <em>Learns to Shine</em>
+      </h1>
+      <p class="hero-sub">
+        Expert tutors. AI-powered personalisation. Maximum five students per class.
+        TutorKlub delivers the focused attention your child deserves &mdash; in Math,
+        English, Telugu, and Hindi.
+      </p>
+      <div class="hero-cta">
+        <button onclick="openBookingModal()" class="btn-primary">Book a Free Trial Class</button>
+        <a href="#assessment" class="btn-ghost">Take Free Assessment</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-stat"><strong>5</strong><span>Students max per class</span></div>
+        <div class="trust-stat"><strong>4</strong><span>Subjects offered</span></div>
+        <div class="trust-stat"><strong>100%</strong><span>Trained &amp; vetted tutors</span></div>
+        <div class="trust-stat"><strong>AI+</strong><span>Powered personalisation</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card main-card">
+        <div class="card-row">
+          <div class="avatar-stack">
+            <div class="avatar av1">A</div><div class="avatar av2">R</div>
+            <div class="avatar av3">S</div><div class="avatar av4">P</div>
+            <div class="avatar av5">K</div>
+          </div>
+          <div>
+            <div class="card-label">Grade 3 &mdash; Mathematics</div>
+            <div class="card-sub">Live class &middot; 5 students</div>
+          </div>
+        </div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:0.3rem;">Session progress</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+        <div class="badge-row">
+          <span class="badge badge-teal">&#10022; AI Insights Active</span>
+          <span class="badge badge-gold">&#9200; 28 min remaining</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-row" style="margin-bottom:0.5rem;">
+          <div>
+            <div class="card-label">Today&rsquo;s Progress &mdash; Arjun, Grade 2</div>
+            <div class="card-sub">English reading comprehension</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;margin-top:0.5rem;">
+          <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:0.65rem;text-align:center;">
+            <div style="font-size:1.1rem;font-weight:700;color:#6de4d8;">92%</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);">Accuracy</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:0.65rem;text-align:center;">
+            <div style="font-size:1.1rem;font-weight:700;color:#e6b86a;">+3</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);">Words learned</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:0.65rem;text-align:center;">
+            <div style="font-size:1.1rem;font-weight:700;color:#8cb3e8;">&#11088; 5</div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);">Stars earned</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card" style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div class="card-label" style="font-size:0.8rem;">Next session</div>
+          <div class="card-sub" style="margin-top:0.2rem;">Hindi &middot; Tomorrow 4:30 PM</div>
+        </div>
+        <div class="ai-chip">AI Tutor Ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TRUST STRIP
+========================================================= -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item"><div class="trust-item-icon">&#128101;</div><div class="trust-item-text"><strong>Max 5 students per class</strong><span>Every child gets real attention</span></div></div>
+    <div class="trust-item"><div class="trust-item-icon">&#129504;</div><div class="trust-item-text"><strong>AI-powered personalisation</strong><span>Smarter coaching every session</span></div></div>
+    <div class="trust-item"><div class="trust-item-icon">&#127891;</div><div class="trust-item-text"><strong>Rigorously trained tutors</strong><span>Not freelancers &mdash; professionals</span></div></div>
+    <div class="trust-item"><div class="trust-item-icon">&#128652;</div><div class="trust-item-text"><strong>Live Zoom sessions</strong><span>Confirmation sent automatically</span></div></div>
+  </div>
+</div>
+
+<!-- =========================================================
+     OUR PHILOSOPHY
+========================================================= -->
+<section class="belief">
+  <div class="belief-inner container">
+    <div class="belief-image-grid fade-up">
+      <div class="photo-block tall">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=416&fit=crop&q=80" alt="Child learning with a tutor" />
+      </div>
+      <div class="photo-block short">
+        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&h=196&fit=crop&q=80" alt="Small group learning session" />
+      </div>
+      <div class="photo-block short">
+        <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=196&fit=crop&q=80" alt="Student reading and studying" />
+      </div>
+    </div>
+    <div class="belief-content fade-up">
+      <div class="section-label">Our Philosophy</div>
+      <h2 class="section-title">Great learning is<br /><em>deeply personal</em></h2>
+      <blockquote class="belief-quote">
+        &ldquo;Every child learns differently. Every child deserves a tutor who truly understands them.&rdquo;
+      </blockquote>
+      <p class="belief-body">
+        At TutorKlub, we built our entire model around one conviction: the biggest problem with
+        online tutoring is not technology &mdash; it is anonymity. Too many platforms pack twenty or
+        thirty students into a session, rush through a fixed curriculum, and move on. Every child
+        becomes a face in a grid.
+      </p>
+      <p class="belief-body">
+        We do the opposite. Our classes never exceed five students. Every tutor is hand-picked,
+        rigorously trained, and matched thoughtfully to each group. We layer in AI tools not to
+        replace human connection, but to make our tutors far more effective &mdash; giving them
+        real-time insight into exactly where each child is struggling.
+      </p>
+      <button onclick="openBookingModal()" class="btn-outline" style="margin-top:0.5rem;">Book a Free Trial</button>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     WHAT MAKES US DIFFERENT
+========================================================= -->
+<section class="diff" id="why-us">
+  <div class="diff-header container fade-up">
+    <div class="section-label">What Sets Us Apart</div>
+    <h2 class="section-title">Not just another<br /><em>online class</em></h2>
+    <p class="section-intro">
+      We have rethought every aspect of online tutoring &mdash; from class size to curriculum
+      delivery to the role of AI &mdash; to build something that genuinely works for children
+      and families.
+    </p>
+  </div>
+  <div class="diff-grid container">
+    <div class="diff-card fade-up">
+      <div class="diff-icon">&#128101;</div>
+      <h3>Maximum 5 Students per Class</h3>
+      <p>Forget crowded classrooms. With only five students per session, your child receives focused attention. Our tutors know every student by name and adapt in real time &mdash; not just at the end of term.</p>
+      <span class="highlight">&#10003; Personal attention, guaranteed</span>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">&#129504;</div>
+      <h3>AI-Powered Personalisation</h3>
+      <p>Our tutors are supported by an AI layer that tracks comprehension, flags gaps, and suggests adjustments. Your child gets a curriculum that adapts to them &mdash; not the other way around.</p>
+      <span class="highlight">&#10003; Smarter every single session</span>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">&#127891;</div>
+      <h3>Expert, Trained Tutors</h3>
+      <p>Every TutorKlub educator goes through a structured training programme before they teach. They are skilled professionals committed to child-centred, outcome-focused teaching.</p>
+      <span class="highlight">&#10003; Vetted &amp; continuously trained</span>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">&#128218;</div>
+      <h3>Custom Curriculum, Every Time</h3>
+      <p>Each class is built around where students actually are &mdash; not where a textbook says they should be. Our tutors plan bespoke sessions and move at exactly the right pace for each group.</p>
+      <span class="highlight">&#10003; Zero cookie-cutter lessons</span>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">&#127758;</div>
+      <h3>Multilingual &amp; Multicultural</h3>
+      <p>We offer Math, English, Telugu, and Hindi &mdash; covering both academic skills and heritage language learning. Whether your child needs help with fractions or wants to speak to grandparents in Telugu, we are here.</p>
+      <span class="highlight">&#10003; 4 subjects, 1 trusted platform</span>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">&#128188;</div>
+      <h3>Adult Language Classes Too</h3>
+      <p>Language learning does not stop at childhood. Our adult courses in Telugu and Hindi are designed for busy professionals and heritage speakers who want real fluency &mdash; on a flexible schedule.</p>
+      <span class="highlight">&#10003; Evening &amp; weekend slots</span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     HOW TUTORKLUB COMPARES TO OTHERS
+========================================================= -->
+<section class="compare">
+  <div class="compare-header fade-up">
+    <div class="section-label">The TutorKlub Difference</div>
+    <h2 class="section-title">How we compare to<br /><em>other online tutoring</em></h2>
+    <p class="section-intro">
+      Most online tutoring platforms are built for volume. TutorKlub is built for results.
+      Here is what that difference looks like in practice.
+    </p>
+  </div>
+  <div class="compare-table-wrap container fade-up">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="col-us">&#10022; TutorKlub</th>
+          <th class="col-them">Other Platforms</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Class size</td>
+          <td class="col-us"><span class="check-val">Maximum 5 students</span></td>
+          <td class="col-them"><span class="check-val-bad">20&ndash;40+ students</span></td>
+        </tr>
+        <tr>
+          <td>Tutor training</td>
+          <td class="col-us"><span class="check-val">Rigorous in-house programme</span></td>
+          <td class="col-them"><span class="check-val-bad">Freelancers, variable quality</span></td>
+        </tr>
+        <tr>
+          <td>AI-powered support</td>
+          <td class="col-us"><span class="check-yes">&#10003;</span></td>
+          <td class="col-them"><span class="check-no">&#10007;</span></td>
+        </tr>
+        <tr>
+          <td>Curriculum personalisation</td>
+          <td class="col-us"><span class="check-val">Custom for every group</span></td>
+          <td class="col-them"><span class="check-val-bad">Fixed, standardised</span></td>
+        </tr>
+        <tr>
+          <td>Progress report after every class</td>
+          <td class="col-us"><span class="check-yes">&#10003;</span></td>
+          <td class="col-them"><span class="check-no">&#10007;</span></td>
+        </tr>
+        <tr>
+          <td>Zoom link auto-sent on booking</td>
+          <td class="col-us"><span class="check-yes">&#10003;</span></td>
+          <td class="col-them"><span class="check-no">&#10007;</span></td>
+        </tr>
+        <tr>
+          <td>Telugu &amp; Hindi language classes</td>
+          <td class="col-us"><span class="check-yes">&#10003;</span></td>
+          <td class="col-them"><span class="check-no">&#10007;</span></td>
+        </tr>
+        <tr>
+          <td>Adult language programmes</td>
+          <td class="col-us"><span class="check-yes">&#10003;</span></td>
+          <td class="col-them"><span class="check-no">Rarely</span></td>
+        </tr>
+        <tr>
+          <td>Monthly parent review call</td>
+          <td class="col-us"><span class="check-yes">&#10003;</span></td>
+          <td class="col-them"><span class="check-no">&#10007;</span></td>
+        </tr>
+        <tr>
+          <td>Free first class, no commitment</td>
+          <td class="col-us"><span class="check-yes">&#10003;</span></td>
+          <td class="col-them"><span class="check-no">Rarely</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- =========================================================
+     COURSES & CURRICULUM
+========================================================= -->
+<section class="courses" id="courses">
+  <div class="courses-header container fade-up">
+    <div class="section-label">Our Curriculum</div>
+    <h2 class="section-title">Courses &amp; Programmes</h2>
+    <p class="section-intro">
+      Structured for Grades 1&ndash;5 and designed for adult learners. Each course is a
+      living curriculum &mdash; shaped by your child&rsquo;s needs, not a fixed template.
+    </p>
+  </div>
+  <div class="courses-tabs">
+    <button class="tab-btn active" onclick="switchTab('kids', event)">Grades 1&ndash;5</button>
+    <button class="tab-btn" onclick="switchTab('adult', event)">Adult Learners</button>
+  </div>
+  <div class="courses-grid container">
+
+    <!-- KIDS: MATH -->
+    <div class="course-card kids-course active">
+      <div class="course-header">
+        <div class="course-icon-wrap">
+          <div class="course-icon ci-math">&#128290;</div>
+          <div><div class="course-name">Mathematics</div><div class="course-grades">Grades 1 &ndash; 5</div></div>
+        </div>
+        <span class="course-level-badge level-kids">Ages 6&ndash;11</span>
+      </div>
+      <p class="course-desc">We build genuine mathematical thinking &mdash; not just procedure drilling. From number sense in Grade 1 through to fractions, decimals, and data interpretation in Grade 5, every concept is taught with clarity and connected to real-world understanding.</p>
+      <ul class="curriculum-list">
+        <li>Grade 1&ndash;2: Number sense, counting, addition &amp; subtraction, shapes &amp; patterns</li>
+        <li>Grade 3: Multiplication, division, measurement, introductory fractions</li>
+        <li>Grade 4: Multi-digit operations, equivalent fractions, area &amp; perimeter</li>
+        <li>Grade 5: Decimals, ratios, data handling, geometry &amp; problem-solving</li>
+        <li>AI-generated practice sets tailored to each student between sessions</li>
+      </ul>
+      <div class="course-footer">
+        <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
+        <button onclick="openBookingModal()" class="course-cta">Enrol now &rarr;</button>
+      </div>
+    </div>
+
+    <!-- KIDS: ENGLISH -->
+    <div class="course-card kids-course active">
+      <div class="course-header">
+        <div class="course-icon-wrap">
+          <div class="course-icon ci-english">&#128218;</div>
+          <div><div class="course-name">English</div><div class="course-grades">Grades 1 &ndash; 5</div></div>
+        </div>
+        <span class="course-level-badge level-kids">Ages 6&ndash;11</span>
+      </div>
+      <p class="course-desc">Our English programme develops confident readers and writers from the ground up. We focus on phonics and decoding in the early grades, building progressively into comprehension, vocabulary, grammar, and structured writing.</p>
+      <ul class="curriculum-list">
+        <li>Grade 1&ndash;2: Phonics, sight words, fluency reading, basic sentence construction</li>
+        <li>Grade 3: Reading comprehension, parts of speech, paragraph writing</li>
+        <li>Grade 4: Narrative &amp; descriptive writing, vocabulary expansion, punctuation</li>
+        <li>Grade 5: Essay structure, persuasive writing, literary analysis</li>
+        <li>Monthly reading challenges with tutor-led group discussions</li>
+      </ul>
+      <div class="course-footer">
+        <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
+        <button onclick="openBookingModal()" class="course-cta">Enrol now &rarr;</button>
+      </div>
+    </div>
+
+    <!-- KIDS: TELUGU -->
+    <div class="course-card kids-course active">
+      <div class="course-header">
+        <div class="course-icon-wrap">
+          <div class="course-icon ci-telugu">&#12578;</div>
+          <div><div class="course-name">Telugu</div><div class="course-grades">Grades 1 &ndash; 5</div></div>
+        </div>
+        <span class="course-level-badge level-both">All levels</span>
+      </div>
+      <p class="course-desc">Whether your child is a complete beginner or grew up hearing Telugu at home, our programme builds genuine fluency and literacy. We cover script recognition, reading, writing, spoken communication, and cultural context.</p>
+      <ul class="curriculum-list">
+        <li>Varnamala: letter recognition, vowels &amp; consonants, aksharas</li>
+        <li>Reading: simple words &rarr; sentences &rarr; short paragraphs</li>
+        <li>Writing: matras, compound letters, dictation exercises</li>
+        <li>Spoken Telugu: conversational phrases, storytelling, role-play</li>
+        <li>Cultural connections: festivals, songs, poems &amp; folk tales</li>
+      </ul>
+      <div class="course-footer">
+        <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
+        <button onclick="openBookingModal()" class="course-cta">Enrol now &rarr;</button>
+      </div>
+    </div>
+
+    <!-- KIDS: HINDI -->
+    <div class="course-card kids-course active">
+      <div class="course-header">
+        <div class="course-icon-wrap">
+          <div class="course-icon ci-hindi" style="font-family:serif;font-size:1.5rem;font-weight:700;color:#9b59b6;">&#2361;</div>
+          <div><div class="course-name">Hindi</div><div class="course-grades">Grades 1 &ndash; 5</div></div>
+        </div>
+        <span class="course-level-badge level-both">All levels</span>
+      </div>
+      <p class="course-desc">Hindi opens doors to culture, family, and connection across India. Our Devanagari-based curriculum takes children from recognising their first letters to reading short stories and holding simple conversations, all in a warm, encouraging small-group setting.</p>
+      <ul class="curriculum-list">
+        <li>Devanagari script: swar (vowels), vyanjan (consonants), matra practice</li>
+        <li>Reading: two-letter words &rarr; sentences &rarr; short paragraphs</li>
+        <li>Writing: dictation, copy-writing, creative sentence building</li>
+        <li>Spoken Hindi: greetings, numbers, colours, family &amp; daily life</li>
+        <li>Hindi rhymes, poems, and short stories for Grades 1&ndash;2</li>
+      </ul>
+      <div class="course-footer">
+        <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
+        <button onclick="openBookingModal()" class="course-cta">Enrol now &rarr;</button>
+      </div>
+    </div>
+
+    <!-- ADULT: TELUGU -->
+    <div class="course-card adult-course">
+      <div class="course-header">
+        <div class="course-icon-wrap">
+          <div class="course-icon ci-telugu">&#12578;</div>
+          <div><div class="course-name">Telugu for Adults</div><div class="course-grades">Beginners to Intermediate</div></div>
+        </div>
+        <span class="course-level-badge level-adult">Adults</span>
+      </div>
+      <p class="course-desc">For heritage speakers wanting to regain fluency, and for complete beginners. Our adult Telugu programme focuses on practical spoken communication, script literacy, and cultural depth &mdash; in flexible evening and weekend slots around busy schedules.</p>
+      <ul class="curriculum-list">
+        <li>Conversational Telugu: everyday situations, formal &amp; informal registers</li>
+        <li>Script literacy: reading &amp; writing at your own pace</li>
+        <li>Grammar essentials: verb conjugation, tense, sentence building</li>
+        <li>Vocabulary themes: family, travel, food, workplace, current events</li>
+        <li>Cultural immersion: literature, cinema, idioms &amp; proverbs</li>
+      </ul>
+      <div class="course-footer">
+        <div class="course-meta"><strong>60 min</strong> &middot; once or twice weekly</div>
+        <button onclick="openBookingModal()" class="course-cta">Enrol now &rarr;</button>
+      </div>
+    </div>
+
+    <!-- ADULT: HINDI -->
+    <div class="course-card adult-course">
+      <div class="course-header">
+        <div class="course-icon-wrap">
+          <div class="course-icon ci-hindi" style="font-family:serif;font-size:1.5rem;font-weight:700;color:#9b59b6;">&#2361;</div>
+          <div><div class="course-name">Hindi for Adults</div><div class="course-grades">Beginners to Intermediate</div></div>
+        </div>
+        <span class="course-level-badge level-adult">Adults</span>
+      </div>
+      <p class="course-desc">Built for learners who want to speak confidently &mdash; whether you are reconnecting with a family language, preparing for travel to India, or simply taking on a new challenge. Lessons are conversational-first, with grammar woven in naturally.</p>
+      <ul class="curriculum-list">
+        <li>Spoken Hindi: greetings, directions, shopping, social conversations</li>
+        <li>Devanagari reading &amp; writing for those who wish to pursue literacy</li>
+        <li>Grammar in context: tenses, gender, postpositions, sentence structure</li>
+        <li>Vocabulary building: themed lessons with real-world application</li>
+        <li>Bollywood &amp; contemporary media as cultural learning tools</li>
+      </ul>
+      <div class="course-footer">
+        <div class="course-meta"><strong>60 min</strong> &middot; once or twice weekly</div>
+        <button onclick="openBookingModal()" class="course-cta">Enrol now &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     THE LEARNING PROCESS
+========================================================= -->
+<section class="process" id="process">
+  <div class="process-header container fade-up">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">The TutorKlub<br /><em>learning journey</em></h2>
+    <p class="section-intro">
+      From the moment you book your free trial to your child&rsquo;s first breakthrough moment,
+      every step is deliberate. Here is exactly what the TutorKlub experience looks like.
+    </p>
+  </div>
+  <div class="process-grid container">
+
+    <div class="process-card fade-up">
+      <div class="process-num">1</div>
+      <div class="process-icon">&#128197;</div>
+      <h3>Book a Free Trial</h3>
+      <p>Pick a subject and a time that works for your family using our Calendly booking system. Within minutes you will receive a confirmed Zoom link by email &mdash; no back-and-forth, no waiting. The first class is completely free.</p>
+      <div class="process-detail">Takes under 2 minutes to book &rarr;</div>
+    </div>
+
+    <div class="process-card fade-up">
+      <div class="process-num">2</div>
+      <div class="process-icon">&#128269;</div>
+      <h3>Assessment &amp; Smart Matching</h3>
+      <p>During the trial class, our tutor gently assesses where your child is academically &mdash; what they have mastered and where the gaps lie. We then match them with a group of up to four other students at a similar level, and with the tutor best suited to their learning style.</p>
+      <div class="process-detail">No tests, no pressure &mdash; just observation &rarr;</div>
+    </div>
+
+    <div class="process-card fade-up">
+      <div class="process-num">3</div>
+      <div class="process-icon">&#128221;</div>
+      <h3>Personalised Curriculum Planning</h3>
+      <p>Before each block of classes begins, your child&rsquo;s tutor builds a tailored curriculum plan for the group. This is not a standardised textbook &mdash; it is a living document that is reviewed and adjusted every two weeks based on progress.</p>
+      <div class="process-detail">Custom-built, not copied from a shelf &rarr;</div>
+    </div>
+
+    <div class="process-card fade-up">
+      <div class="process-num">4</div>
+      <div class="process-icon">&#127891;</div>
+      <h3>Live Classes, Max 5 Students</h3>
+      <p>Classes run on Zoom with a maximum of five students. Every student participates &mdash; there is no hiding at the back. Our tutors use a mix of direct instruction, collaborative exercises, and Socratic questioning to keep every child actively thinking throughout.</p>
+      <div class="process-detail">50-minute sessions, twice a week &rarr;</div>
+    </div>
+
+    <div class="process-card fade-up">
+      <div class="process-num">5</div>
+      <div class="process-icon">&#129504;</div>
+      <h3>AI-Powered Practice Between Classes</h3>
+      <p>After every session, our AI system generates a personalised practice set for each child based on exactly what they struggled with that day. This is not generic homework &mdash; it is a targeted drill on the precise concepts that need reinforcement before the next class.</p>
+      <div class="process-detail">Sent to parents automatically after each class &rarr;</div>
+    </div>
+
+    <div class="process-card fade-up">
+      <div class="process-num">6</div>
+      <div class="process-icon">&#128202;</div>
+      <h3>Progress Reviews &amp; Parent Updates</h3>
+      <p>After every class, parents receive a brief AI-generated report covering what was taught, how their child performed, and what to focus on at home. Monthly, the tutor schedules a one-to-one call with parents to discuss longer-term progress and goals.</p>
+      <div class="process-detail">You are never left wondering how they are doing &rarr;</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     AI + HUMAN SECTION
+========================================================= -->
+<section class="ai-section" id="ai-coaching">
+  <div class="ai-inner container">
+    <div class="fade-up">
+      <div class="section-label">Our Approach</div>
+      <h2 class="section-title">The best of AI and<br /><em>human connection</em></h2>
+      <p class="section-intro">AI does not replace our tutors &mdash; it makes them remarkably better. Every TutorKlub session is supported by a coaching layer that helps tutors understand each student deeply and never let a learning gap go unnoticed.</p>
+      <div class="ai-feature-list">
+        <div class="ai-feature">
+          <div class="ai-feature-icon">&#128202;</div>
+          <div class="ai-feature-text">
+            <h5>Real-time comprehension tracking</h5>
+            <p>Our AI monitors engagement patterns during class and alerts tutors the moment a student appears to be struggling with a concept, before they fall behind.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <div class="ai-feature-icon">&#127919;</div>
+          <div class="ai-feature-text">
+            <h5>Adaptive practice assignments</h5>
+            <p>Between sessions, each student receives AI-generated practice sets targeting their specific gaps &mdash; not a generic worksheet handed to the whole class.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <div class="ai-feature-icon">&#128203;</div>
+          <div class="ai-feature-text">
+            <h5>Detailed progress reports for parents</h5>
+            <p>After every session, parents receive a concise report showing what was covered, how their child performed, and what to focus on next. No more guessing.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <div class="ai-feature-icon">&#128302;</div>
+          <div class="ai-feature-text">
+            <h5>Curriculum planning support</h5>
+            <p>AI analyses each group&rsquo;s pace and mastery over time, helping tutors plan future sessions that are always calibrated to exactly the right level of challenge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ai-visual fade-up">
+      <div class="ai-visual-title">Live session &mdash; Grade 4 Math <span>AI ACTIVE</span></div>
+      <div class="mock-chat">
+        <div>
+          <div class="chat-label">TutorKlub AI</div>
+          <div class="chat-bubble chat-ai">&#128202; Priya has answered the last 3 fraction questions incorrectly. Pattern suggests she is confusing numerator and denominator. Recommend a quick visual anchor before moving on.</div>
+        </div>
+        <div>
+          <div class="chat-label">Tutor &mdash; Mrs Sharma</div>
+          <div class="chat-bubble chat-ai" style="background:var(--navy);color:rgba(255,255,255,0.8);">Great catch. Let me use the pizza diagram &mdash; Priya, let&rsquo;s look at this together for a moment&hellip;</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="chat-label right">Priya (Student)</div>
+          <div class="chat-bubble chat-student">Oh! The top number is the slice I have, right? I get it now!</div>
+        </div>
+        <div class="divider-label">3 minutes later</div>
+        <div>
+          <div class="chat-label">TutorKlub AI</div>
+          <div class="chat-bubble chat-ai">&#10003; Priya answered 2 subsequent fraction questions correctly. Gap resolved. Personalised practice set generating for tonight.</div>
+        </div>
+        <div class="tutor-note">
+          <span>&#128161;</span>
+          <span>This moment &mdash; catching and correcting in real time &mdash; is what separates TutorKlub from every other online class.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TESTIMONIALS
+========================================================= -->
+<section class="testimonials">
+  <div class="testimonials-header fade-up container">
+    <div class="section-label">Parent Stories</div>
+    <h2 class="section-title">What families are saying</h2>
+  </div>
+  <div class="testimonials-grid container">
+    <div class="testi-card fade-up">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">&ldquo;My son struggled badly in maths for two years. Within six weeks at TutorKlub, he was putting his hand up in class. The small group made all the difference &mdash; he actually felt comfortable asking questions.&rdquo;</p>
+      <div class="testi-author">
+        <div class="author-avatar" style="background:#0e8a7c;">SP</div>
+        <div><div class="author-name">Sunita Prasad</div><div class="author-role">Parent of Grade 3 student</div></div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">&ldquo;I enrolled in the Telugu adult class because I wanted to speak to my grandparents properly. The tutor is brilliant and the class is so intimate &mdash; I&rsquo;ve learned more in two months than with apps for two years.&rdquo;</p>
+      <div class="testi-author">
+        <div class="author-avatar" style="background:#c9922a;">AR</div>
+        <div><div class="author-name">Aryan Reddy</div><div class="author-role">Adult Telugu learner</div></div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">&ldquo;The progress reports after each class are incredible. I can see exactly what Meera covered and where she needs support. I feel genuinely involved in her learning &mdash; not just paying for lessons.&rdquo;</p>
+      <div class="testi-author">
+        <div class="author-avatar" style="background:#4a6fa5;">DK</div>
+        <div><div class="author-name">Deepa Krishnamurthy</div><div class="author-role">Parent of Grade 5 student</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PRICING
+========================================================= -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header container fade-up">
+    <div class="section-label">Enrolment Plans</div>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <p class="section-intro" style="margin:0 auto;text-align:center;">
+      Every plan includes the AI coaching layer, post-session progress reports, and our
+      small-group guarantee of no more than five students per class.
+    </p>
+  </div>
+  <div class="pricing-grid container">
+    <div class="pricing-card fade-up">
+      <div class="plan-name">Starter</div>
+      <div class="price-amount">$49</div>
+      <div class="price-period">per month &middot; one subject</div>
+      <p class="plan-desc">Focused support in one key subject to build a strong foundation and measurable confidence.</p>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> 8 classes per month (2 per week)</li>
+        <li><span class="check">&#10003;</span> Max 5 students per class</li>
+        <li><span class="check">&#10003;</span> AI progress report after every session</li>
+        <li><span class="check">&#10003;</span> Monthly parent review call</li>
+        <li><span class="check">&#10003;</span> Free trial class included</li>
+      </ul>
+      <button onclick="openBookingModal()" class="plan-btn">Get started</button>
+    </div>
+    <div class="pricing-card featured fade-up">
+      <div class="popular-tag">Most Popular</div>
+      <div class="plan-name">Growth</div>
+      <div class="price-amount">$89</div>
+      <div class="price-period">per month &middot; two subjects</div>
+      <p class="plan-desc">Balanced academic support across two subjects. Our most popular choice for well-rounded learners.</p>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> 16 classes per month across 2 subjects</li>
+        <li><span class="check">&#10003;</span> Max 5 students per class</li>
+        <li><span class="check">&#10003;</span> AI progress report after every session</li>
+        <li><span class="check">&#10003;</span> Bi-weekly parent review calls</li>
+        <li><span class="check">&#10003;</span> Personalised AI practice homework</li>
+        <li><span class="check">&#10003;</span> Free trial class included</li>
+      </ul>
+      <button onclick="openBookingModal()" class="plan-btn">Get started</button>
+    </div>
+    <div class="pricing-card fade-up">
+      <div class="plan-name">Scholar</div>
+      <div class="price-amount">$149</div>
+      <div class="price-period">per month &middot; all subjects</div>
+      <p class="plan-desc">The complete TutorKlub experience. Full access to all four subjects for ambitious, well-rounded learners.</p>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> Unlimited subjects (Math, English, Telugu, Hindi)</li>
+        <li><span class="check">&#10003;</span> Max 5 students per class</li>
+        <li><span class="check">&#10003;</span> AI progress report after every session</li>
+        <li><span class="check">&#10003;</span> Weekly parent review calls</li>
+        <li><span class="check">&#10003;</span> Personalised AI practice homework</li>
+        <li><span class="check">&#10003;</span> Priority tutor matching</li>
+        <li><span class="check">&#10003;</span> Free trial class included</li>
+      </ul>
+      <button onclick="openBookingModal()" class="plan-btn">Get started</button>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ — expanded
+========================================================= -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header fade-up">
+      <div class="section-label">Questions &amp; Answers</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="fade-up">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Why is five students the maximum class size? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Five students is the sweet spot between the social energy of a group and the personal attention of a one-to-one session. In a class of five, every child speaks in every session, every child is heard, and the tutor can genuinely track what each student understands in real time. It is a deliberate, non-negotiable decision &mdash; not a limitation we are working around.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How are TutorKlub tutors screened and trained? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Every TutorKlub tutor goes through a multi-stage selection process that includes a subject knowledge assessment, a sample teaching demonstration, and a background check. Before their first class, tutors complete a structured in-house training programme covering child-centred pedagogy, the TutorKlub curriculum framework, and how to use our AI coaching tools effectively. Training is ongoing &mdash; tutors participate in monthly review sessions with our academic team.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How does AI fit into a live class without being intrusive? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Our AI runs entirely in the background during sessions. It analyses response patterns and engagement signals, then surfaces insights to the tutor on a private dashboard &mdash; students never see it or interact with it. After class, it generates personalised practice materials and the parent progress report automatically. The AI never speaks to your child directly; it simply makes the human tutor far more informed and effective.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What devices do we need and how does Zoom work? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">All classes are held on Zoom. Your child needs any device with a working camera and microphone &mdash; a laptop, tablet, or desktop computer works best. A mobile phone can work but a larger screen makes it easier to see the shared whiteboard. When you book a trial class through our Calendly link, a unique Zoom meeting link is automatically sent to your email within seconds. You just click the link at the scheduled time &mdash; no account required for students to join.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">When will I receive the Zoom link after booking? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Immediately. The moment you complete your booking via our Calendly scheduling page, Calendly automatically creates a unique Zoom meeting and emails the join link, meeting ID, and passcode directly to you. You will also receive a calendar invite with the Zoom link embedded. A reminder is sent 24 hours before the class and again one hour before. If you cannot find the email, check your spam folder for a message from notifications@calendly.com.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I sit in on my child&rsquo;s class to see how it works? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">For the free trial class, we encourage parents to sit in for the first few minutes to see the format and settle any nerves your child might have. After that, we gently suggest parents let children participate independently &mdash; children tend to engage more freely and ask more questions when they feel the session is their own space. You will receive a detailed post-class report regardless, so you are never in the dark about what happened.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">My child has never studied Telugu or Hindi before. Is that okay? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Absolutely. Our language courses are designed for all levels, including complete beginners who have never seen the script before. During the trial class, our tutor assesses your child&rsquo;s starting point and matches them with a group at a similar level. There is no pressure to &ldquo;catch up&rdquo; with anyone &mdash; every class starts exactly where each student is.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What language are classes taught in? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">All classes are conducted in English, with the target language introduced progressively. For Math and English classes, instruction is entirely in English. For Telugu and Hindi classes, the tutor uses English to explain concepts and instructions while building the child&rsquo;s target language exposure gradually. For adult language learners, the balance shifts toward the target language as proficiency grows.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is there a contract or minimum commitment period? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">No contracts, no lock-ins. We work on a month-to-month basis, and you can cancel or pause at any time with seven days notice before your next billing cycle. We believe families should stay because they are seeing results &mdash; not because they are contractually obligated to. That said, we do recommend committing to at least six to eight weeks to give the curriculum time to produce measurable results.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What happens if my child misses a class? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">We understand that life happens. If you give us 24 hours notice, we will do our best to schedule a make-up session or credit your account for a future class. Every child also receives post-session notes and AI-generated practice materials after every class, so missing one session never means falling permanently behind. Repeated absences without notice cannot be credited, but we will always try to find a solution that works for your family.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can adults join the children&rsquo;s Math and English classes? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Our adult programme currently focuses on Telugu and Hindi language learning. Math and English courses are designed specifically for Grades 1&ndash;5. If you are an adult interested in language skills, please choose our dedicated adult language tracks &mdash; they are built for your pace, your schedule, and your goals as a grown-up learner.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is your refund policy? <span class="faq-chevron">&#9662;</span></button>
+        <div class="faq-a"><p class="faq-a-inner">If you are not satisfied after your first paid month, contact us within 7 days of your billing date and we will issue a full refund, no questions asked. We stand behind the quality of our teaching. After the first month, refunds are calculated on a pro-rata basis for unused classes if you cancel mid-month with valid notice.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     ASSESSMENT SECTION CSS
+========================================================= -->
+<style>
+  /* ── Assessment section wrapper ── */
+  .assessment-section {
+    background: linear-gradient(160deg, #0f1a30 0%, #1a2744 100%);
+    padding: 5.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .assessment-section::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(14,168,150,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .assessment-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,146,42,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .assessment-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  .assessment-header .section-label { color: #6de4d8; }
+  .assessment-header .section-title { color: #fff; }
+  .assessment-header .section-intro { color: rgba(232,232,240,0.65); margin: 0 auto; }
+  .assessment-how {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 860px;
+    margin: 0 auto 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  .assessment-how::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: calc(10% + 24px);
+    right: calc(10% + 24px);
+    height: 2px;
+    background: linear-gradient(90deg, rgba(14,168,150,0.5), rgba(14,168,150,0.1));
+  }
+  .ahow-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .ahow-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(14,138,124,0.3);
+    border: 2px solid rgba(14,168,150,0.5);
+    color: #6de4d8;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.85rem;
+    box-shadow: 0 0 0 6px rgba(15,26,48,0.8);
+  }
+  .ahow-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.3rem;
+  }
+  .ahow-desc {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.55;
+  }
+
+  /* ── Assessment card (the multi-step form) ── */
+  .acard {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    max-width: 560px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  .acard-body { padding: 2.25rem 2.25rem 2rem; }
+
+  /* ── Progress bar inside card ── */
+  .acard-progress-wrap {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .acard-progress-bar {
+    flex: 1; height: 5px;
+    background: #f0ede8;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .acard-progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--teal);
+    transition: width 0.4s ease;
+  }
+  .acard-step-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    white-space: nowrap;
+  }
+
+  /* ── Form fields ── */
+  .aform-group { margin-bottom: 0.85rem; }
+  .aform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .aform-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 0.3rem;
+  }
+  .aform-input, .aform-select {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid #e0ddd6;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .aform-input:focus, .aform-select:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(14,138,124,0.1);
+  }
+  .aform-input.err, .aform-select.err { border-color: #e74c3c; }
+  .aform-error { font-size: 0.72rem; color: #e74c3c; margin-top: 0.25rem; }
+  .aform-select option { color: var(--text-main); }
+
+  /* ── Section divider inside form ── */
+  .aform-section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin: 1rem 0 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #f0ede8;
+  }
+
+  /* ── Info box inside form ── */
+  .ainfo-box {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: #0a6057;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+  .agold-box {
+    background: var(--gold-light);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
+    color: #7a5a1a;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── Submit button ── */
+  .abtn {
+    display: block;
+    width: 100%;
+    background: var(--teal);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(14,138,124,0.3);
+    margin-top: 0.5rem;
+  }
+  .abtn:hover { background: var(--teal-mid); transform: translateY(-1px); }
+  .abtn.gold { background: var(--gold); box-shadow: 0 4px 16px rgba(201,146,42,0.3); }
+  .abtn.gold:hover { background: #d9a030; }
+
+  /* ── Question screen ── */
+  .aq-subject-chip {
+    display: inline-block;
+    background: #eef2ff;
+    color: #4a6fa5;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .aq-text {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.45;
+    margin-bottom: 1.5rem;
+  }
+  .aq-option {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    border: 2px solid #e5e5e5;
+    background: #f9f9f9;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+  }
+  .aq-option:hover:not(:disabled) { border-color: var(--teal); background: var(--teal-light); }
+  .aq-option.correct { border-color: var(--teal); background: var(--teal-light); }
+  .aq-option.wrong   { border-color: #e74c3c; background: #fde8e8; }
+  .aq-option:disabled { cursor: default; }
+  .aq-option-letter {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .aq-option.correct .aq-option-letter { background: var(--teal); }
+  .aq-option.wrong   .aq-option-letter { background: #e74c3c; }
+  .aq-hint { text-align: center; font-size: 0.78rem; color: var(--text-soft); margin-top: 0.5rem; }
+
+  /* ── Locked results screen ── */
+  .alock-screen { text-align: center; padding: 1rem 0 0.5rem; }
+  .alock-icon { font-size: 3.5rem; margin-bottom: 0.75rem; }
+  .alock-chip {
+    display: inline-block;
+    background: var(--teal-light);
+    color: var(--teal);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.85rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .alock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+  }
+  .alock-stat {
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+  }
+  .alock-stat-val {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .alock-stat-val.teal { color: var(--teal); font-size: 1.2rem; }
+  .alock-stat-lbl {
+    font-size: 0.7rem;
+    color: var(--text-soft);
+    font-weight: 600;
+    margin-top: 0.3rem;
+  }
+  .alogid-box {
+    background: var(--teal-light);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
+    color: #0a6057;
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+  .alogid-code {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+  }
+
+  /* ── Confirmation screen ── */
+  .aconfirm-icon {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--teal-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+  }
+  .aconfirm-steps {
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    text-align: left;
+    margin-top: 1.25rem;
+  }
+  .aconfirm-steps-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 0.85rem;
+  }
+  .aconfirm-step {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 0.7rem;
+  }
+  .aconfirm-step:last-child { margin-bottom: 0; }
+  .aconfirm-step-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .aconfirm-step-text { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
+  .aconfirm-step-text strong { color: var(--navy); }
+
+  /* ── Hidden screens ── */
+  .ascreen { display: none; }
+  .ascreen.active { display: block; }
+</style>
+
+<!-- =========================================================
+     FREE ASSESSMENT SECTION
+========================================================= -->
+<section class="assessment-section" id="assessment">
+  <div class="assessment-header fade-up">
+    <div class="section-label">Free Assessment</div>
+    <h2 class="section-title">Find out exactly where<br /><em>your child stands</em></h2>
+    <p class="section-intro">
+      Register, complete a short grade-appropriate assessment, and book a free demo session.
+      We seal the results and walk you through them together &mdash; giving you a full picture
+      of your child&rsquo;s strengths and where they need support.
+    </p>
+  </div>
+
+  <!-- How it works strip -->
+  <div class="assessment-how fade-up">
+    <div class="ahow-step">
+      <div class="ahow-num">1</div>
+      <div class="ahow-title">Register</div>
+      <div class="ahow-desc">Create your parent account in under 2 minutes</div>
+    </div>
+    <div class="ahow-step">
+      <div class="ahow-num">2</div>
+      <div class="ahow-title">Child takes test</div>
+      <div class="ahow-desc">5 grade-appropriate questions, Math &amp; English</div>
+    </div>
+    <div class="ahow-step">
+      <div class="ahow-num">3</div>
+      <div class="ahow-title">Results sealed</div>
+      <div class="ahow-desc">Score is recorded but not shown to you yet</div>
+    </div>
+    <div class="ahow-step">
+      <div class="ahow-num">4</div>
+      <div class="ahow-title">Book demo</div>
+      <div class="ahow-desc">Our tutor walks you through every result</div>
+    </div>
+  </div>
+
+  <!-- Assessment card -->
+  <div class="acard fade-up">
+    <div class="acard-body">
+
+      <!-- ── SCREEN 1: REGISTER ── -->
+      <div class="ascreen active" id="ascreen-register">
+        <p class="section-label" style="color:var(--teal);margin-bottom:0.4rem;">Step 1 of 2 &mdash; Register</p>
+        <h3 style="font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Create your parent account</h3>
+        <div class="ainfo-box">
+          After registering, your child will complete a short assessment. We seal the score and share it with you during your free demo &mdash; so you understand the full picture together.
+        </div>
+
+        <div class="aform-section-title">Parent Details</div>
+        <div class="aform-group">
+          <label class="aform-label">Your Full Name</label>
+          <input type="text" id="a-parentName" class="aform-input" placeholder="e.g. Priya Sharma" />
+          <div class="aform-error" id="err-parentName"></div>
+        </div>
+        <div class="aform-row">
+          <div class="aform-group">
+            <label class="aform-label">Email Address</label>
+            <input type="email" id="a-email" class="aform-input" placeholder="you@email.com" />
+            <div class="aform-error" id="err-email"></div>
+          </div>
+          <div class="aform-group">
+            <label class="aform-label">Phone Number</label>
+            <input type="tel" id="a-phone" class="aform-input" placeholder="+91 98765 43210" />
+            <div class="aform-error" id="err-phone"></div>
+          </div>
+        </div>
+        <div class="aform-row">
+          <div class="aform-group">
+            <label class="aform-label">City / Town</label>
+            <input type="text" id="a-location" class="aform-input" placeholder="e.g. Hyderabad" />
+            <div class="aform-error" id="err-location"></div>
+          </div>
+          <div class="aform-group">
+            <label class="aform-label">Create Password</label>
+            <input type="password" id="a-password" class="aform-input" placeholder="Min 6 characters" />
+            <div class="aform-error" id="err-password"></div>
+          </div>
+        </div>
+
+        <div class="aform-section-title">Child Details</div>
+        <div class="aform-row">
+          <div class="aform-group">
+            <label class="aform-label">Child&rsquo;s Full Name</label>
+            <input type="text" id="a-childName" class="aform-input" placeholder="e.g. Arjun Sharma" />
+            <div class="aform-error" id="err-childName"></div>
+          </div>
+          <div class="aform-group">
+            <label class="aform-label">Current Grade</label>
+            <select id="a-grade" class="aform-select">
+              <option value="">Select grade</option>
+              <option value="1">Grade 1</option>
+              <option value="2">Grade 2</option>
+              <option value="3">Grade 3</option>
+              <option value="4">Grade 4</option>
+              <option value="5">Grade 5</option>
+            </select>
+            <div class="aform-error" id="err-grade"></div>
+          </div>
+        </div>
+        <div class="aform-group">
+          <label class="aform-label">Subject of Interest</label>
+          <select id="a-subject" class="aform-select">
+            <option value="">Select a subject</option>
+            <option>Mathematics</option>
+            <option>English</option>
+            <option>Telugu</option>
+            <option>Hindi</option>
+            <option>Multiple Subjects</option>
+          </select>
+          <div class="aform-error" id="err-subject"></div>
+        </div>
+
+        <button class="abtn" onclick="aRegister()">Register &amp; Start Assessment &rarr;</button>
+        <p style="text-align:center;font-size:0.73rem;color:var(--text-soft);margin-top:0.85rem;">
+          Your child&rsquo;s results are sealed and only discussed during your free demo session.
+        </p>
+      </div>
+
+      <!-- ── SCREEN 2: QUESTION ── -->
+      <div class="ascreen" id="ascreen-question">
+        <div class="acard-progress-wrap">
+          <div class="acard-progress-bar">
+            <div class="acard-progress-fill" id="a-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="acard-step-label" id="a-qcount">Q 1 / 5</div>
+        </div>
+        <div class="aq-subject-chip" id="a-subject-chip">Math</div>
+        <div class="aq-text" id="a-qtext">Loading&hellip;</div>
+        <div id="a-options"></div>
+        <div class="aq-hint" id="a-hint">Select an answer to continue</div>
+        <button class="abtn" id="a-next-btn" style="display:none;margin-top:1rem;" onclick="aNext()">Next Question &rarr;</button>
+      </div>
+
+      <!-- ── SCREEN 3: LOCKED RESULTS ── -->
+      <div class="ascreen" id="ascreen-locked">
+        <div class="alock-screen">
+          <div class="alock-icon">&#128274;</div>
+          <div class="alock-chip">Assessment Complete</div>
+          <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">
+            <span id="a-childname-locked">Your child</span>&rsquo;s results are ready
+          </h3>
+          <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:0.5rem;">
+            We have scored the assessment. Your full results report &mdash; including score,
+            topic-by-topic breakdown, and our tutor&rsquo;s observations &mdash; will be
+            shared with you during your free demo session.
+          </p>
+        </div>
+        <div class="alock-stats">
+          <div class="alock-stat">
+            <div class="alock-stat-val">5</div>
+            <div class="alock-stat-lbl">Questions answered</div>
+          </div>
+          <div class="alock-stat">
+            <div class="alock-stat-val" style="font-size:1.4rem;">&#128274;</div>
+            <div class="alock-stat-lbl">Score sealed</div>
+          </div>
+          <div class="alock-stat">
+            <div class="alock-stat-val teal" id="a-grade-locked">Grade 1</div>
+            <div class="alock-stat-lbl">Level assessed</div>
+          </div>
+        </div>
+        <div class="agold-box">
+          <strong>Why do we seal the results?</strong> Our tutors have found that reviewing scores
+          <em>together with parents</em> in a live session is far more valuable than a number in
+          an email. You will understand not just <em>what</em> your child scored, but <em>why</em>
+          &mdash; and exactly what to do next.
+        </div>
+        <div class="alogid-box">
+          <strong>Your Login ID:</strong> <span class="alogid-code" id="a-loginid">TK-0000</span><br />
+          <span style="font-size:0.75rem;">Save this &mdash; use it to access your child&rsquo;s full learning profile after the demo.</span>
+        </div>
+        <button class="abtn gold" onclick="aBookDemo()">
+          Book Demo to Understand Results &rarr;
+        </button>
+        <p style="text-align:center;font-size:0.73rem;color:var(--text-soft);margin-top:0.85rem;">
+          A Zoom link will be sent to your email immediately after booking.
+        </p>
+      </div>
+
+      <!-- ── SCREEN 4: BOOKED CONFIRMATION ── -->
+      <div class="ascreen" id="ascreen-confirmed">
+        <div style="text-align:center;">
+          <div class="aconfirm-icon">&#10003;</div>
+          <p class="section-label" style="color:var(--teal);">Demo Booked</p>
+          <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">You&rsquo;re all set!</h3>
+          <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;">
+            Check your inbox for your Zoom link. Your tutor will walk you through
+            <strong id="a-childname-confirm">your child</strong>&rsquo;s complete results
+            &mdash; including score, strengths, and a personalised learning plan.
+          </p>
+        </div>
+        <div class="aconfirm-steps">
+          <div class="aconfirm-steps-title">What happens in the demo session</div>
+          <div class="aconfirm-step">
+            <div class="aconfirm-step-num">1</div>
+            <div class="aconfirm-step-text"><strong>Full score revealed</strong> &mdash; your tutor explains what each answer tells us about your child&rsquo;s understanding</div>
+          </div>
+          <div class="aconfirm-step">
+            <div class="aconfirm-step-num">2</div>
+            <div class="aconfirm-step-text"><strong>Topic-by-topic breakdown</strong> &mdash; strengths celebrated, gaps identified clearly</div>
+          </div>
+          <div class="aconfirm-step">
+            <div class="aconfirm-step-num">3</div>
+            <div class="aconfirm-step-text"><strong>Live mini-class</strong> &mdash; your child experiences a real TutorKlub session firsthand</div>
+          </div>
+          <div class="aconfirm-step">
+            <div class="aconfirm-step-num">4</div>
+            <div class="aconfirm-step-text"><strong>Personalised learning plan</strong> &mdash; we tell you exactly what your child needs and how TutorKlub can help</div>
+          </div>
+          <div class="aconfirm-step">
+            <div class="aconfirm-step-num">5</div>
+            <div class="aconfirm-step-text"><strong>No obligation</strong> &mdash; decide after the session, with full information in hand</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /acard-body -->
+  </div><!-- /acard -->
+</section>
+
+<!-- =========================================================
+     ASSESSMENT JAVASCRIPT
+========================================================= -->
+<script>
+(function() {
+  // Grade-appropriate questions: 5 per grade, mix of Math & English
+  var Q = {
+    1: [
+      { q:"What is 3 + 5?",                          opts:["6","7","8","9"],                    ans:2, subj:"Math" },
+      { q:"How many sides does a triangle have?",    opts:["2","3","4","5"],                    ans:1, subj:"Math" },
+      { q:"Which word rhymes with 'cat'?",           opts:["Dog","Hat","Cup","Pen"],             ans:1, subj:"English" },
+      { q:"What is 9 \u2013 4?",                     opts:["3","4","5","6"],                    ans:2, subj:"Math" },
+      { q:"Which letter comes after D?",             opts:["C","E","F","B"],                    ans:1, subj:"English" }
+    ],
+    2: [
+      { q:"What is 14 + 23?",                        opts:["36","37","38","39"],                ans:1, subj:"Math" },
+      { q:"Which number is the largest?",            opts:["29","31","27","33"],                ans:3, subj:"Math" },
+      { q:"The opposite of 'happy' is:",             opts:["Sad","Glad","Fast","Tall"],         ans:0, subj:"English" },
+      { q:"What is 30 \u2013 17?",                   opts:["11","12","13","14"],                ans:2, subj:"Math" },
+      { q:"A sentence always starts with a:",       opts:["Full stop","Small letter","Capital letter","Comma"], ans:2, subj:"English" }
+    ],
+    3: [
+      { q:"What is 7 \u00d7 8?",                    opts:["54","56","58","64"],                ans:1, subj:"Math" },
+      { q:"What is half of 84?",                    opts:["40","41","42","44"],                ans:2, subj:"Math" },
+      { q:"Which word is spelled correctly?",       opts:["Frend","Friend","Freind","Fiend"],  ans:1, subj:"English" },
+      { q:"A shape with 6 sides is called a:",      opts:["Pentagon","Hexagon","Octagon","Heptagon"], ans:1, subj:"Math" },
+      { q:"The plural of 'child' is:",              opts:["Childs","Childes","Children","Childrens"], ans:2, subj:"English" }
+    ],
+    4: [
+      { q:"What is 72 \u00f7 9?",                   opts:["6","7","8","9"],                    ans:2, subj:"Math" },
+      { q:"Which fraction is the largest?",         opts:["1/4","1/2","1/3","1/8"],            ans:1, subj:"Math" },
+      { q:"Which sentence uses a comma correctly?", opts:["I like cats and, dogs.","I like cats, and dogs.","I, like cats and dogs.","I like cats and dogs,."], ans:1, subj:"English" },
+      { q:"Perimeter of a square with side 6 cm?",  opts:["12 cm","18 cm","24 cm","36 cm"],   ans:2, subj:"Math" },
+      { q:"A word that describes a noun is a/an:",  opts:["Verb","Adverb","Adjective","Pronoun"], ans:2, subj:"English" }
+    ],
+    5: [
+      { q:"What is 3.5 \u00d7 4?",                 opts:["12","13","14","15"],                ans:2, subj:"Math" },
+      { q:"75% as a fraction in simplest form:",   opts:["75/100","3/4","15/20","7/10"],      ans:1, subj:"Math" },
+      { q:"A synonym for 'ancient' is:",            opts:["Modern","Old","New","Young"],       ans:1, subj:"English" },
+      { q:"5 apples at $3.60 each. Total cost?",   opts:["$16.00","$17.50","$18.00","$18.50"], ans:2, subj:"Math" },
+      { q:"In 'She ran quickly', 'quickly' is a/an:", opts:["Noun","Verb","Adjective","Adverb"], ans:3, subj:"English" }
+    ]
+  };
+
+  var state = { name:"", grade:1, email:"", qIdx:0, answers:{}, score:0 };
+
+  // Show a screen
+  function show(id) {
+    document.querySelectorAll('.ascreen').forEach(function(s){ s.classList.remove('active'); });
+    document.getElementById('ascreen-'+id).classList.add('active');
+  }
+
+  // Validate registration
+  window.aRegister = function() {
+    var fields = ['parentName','email','phone','location','password','childName','grade','subject'];
+    var valid = true;
+    fields.forEach(function(f){ document.getElementById('err-'+f).textContent=''; });
+
+    var pn = document.getElementById('a-parentName').value.trim();
+    var em = document.getElementById('a-email').value.trim();
+    var ph = document.getElementById('a-phone').value.trim();
+    var lo = document.getElementById('a-location').value.trim();
+    var pw = document.getElementById('a-password').value;
+    var cn = document.getElementById('a-childName').value.trim();
+    var gr = document.getElementById('a-grade').value;
+    var su = document.getElementById('a-subject').value;
+
+    if (!pn) { document.getElementById('err-parentName').textContent='Required'; valid=false; }
+    if (!em.includes('@')) { document.getElementById('err-email').textContent='Valid email required'; valid=false; }
+    if (!ph) { document.getElementById('err-phone').textContent='Required'; valid=false; }
+    if (!lo) { document.getElementById('err-location').textContent='Required'; valid=false; }
+    if (pw.length < 6) { document.getElementById('err-password').textContent='Min 6 characters'; valid=false; }
+    if (!cn) { document.getElementById('err-childName').textContent='Required'; valid=false; }
+    if (!gr) { document.getElementById('err-grade').textContent='Please select a grade'; valid=false; }
+    if (!su) { document.getElementById('err-subject').textContent='Please select a subject'; valid=false; }
+    if (!valid) return;
+
+    state.name  = cn;
+    state.grade = parseInt(gr);
+    state.email = em;
+    state.qIdx  = 0;
+    state.answers = {};
+    state.score = 0;
+    renderQuestion();
+    show('question');
+  };
+
+  function renderQuestion() {
+    var qs   = Q[state.grade];
+    var q    = qs[state.qIdx];
+    var pct  = ((state.qIdx) / qs.length * 100);
+    document.getElementById('a-progress-fill').style.width = pct + '%';
+    document.getElementById('a-qcount').textContent = 'Q ' + (state.qIdx+1) + ' / ' + qs.length;
+    document.getElementById('a-subject-chip').textContent = q.subj;
+    document.getElementById('a-qtext').textContent = q.q;
+    document.getElementById('a-hint').style.display = 'block';
+    document.getElementById('a-next-btn').style.display = 'none';
+
+    var optsDiv = document.getElementById('a-options');
+    optsDiv.innerHTML = '';
+    q.opts.forEach(function(opt, i) {
+      var btn = document.createElement('button');
+      btn.className = 'aq-option';
+      btn.innerHTML =
+        '<span class="aq-option-letter">' + String.fromCharCode(65+i) + '</span>' + opt;
+      btn.onclick = function(){ selectAnswer(i); };
+      optsDiv.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(idx) {
+    var qs  = Q[state.grade];
+    var q   = qs[state.qIdx];
+    var ans = q.ans;
+    state.answers[state.qIdx] = idx;
+    if (idx === ans) state.score++;
+
+    // Disable all options and show correct/wrong
+    var btns = document.querySelectorAll('#a-options .aq-option');
+    btns.forEach(function(b, i) {
+      b.disabled = true;
+      b.onclick = null;
+      if (i === ans) b.classList.add('correct');
+      else if (i === idx && i !== ans) b.classList.add('wrong');
+      b.querySelector('.aq-option-letter').textContent =
+        i === ans ? '\u2713' : (i === idx && i !== ans ? '\u2717' : String.fromCharCode(65+i));
+    });
+
+    document.getElementById('a-hint').style.display = 'none';
+    var nextBtn = document.getElementById('a-next-btn');
+    var isLast  = state.qIdx === qs.length - 1;
+    nextBtn.textContent = isLast ? 'See My Results \u2192' : 'Next Question \u2192';
+    nextBtn.style.display = 'block';
+  }
+
+  window.aNext = function() {
+    var qs = Q[state.grade];
+    if (state.qIdx < qs.length - 1) {
+      state.qIdx++;
+      renderQuestion();
+    } else {
+      // Show locked results
+      document.getElementById('a-progress-fill').style.width = '100%';
+      document.getElementById('a-childname-locked').textContent  = state.name;
+      document.getElementById('a-grade-locked').textContent      = 'Grade ' + state.grade;
+      var id = 'TK-' + state.name.slice(0,2).toUpperCase() + (1000 + Math.floor(Math.random()*9000));
+      document.getElementById('a-loginid').textContent = id;
+      show('locked');
+    }
+  };
+
+  window.aBookDemo = function() {
+    document.getElementById('a-childname-confirm').textContent = state.name;
+    show('confirmed');
+    // In production: open Calendly modal here
+    // openBookingModal();
+  };
+})();
+</script>
+
+<!-- =========================================================
+     BOOK A FREE TRIAL — inline Calendly section
+     ─────────────────────────────────────────────
+     TO ACTIVATE CALENDLY:
+       1. Sign up at calendly.com (Standard plan, ~$10/month)
+       2. Connect Zoom: Integrations & apps > Zoom > Connect
+       3. Create event type: "30-min Free Trial Class"
+       4. Set Location = Zoom on the event type
+       5. Add Workflow: "Email to someone else" > teacher@tutorklub.com
+       6. Replace the TWO placeholder URLs below with your real URL
+          e.g. https://calendly.com/tutorklub/free-trial
+========================================================= -->
+<section class="booking-section" id="book-trial">
+  <div class="booking-inner container">
+    <div class="booking-info fade-up">
+      <div class="section-label">Book Your Spot</div>
+      <h2 class="section-title">Your first class<br /><em>is completely free</em></h2>
+      <p class="section-intro">
+        Pick a subject, choose a time that works for your family, and we will match your child
+        with the right group and the right tutor. No payment required upfront.
+      </p>
+      <div class="booking-perks">
+        <div class="booking-perk">
+          <div class="perk-icon">&#9989;</div>
+          <div class="perk-text">
+            <h5>Instant Zoom link</h5>
+            <p>The moment you book, Calendly automatically generates a unique Zoom meeting and sends the link to your email &mdash; no waiting, no manual confirmation.</p>
+          </div>
+        </div>
+        <div class="booking-perk">
+          <div class="perk-icon">&#127891;</div>
+          <div class="perk-text">
+            <h5>Your tutor is notified automatically</h5>
+            <p>As soon as you book, your assigned tutor receives all your booking details &mdash; including your child&rsquo;s name, subject, and the Zoom link &mdash; via automated email.</p>
+          </div>
+        </div>
+        <div class="booking-perk">
+          <div class="perk-icon">&#128337;</div>
+          <div class="perk-text">
+            <h5>Reminder emails sent automatically</h5>
+            <p>You will receive a reminder 24 hours before class and again 1 hour before &mdash; both with the Zoom join link included, so you can never lose it.</p>
+          </div>
+        </div>
+        <div class="booking-perk">
+          <div class="perk-icon">&#129309;</div>
+          <div class="perk-text">
+            <h5>No commitment required</h5>
+            <p>The trial class is completely free. If you love it, we will talk about the right plan for your child. If not, there is no obligation whatsoever.</p>
+          </div>
+        </div>
+      </div>
+      <div class="calendly-note">
+        <strong>After booking:</strong> Check your inbox for a confirmation email from notifications@calendly.com. It contains your Zoom meeting link, meeting ID, and passcode. If you do not see it within 2 minutes, please check your spam folder.
+      </div>
+    </div>
+
+    <!-- ── CALENDLY INLINE WIDGET ──
+         Replace the data-url value below with your real Calendly link.
+         Format: https://calendly.com/YOUR-USERNAME/YOUR-EVENT-SLUG
+         Example: https://calendly.com/tutorklub/free-trial
+    -->
+    <div class="fade-up">
+      <div class="calendly-embed-wrap">
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/YOUR-TUTORKLUB-USERNAME/free-trial?hide_gdpr_banner=1&hide_event_type_details=1"
+          style="min-width:320px;height:680px;">
+        </div>
+      </div>
+      <p style="text-align:center;font-size:0.75rem;color:var(--text-soft);margin-top:0.75rem;">
+        Scheduling powered by Calendly &middot; Meetings held on Zoom
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CTA BANNER
+========================================================= -->
+<section class="cta-banner">
+  <div class="cta-inner fade-up">
+    <h2>Ready to give your child<br /><em>the attention they deserve?</em></h2>
+    <p>
+      Join TutorKlub today and book your first class completely free.
+      No commitment, no contracts &mdash; just great teaching in a small, focused group.
+    </p>
+    <div class="cta-actions">
+      <button onclick="openBookingModal()" class="btn-primary">Book a Free Trial Class</button>
+      <a href="mailto:hello@tutorklub.com" class="btn-ghost">Email Our Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">Tutor<span>Klub</span></a>
+      <p class="footer-tagline">
+        Expert tutors. AI-powered personalisation.<br />
+        Maximum five students. Outstanding results.
+      </p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook">f</a>
+        <a href="#" class="social-link" aria-label="Instagram">ig</a>
+        <a href="#" class="social-link" aria-label="YouTube">yt</a>
+        <a href="#" class="social-link" aria-label="WhatsApp">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Courses</h5>
+      <ul>
+        <li><a href="#courses">Mathematics</a></li>
+        <li><a href="#courses">English</a></li>
+        <li><a href="#courses">Telugu</a></li>
+        <li><a href="#courses">Hindi</a></li>
+        <li><a href="#courses">Adult Language Classes</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#why-us">About TutorKlub</a></li>
+        <li><a href="#why-us">Our Approach</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="mailto:hello@tutorklub.com">Contact Us</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 TutorKlub.com &middot; All rights reserved</span>
+    <span>Built with care for every learner</span>
+  </div>
+</footer>
+
+<!-- =========================================================
+     CALENDLY BOOKING MODAL
+     Opens when any "Book a Free Trial" button is clicked.
+     Replace the data-url below with your real Calendly link.
+========================================================= -->
+<div class="cal-modal-overlay" id="calModal" onclick="handleOverlayClick(event)">
+  <div class="cal-modal-panel">
+    <button class="cal-modal-close" onclick="closeBookingModal()" aria-label="Close">&times;</button>
+
+    <!-- Modal header -->
+    <div class="cal-modal-header" id="calModalHeader">
+      <h3>Book Your Free Trial Class</h3>
+      <p>Choose a subject and a time that works for your family. Your Zoom link will be sent to your email immediately after booking.</p>
+      <span class="zoom-badge">&#128652; Zoom link sent automatically on booking</span>
+    </div>
+
+    <!-- Calendly widget inside the modal -->
+    <div class="cal-modal-body" id="calModalBody">
+      <!-- ── MODAL CALENDLY WIDGET ──
+           Replace the data-url value below with your real Calendly link.
+           Same URL as the inline widget above.
+      -->
+      <div
+        class="calendly-inline-widget"
+        id="modalCalendlyWidget"
+        data-url="https://calendly.com/YOUR-TUTORKLUB-USERNAME/free-trial?hide_gdpr_banner=1&hide_event_type_details=1"
+        style="min-width:320px;height:660px;">
+      </div>
+    </div>
+
+    <!-- Booking confirmed screen (hidden until booking is made) -->
+    <div class="booking-confirmed" id="bookingConfirmed">
+      <div class="confirmed-icon">&#10003;</div>
+      <h3>You&rsquo;re booked!</h3>
+      <p>Your free trial class has been confirmed. Check your email for the Zoom link &mdash; it was sent the moment you booked. Your tutor has also been notified.</p>
+      <div class="confirmed-steps">
+        <h5>What happens next</h5>
+        <div class="confirmed-step">
+          <div class="cstep-num">1</div>
+          <div class="cstep-text"><strong>Check your inbox</strong> for a confirmation from notifications@calendly.com with your Zoom join link, meeting ID, and passcode.</div>
+        </div>
+        <div class="confirmed-step">
+          <div class="cstep-num">2</div>
+          <div class="cstep-text"><strong>Save the calendar invite</strong> attached to the email so you get automatic reminders 24 hours and 1 hour before class.</div>
+        </div>
+        <div class="confirmed-step">
+          <div class="cstep-num">3</div>
+          <div class="cstep-text"><strong>At class time,</strong> click the Zoom link in your email. Your tutor will be ready and waiting in the meeting room.</div>
+        </div>
+        <div class="confirmed-step">
+          <div class="cstep-num">4</div>
+          <div class="cstep-text"><strong>After the class,</strong> you will receive a progress report by email along with next steps for your child&rsquo;s learning journey.</div>
+        </div>
+      </div>
+      <button onclick="closeBookingModal()" class="btn-primary confirm-close-btn">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     CALENDLY SCRIPT
+     This loads the Calendly widget JS.
+     Place just before </body> for best page-load performance.
+========================================================= -->
+<script async src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+<!-- =========================================================
+     SITE JAVASCRIPT
+========================================================= -->
+<script>
+  // ── Scroll-triggered fade-up animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Stagger animation delays on grid cards ──
+  document.querySelectorAll('.diff-grid .diff-card, .process-grid .process-card, .testimonials-grid .testi-card, .pricing-grid .pricing-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.1) + 's';
+  });
+
+  // ── Course tab switching ──
+  function switchTab(type, e) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    document.querySelectorAll('.kids-course').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.adult-course').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.'+ type + '-course').forEach(c => c.classList.add('active'));
+  }
+
+  // ── FAQ accordion ──
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Calendly Booking Modal ──
+  function openBookingModal() {
+    const overlay = document.getElementById('calModal');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+    // Initialise the Calendly widget inside the modal on first open
+    if (window.Calendly && !overlay.dataset.initialised) {
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/YOUR-TUTORKLUB-USERNAME/free-trial?hide_gdpr_banner=1&hide_event_type_details=1',
+        parentElement: document.getElementById('modalCalendlyWidget')
+      });
+      overlay.dataset.initialised = 'true';
+    }
+  }
+
+  function closeBookingModal() {
+    const overlay = document.getElementById('calModal');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal when clicking the dark backdrop (but not the panel itself)
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('calModal')) closeBookingModal();
+  }
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeBookingModal();
+  });
+
+  // ── Listen for Calendly booking confirmation event ──
+  // When a booking is completed, Calendly fires a postMessage event.
+  // We catch it here and swap the modal content to the confirmation screen.
+  window.addEventListener('message', (e) => {
+    if (e.data && e.data.event === 'calendly.event_scheduled') {
+      // Hide the header and the Calendly widget
+      document.getElementById('calModalHeader').style.display = 'none';
+      document.getElementById('calModalBody').style.display = 'none';
+      // Show the booking confirmed screen
+      document.getElementById('bookingConfirmed').classList.add('show');
+    }
+  });
+</script>
+
+</body>
+</html>
