@@ -91,8 +91,6 @@
     .badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.22rem 0.65rem; border-radius: 50px; }
     .badge-teal { background: rgba(14,168,150,0.22); color: #6de4d8; border: 1px solid rgba(14,168,150,0.3); }
     .badge-gold { background: rgba(201,146,42,0.22); color: #e6b86a; border: 1px solid rgba(201,146,42,0.3); }
-    .ai-chip { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(14,138,124,0.25); border: 1px solid rgba(14,168,150,0.4); border-radius: 50px; padding: 0.3rem 0.85rem; font-size: 0.73rem; font-weight: 700; color: #6de4d8; letter-spacing: 0.05em; }
-    .ai-chip::before { content: '✦'; font-size: 0.6rem; }
 
     /* TRUST STRIP */
     .trust-strip { background: var(--teal); padding: 1.75rem 2rem; }
@@ -354,30 +352,6 @@
     .footer-col a:hover { color: #6de4d8; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 1.5rem 2rem; max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 0.78rem; flex-wrap: wrap; gap: 0.5rem; }
 
-    /* MODAL */
-    .cal-modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(10,15,30,0.75); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
-    .cal-modal-overlay.open { opacity: 1; visibility: visible; }
-    .cal-modal-panel { background: var(--white); border-radius: var(--radius-lg); width: 100%; max-width: 680px; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,0.35); }
-    .cal-modal-close { position: absolute; top: 1rem; right: 1rem; z-index: 10; width: 32px; height: 32px; border-radius: 50%; background: rgba(26,39,68,0.08); border: none; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.18s; }
-    .cal-modal-close:hover { background: rgba(26,39,68,0.15); }
-    .cal-modal-header { padding: 2rem 2rem 1rem; }
-    .cal-modal-header h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
-    .cal-modal-header p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem; }
-    .zoom-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--teal-light); color: var(--teal); font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.85rem; border-radius: 50px; }
-    .cal-modal-body { padding: 0 2rem 2rem; }
-    .booking-confirmed { padding: 3rem 2rem; text-align: center; display: none; }
-    .booking-confirmed.show { display: block; }
-    .confirmed-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--teal-light); border: 2px solid var(--teal); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--teal); margin: 0 auto 1.25rem; }
-    .booking-confirmed h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
-    .booking-confirmed p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.7; }
-    .confirmed-steps { text-align: left; background: var(--cream); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem; }
-    .confirmed-steps h5 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem; }
-    .confirmed-step { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.85rem; }
-    .confirmed-step:last-child { margin-bottom: 0; }
-    .cstep-num { width: 24px; height: 24px; border-radius: 50%; background: var(--teal); color: white; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
-    .cstep-text { font-size: 0.87rem; color: var(--text-muted); line-height: 1.6; }
-    .confirm-close-btn { margin-top: 0; }
-
     /* RESPONSIVE */
     @media(max-width:900px){
       .hero-inner, .belief-inner, .ai-inner, .community-inner, .booking-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -410,7 +384,7 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wa.me/[WhatsApp Number]" class="btn-primary" style="font-size:0.82rem;padding:0.65rem 1.4rem;">Contact Us</a>
+      <a href="https://wa.me/919985555222" class="btn-primary" style="font-size:0.82rem;padding:0.65rem 1.4rem;">Contact Us</a>
     </div>
   </div>
 </nav>
@@ -424,7 +398,7 @@
       <p class="hero-belief">Because confident learners are made, not born.</p>
       <p class="hero-sub">Expert tutors. AI-powered personalisation. Maximum 5 students per class &mdash; delivering the focused attention your child deserves.</p>
       <div class="hero-cta">
-        <button onclick="openBookingModal()" class="btn-primary" data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo">Book a Free Demo</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-primary">Book a Free Demo</button>
         <a href="#how-it-works" class="btn-ghost">See How It Works</a>
       </div>
       <div class="hero-trust">
@@ -450,7 +424,6 @@
       <div class="hero-card">
         <div class="card-label" style="color:rgba(255,255,255,0.8);margin-bottom:0.5rem;">AI Insight for Tutor</div>
         <div class="card-sub" style="color:rgba(255,255,255,0.55);font-size:0.82rem;line-height:1.55;">Arjun shows strong procedural understanding but hesitates on word problems. Recommend 2 more inference-based questions this session.</div>
-        <div style="margin-top:0.75rem;"><span class="ai-chip">Powered by Claude AI</span></div>
       </div>
       <div class="hero-card">
         <div class="card-label" style="color:rgba(255,255,255,0.8);margin-bottom:0.35rem;">&#127891; Assessment complete</div>
@@ -513,7 +486,7 @@
           <div class="phil-text"><strong>The result is teaching that feels personal.</strong> Because it is.</div>
         </div>
       </div>
-      <button onclick="openBookingModal()" class="btn-outline" style="margin-top:0.5rem;">Book a Free Demo</button>
+      <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-outline" style="margin-top:0.5rem;">Book a Free Demo</button>
     </div>
   </div>
 </section>
@@ -537,27 +510,20 @@
     <div class="process-step fade-up">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h4>Attend the Demo</h4>
-        <p>Your child sits in a live small-group class of maximum 5 students. You see exactly how our tutor teaches, how your child responds, and whether it feels right.</p>
+        <h4>Attend the Demo &mdash; 1-on-1 with Your Tutor</h4>
+        <p>Your child gets a dedicated 30-minute 1-on-1 session with the tutor. No other students &mdash; just your child and the tutor, so we can see exactly how they engage, think, and learn.</p>
       </div>
     </div>
     <div class="process-step fade-up">
-      <div class="step-num">3</div>
+      <div class="step-num highlight-step">3</div>
       <div class="step-content">
-        <h4>Enrol</h4>
-        <p>If you love it, enrol your child. No contracts, no lock-ins. Pay per class &mdash; Group ($25) or Private ($35&ndash;$40 based on grade and subject).</p>
-      </div>
-    </div>
-    <div class="process-step fade-up">
-      <div class="step-num highlight-step">4</div>
-      <div class="step-content">
-        <h4>Diagnostic Assessment</h4>
-        <p>Your child completes a short, structured assessment matched to their grade and subject. We test how they think &mdash; not just what they know. We look at reasoning patterns, where thinking breaks down, and what that tells us about how they learn.</p>
+        <h4>Enrol &amp; Diagnostic Assessment</h4>
+        <p>If you love it, enrol your child. On enrolment and monthly fee payment, your child completes a short structured assessment matched to their grade and subject. We test how they think &mdash; not just what they know at their grade level. We look at reasoning patterns, where thinking breaks down, and what that tells us about how they learn.</p>
         <span class="step-tag">&#128203; Full written report + personal tutor call</span>
       </div>
     </div>
     <div class="process-step fade-up">
-      <div class="step-num">5</div>
+      <div class="step-num">4</div>
       <div class="step-content">
         <h4>Foundation Plan (if needed)</h4>
         <p>If the assessment reveals gaps, we recommend a personalised Foundation Programme &mdash; 8 private sessions to fix the essentials and build a strong base. You choose whether to take it up. No pressure either way.</p>
@@ -565,7 +531,7 @@
       </div>
     </div>
     <div class="process-step fade-up">
-      <div class="step-num">6</div>
+      <div class="step-num">5</div>
       <div class="step-content">
         <h4>Placed in the Right Batch</h4>
         <p>Based on assessment results, your child is placed in the Regular Batch or Advanced Batch &mdash; with students at the same level, moving at the right pace. No child is put into a group before they are ready.</p>
@@ -598,8 +564,8 @@
     <div class="diff-card fade-up">
       <div class="diff-icon">&#129504;</div>
       <h3>AI-Powered Personalisation</h3>
-      <p>Our tutors are supported by AI that tracks comprehension, flags gaps, and adapts your child&rsquo;s learning path in real time. Smarter every single session.</p>
-      <span class="highlight">&#10003; Powered by Claude AI</span>
+      <p>Our tutors are supported by AI that tracks comprehension, flags gaps, and adapts your child&rsquo;s learning path in real time. Every session gets sharper.</p>
+      <span class="highlight">&#10003; AI-enhanced every session</span>
     </div>
     <div class="diff-card fade-up">
       <div class="diff-icon">&#128218;</div>
@@ -686,7 +652,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -709,7 +675,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -731,7 +697,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -753,7 +719,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -775,7 +741,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>50 min</strong> &middot; twice weekly</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -797,7 +763,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>50 min</strong> &middot; once or twice weekly</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -818,7 +784,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>60 min</strong> &middot; flexible schedule</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -839,7 +805,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>60 min</strong> &middot; flexible schedule</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -860,7 +826,7 @@
       </ul>
       <div class="course-footer">
         <div class="course-meta"><strong>60 min</strong> &middot; flexible schedule</div>
-        <button onclick="openBookingModal()" class="course-cta">Book demo &rarr;</button>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="course-cta">Book demo &rarr;</button>
       </div>
     </div>
 
@@ -916,7 +882,7 @@
         </div>
         <div class="ai-feature">
           <div class="ai-feature-icon">&#128203;</div>
-          <div class="ai-feature-text"><h5>Personalised post-session reports</h5><p>After every class, parents receive an AI-generated progress report. What was covered, what clicked, what needs more time.</p></div>
+          <div class="ai-feature-text"><h5>Monthly progress reports</h5><p>Every month, parents receive a detailed AI-generated progress report. What was covered, what clicked, and what needs more attention next month.</p></div>
         </div>
         <div class="ai-feature">
           <div class="ai-feature-icon">&#9889;</div>
@@ -1007,13 +973,13 @@
         <li><span class="check">&#10003;</span> Max 5 students &mdash; your child is always seen</li>
         <li><span class="check">&#10003;</span> Curriculum-based structured lessons</li>
         <li><span class="check">&#10003;</span> Inference-based &amp; adaptive reasoning questions</li>
-        <li><span class="check">&#10003;</span> AI progress report after every session</li>
+        <li><span class="check">&#10003;</span> Monthly AI progress report</li>
         <li><span class="check">&#10003;</span> Session recording link sent (7 days)</li>
         <li><span class="check">&#10003;</span> Google Meet link sent automatically</li>
         <li><span class="check">&#10003;</span> Monthly parent review call</li>
         <li><span class="check">&#10003;</span> Free demo class included</li>
       </ul>
-      <button onclick="openBookingModal()" class="plan-btn">Book free demo</button>
+      <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="plan-btn">Book free demo</button>
     </div>
     <div class="pricing-card featured fade-up">
       <div class="popular-tag">Recommended</div>
@@ -1031,7 +997,7 @@
         <li><span class="check">&#10003;</span> Priority tutor matching</li>
         <li><span class="check">&#10003;</span> Ideal for Foundation Programme students</li>
       </ul>
-      <button onclick="openBookingModal()" class="plan-btn">Book free demo</button>
+      <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="plan-btn">Book free demo</button>
     </div>
   </div>
   <p class="pricing-note">Pay per lesson &middot; No contracts &middot; No lock-ins &middot; Cancel anytime with 7 days notice</p>
@@ -1173,8 +1139,9 @@
     <h2>The way your child learns is unique.<br /><em>So is our approach.</em></h2>
     <p>Book a free demo today. No commitment, no contracts &mdash; just great teaching in a small, focused group.</p>
     <div class="cta-actions">
-      <button onclick="openBookingModal()" class="btn-primary">Book a Free Demo</button>
+      <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-primary">Book a Free Demo</button>
       <a href="mailto:hello@tutorklub.com" class="btn-ghost">Email Our Team</a>
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.5rem;display:block;">hello@tutorklub.com</span>
     </div>
   </div>
 </section>
@@ -1189,7 +1156,7 @@
         <a href="#" class="social-link" aria-label="Facebook">f</a>
         <a href="#" class="social-link" aria-label="Instagram">ig</a>
         <a href="#" class="social-link" aria-label="YouTube">yt</a>
-        <a href="https://wa.me/[WhatsApp Number]" class="social-link" aria-label="WhatsApp">wa</a>
+        <a href="https://wa.me/919985555222" class="social-link" aria-label="WhatsApp">wa</a>
       </div>
     </div>
     <div class="footer-col">
@@ -1217,7 +1184,7 @@
       <h5>Support</h5>
       <ul>
         <li><a href="mailto:hello@tutorklub.com">hello@tutorklub.com</a></li>
-        <li><a href="https://wa.me/[WhatsApp Number]">WhatsApp Us</a></li>
+        <li><a href="https://wa.me/919985555222">WhatsApp Us</a></li>
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms of Service</a></li>
       </ul>
@@ -1228,34 +1195,6 @@
     <span>Built with care for every learner</span>
   </div>
 </footer>
-
-<!-- CAL.COM BOOKING MODAL -->
-<div class="cal-modal-overlay" id="calModal" onclick="handleOverlayClick(event)">
-  <div class="cal-modal-panel">
-    <button class="cal-modal-close" onclick="closeBookingModal()" aria-label="Close">&times;</button>
-    <div class="cal-modal-header" id="calModalHeader">
-      <h3>Book Your Free Demo Class</h3>
-      <p>Choose a subject and a time that works for your family. Your Google Meet link will be sent immediately after booking.</p>
-      <span class="zoom-badge">&#128652; Google Meet link sent automatically on booking</span>
-    </div>
-    <div class="cal-modal-body" id="calModalBody">
-      <div id="modalCalWidget" style="min-width:320px;height:660px;"></div>
-    </div>
-    <div class="booking-confirmed" id="bookingConfirmed">
-      <div class="confirmed-icon">&#10003;</div>
-      <h3>You&rsquo;re booked!</h3>
-      <p>Your free demo class is confirmed. Check your email for the Google Meet link &mdash; it was sent the moment you booked.</p>
-      <div class="confirmed-steps">
-        <h5>What happens next</h5>
-        <div class="confirmed-step"><div class="cstep-num">1</div><div class="cstep-text"><strong>Check your inbox</strong> for a confirmation from Cal.com with your Google Meet link.</div></div>
-        <div class="confirmed-step"><div class="cstep-num">2</div><div class="cstep-text"><strong>Save the calendar invite</strong> so you get automatic reminders 24 hours and 1 hour before class.</div></div>
-        <div class="confirmed-step"><div class="cstep-num">3</div><div class="cstep-text"><strong>At class time,</strong> click the Google Meet link. Your tutor will be ready and waiting.</div></div>
-        <div class="confirmed-step"><div class="cstep-num">4</div><div class="cstep-text"><strong>After the class,</strong> you will receive a follow-up email from us within 1 hour.</div></div>
-      </div>
-      <button onclick="closeBookingModal()" class="btn-primary confirm-close-btn">Close</button>
-    </div>
-  </div>
-</div>
 
 <!-- CAL.COM SCRIPT -->
 <script type="text/javascript">
@@ -1308,46 +1247,15 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
 
   // Cal.com inline widget in booking section
   window.addEventListener('load', function() {
-    if (window.Cal) {
-      Cal.ns['free-demo']('inline', {
-        elementOrSelector: '#inlineCalWidget',
-        calLink: 'tutorklub/free-demo'
-      });
-    }
-  });
-
-  // Cal.com Modal
-  function openBookingModal() {
-    const overlay = document.getElementById('calModal');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (window.Cal && !overlay.dataset.initialised) {
-      Cal.ns['free-demo']('inline', {
-        elementOrSelector: '#modalCalWidget',
-        calLink: 'tutorklub/free-demo'
-      });
-      overlay.dataset.initialised = 'true';
-    }
-  }
-
-  function closeBookingModal() {
-    document.getElementById('calModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('calModal')) closeBookingModal();
-  }
-
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeBookingModal(); });
-
-  // Cal.com booking success event
-  window.addEventListener('message', (e) => {
-    if (e.data && e.data.type === 'CAL:bookingSuccessful') {
-      document.getElementById('calModalHeader').style.display = 'none';
-      document.getElementById('calModalBody').style.display = 'none';
-      document.getElementById('bookingConfirmed').classList.add('show');
-    }
+    setTimeout(function() {
+      if (window.Cal) {
+        Cal.ns['free-demo']('inline', {
+          elementOrSelector: '#inlineCalWidget',
+          calLink: 'tutorklub/free-demo',
+          config: { layout: 'month_view' }
+        });
+      }
+    }, 500);
   });
 </script>
 
