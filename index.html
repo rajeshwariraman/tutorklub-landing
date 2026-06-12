@@ -336,6 +336,13 @@
     .footer-col a:hover { color: #6de4d8; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 1.5rem 2rem; max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 0.78rem; flex-wrap: wrap; gap: 0.5rem; }
 
+
+    /* STICKY CTA */
+    .sticky-cta { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
+    .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .sticky-cta-btn { display: flex; align-items: center; gap: 0.5rem; background: var(--teal); color: white; font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; padding: 0.85rem 1.5rem; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(14,138,124,0.45); transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 0.03em; }
+    .sticky-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(14,138,124,0.55); }
+    .sticky-cta-pulse { width: 8px; height: 8px; background: white; border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
     /* RESPONSIVE */
     @media(max-width:900px){
       .hero-inner, .belief-inner, .ai-inner, .community-inner, .booking-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -954,8 +961,6 @@
         <li><span class="check">&#10003;</span> Built around your child&rsquo;s Foundation Plan</li>
         <li><span class="check">&#10003;</span> Tutor observation notes after every session</li>
         <li><span class="check">&#10003;</span> Flexible scheduling &mdash; parent&rsquo;s choice</li>
-        <li><span class="check">&#10003;</span> Priority tutor matching</li>
-        <li><span class="check">&#10003;</span> Ideal for Foundation Programme students</li>
       </ul>
       <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" class="plan-btn">Book free demo</button>
     </div>
@@ -1100,7 +1105,7 @@
     <p>Book a free demo today. No commitment, no contracts &mdash; just great teaching in a small, focused group.</p>
     <div class="cta-actions">
       <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-primary">Book a Free Demo</button>
-      <a href="mailto:hello@tutorklub.com" class="btn-ghost">Email Our Team</a>
+      <a href="mailto:hello@tutorklub.com" class="btn-ghost">Contact Us</a>
       <span style="font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.5rem;display:block;">hello@tutorklub.com</span>
     </div>
   </div>
@@ -1156,6 +1161,15 @@
   </div>
 </footer>
 
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <button class="sticky-cta-btn" data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}'>
+    <span class="sticky-cta-pulse"></span>
+    Book a Free Demo
+  </button>
+</div>
+
 <!-- CAL.COM SCRIPT -->
 <script type="text/javascript">
 (function (C, A, L) {
@@ -1187,6 +1201,17 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
   // Stagger animation delays
   document.querySelectorAll('.diff-grid .diff-card, .tutors-grid .tutor-card, .testimonials-grid .testi-card, .pricing-grid .pricing-card').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.1) + 's';
+  });
+
+
+  // Sticky CTA — show after scrolling past hero
+  const stickyCta = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
   });
 
   // Course tab switching
