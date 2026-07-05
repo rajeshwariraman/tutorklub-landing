@@ -62,7 +62,18 @@
     .hero { background: var(--navy-deep); position: relative; overflow: hidden; padding: 6rem 2rem 5rem; }
     .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, transparent, transparent 60px, rgba(14,138,124,0.04) 60px, rgba(14,138,124,0.04) 61px); pointer-events: none; }
     .hero::after { content: ''; position: absolute; top: -120px; right: -80px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(14,168,150,0.18) 0%, transparent 70%); pointer-events: none; }
-    .hero-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; max-width: 760px; }
+    .hero-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .story-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 2rem; position: relative; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; }
+    .story-grade { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #6de4d8; margin-bottom: 1.25rem; }
+    .story-row { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem; }
+    .story-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .story-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; color: white; margin-bottom: 0.2rem; }
+    .story-text { font-size: 0.9rem; color: rgba(255,255,255,0.88); line-height: 1.5; }
+    .story-dots { display: flex; gap: 0.4rem; justify-content: center; margin-top: 1.25rem; }
+    .story-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); transition: background 0.3s; cursor: pointer; }
+    .story-dot.active { background: #6de4d8; }
+    .story-slide { display: none; }
+    .story-slide.active { display: block; }
     .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(14,138,124,0.18); border: 1px solid rgba(14,168,150,0.35); color: #6de4d8; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem; }
     .hero-tag .dot { width: 6px; height: 6px; background: var(--teal-mid); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(1.4);} }
@@ -116,6 +127,7 @@
 
     /* HOW IT WORKS */
     .process { background: var(--navy); padding: 5.5rem 2rem; }
+    section[id] { scroll-margin-top: 80px; }
     .process-header { text-align: center; margin-bottom: 3.5rem; }
     .process-header .section-label { color: #6de4d8; }
     .process-header .section-title { color: var(--white); }
@@ -198,6 +210,14 @@
     .tutor-name { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
     .tutor-subject { font-size: 0.78rem; font-weight: 700; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.75rem; }
     .tutor-bio { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; font-style: italic; }
+    .tutor-credential { font-size: 0.72rem; color: var(--text-soft); margin-top: 0.6rem; font-style: normal; font-weight: 600; }
+    .founder-section { background: var(--white); padding: 5rem 1.5rem; }
+    .founder-inner { max-width: 880px; margin: 0 auto; display: flex; gap: 2.5rem; align-items: center; }
+    .founder-photo { width: 160px; height: 160px; border-radius: 50%; flex-shrink: 0; background: var(--navy); display: flex; align-items: center; justify-content: center; color: white; font-family: var(--font-display); font-size: 2rem; font-weight: 700; }
+    .founder-quote { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: var(--navy); line-height: 1.5; margin-bottom: 1rem; }
+    .founder-name { font-weight: 700; color: var(--navy); }
+    .founder-role { font-size: 0.82rem; color: var(--text-soft); }
+    @media (max-width: 640px) { .founder-inner { flex-direction: column; text-align: center; } }
 
     /* AI + HUMAN */
     .ai-section { background: var(--gold-light); border-top: 1px solid rgba(201,146,42,0.15); border-bottom: 1px solid rgba(201,146,42,0.15); padding: 5rem 2rem; }
@@ -223,6 +243,23 @@
 
     /* MISSED A CLASS */
     .missed-class { background: var(--teal-light); padding: 3rem 2rem; border-top: 1px solid rgba(14,138,124,0.15); border-bottom: 1px solid rgba(14,138,124,0.15); }
+    .teaching-model { background: var(--cream); padding: 5.5rem 2rem; }
+    .teaching-grid { max-width: 1120px; margin: 2.5rem auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .teaching-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.75rem; border: 1px solid rgba(26,39,68,0.07); box-shadow: var(--shadow-card); }
+    .teaching-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+    .teaching-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .teaching-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+    .parent-promise { background: var(--navy); padding: 5.5rem 2rem; }
+    .parent-promise .section-label { color: #6de4d8; }
+    .parent-promise .section-title { color: var(--white); }
+    .promise-grid { max-width: 960px; margin: 2.5rem auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .promise-item { display: flex; gap: 1rem; align-items: flex-start; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 1.25rem; }
+    .promise-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .promise-item h5 { font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .promise-item p { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .timezone-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; justify-content: center; }
+    .tz-badge { background: rgba(109,228,216,0.12); border: 1px solid rgba(109,228,216,0.3); border-radius: 50px; padding: 0.35rem 1rem; font-size: 0.75rem; font-weight: 700; color: #6de4d8; letter-spacing: 0.05em; }
+    @media(max-width:768px){ .teaching-grid, .promise-grid { grid-template-columns: 1fr; } }
     .missed-class-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
     .missed-icon { font-size: 3rem; }
     .missed-class h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
@@ -346,6 +383,7 @@
     /* RESPONSIVE */
     @media(max-width:900px){
       .hero-inner, .belief-inner, .ai-inner, .community-inner, .booking-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .story-card { min-height: auto; }
       .diff-grid, .process-flow { grid-template-columns: 1fr; }
       .trust-strip-inner { grid-template-columns: repeat(2,1fr); }
       .courses-grid, .testimonials-grid, .tutors-grid { grid-template-columns: 1fr; }
@@ -371,10 +409,11 @@
       <li><a href="#courses">Courses</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#assessment">Free Assessment</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wa.me/919985555222" class="btn-primary" style="font-size:0.82rem;padding:0.65rem 1.4rem;">Contact Us</a>
+      <a href="https://wa.me/919985555222" class="btn-primary" style="font-size:0.82rem;padding:0.65rem 1.4rem;" title="Have a question first? Message us on WhatsApp">Questions? WhatsApp Us</a>
     </div>
   </div>
 </nav>
@@ -383,7 +422,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content fade-up">
-      <div class="hero-tag"><span class="dot"></span>Now enrolling &mdash; Grades 1&ndash;5 &amp; Language Classes</div>
+      <div class="hero-tag"><span class="dot"></span>Now enrolling &mdash; K&ndash;12 &middot; Languages &middot; AI for Kids</div>
       <h1>We teach the way<br /><em>your child likes to learn.</em></h1>
       <p class="hero-belief">Because confident learners are made, not born.</p>
       <p class="hero-sub">Expert tutors. AI-powered personalisation. Maximum 5 students per class &mdash; delivering the focused attention your child deserves.</p>
@@ -397,6 +436,46 @@
         <div class="trust-stat"><strong>100%</strong><span>Human tutors<br/>+ AI support</span></div>
       </div>
     </div>
+
+    <!-- HERO RIGHT: ROTATING STUDENT STORY CARD -->
+    <div class="story-card fade-up">
+
+      <div class="story-slide active" id="slide-0">
+        <div class="story-grade">Grade 2 &middot; Subtraction</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Meera wrote</div><div class="story-text">23 &minus; 17 = 14</div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">She always subtracted the smaller digit from the bigger one regardless of position &mdash; not a careless error, a rule she invented herself.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">6 weeks later</div><div class="story-text">&ldquo;Can you take 7 paise from 3 paise?&rdquo; &mdash; click. Meera never made that mistake again.</div></div></div>
+      </div>
+
+      <div class="story-slide" id="slide-1">
+        <div class="story-grade">Grade 3 &middot; Multiplication</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Rohan said</div><div class="story-text">6 &times; 0 = 6</div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">He&rsquo;d memorised times tables as a song. When the pattern broke, he guessed. He wasn&rsquo;t multiplying &mdash; he was reciting.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">One question later</div><div class="story-text">&ldquo;6 bags with 0 apples each &mdash; how many apples?&rdquo; Rohan went quiet. Then said &ldquo;ohhhh.&rdquo;</div></div></div>
+      </div>
+
+      <div class="story-slide" id="slide-2">
+        <div class="story-grade">Grade 4 &middot; Fractions</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Priya wrote</div><div class="story-text">1/2 + 1/3 = 2/5</div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">She treated fractions like whole numbers. Nobody had shown her what a denominator actually means.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">After one pizza diagram</div><div class="story-text">Tutor drew two pizzas cut differently. &ldquo;Are those slices the same size?&rdquo; Everything changed.</div></div></div>
+      </div>
+
+      <div class="story-slide" id="slide-3">
+        <div class="story-grade">Grade 5 &middot; Decimals</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Aditya wrote</div><div class="story-text">1.3 + 0.9 = 1.12</div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">He was adding digits in columns without understanding place value &mdash; 3+9=12, just write 12.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">One question changed it</div><div class="story-text">&ldquo;So you have 1.12 rupees &mdash; that&rsquo;s more than 1.3 rupees?&rdquo; Aditya stared at his paper for 5 seconds. Got it.</div></div></div>
+      </div>
+
+      <div class="story-dots">
+        <div class="story-dot active" onclick="goStory(0)"></div>
+        <div class="story-dot" onclick="goStory(1)"></div>
+        <div class="story-dot" onclick="goStory(2)"></div>
+        <div class="story-dot" onclick="goStory(3)"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -469,40 +548,57 @@
     <div class="process-step fade-up">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Book a Free Demo Class</h4>
-        <p>Choose a subject and time that works for your family. Your Google Meet link is sent automatically the moment you book &mdash; no waiting, no back-and-forth.</p>
+        <h4>Book a Free Demo</h4>
+        <p>Choose a subject and time that works for your family. Your Google Meet link is sent automatically &mdash; no waiting, no back-and-forth.</p>
         <span class="step-tag">&#128652; Google Meet &middot; 30 minutes &middot; Free</span>
       </div>
     </div>
     <div class="process-step fade-up">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h4>Attend the Demo &mdash; 1-on-1 with Your Tutor</h4>
-        <p>Your child gets a dedicated 30-minute 1-on-1 session with the tutor. No other students &mdash; just your child and the tutor, so we can see exactly how they engage, think, and learn.</p>
+        <h4>Complete a 5-Minute Learning Snapshot</h4>
+        <p>Before the demo, your child completes a short Learning Snapshot &mdash; a few carefully chosen questions that tell us how they think, not just what they know. Takes 5 minutes. No preparation needed.</p>
+        <span class="step-tag">&#128203; 5 minutes &middot; Grade-matched &middot; No prep needed</span>
       </div>
     </div>
     <div class="process-step fade-up">
-      <div class="step-num highlight-step">3</div>
+      <div class="step-num">3</div>
       <div class="step-content">
-        <h4>Enrol &amp; Diagnostic Assessment</h4>
-        <p>If you love it, enrol your child. On enrolment and monthly fee payment, your child completes a short structured assessment matched to their grade and subject. We test how they think &mdash; not just what they know at their grade level. We look at reasoning patterns, where thinking breaks down, and what that tells us about how they learn.</p>
-        <span class="step-tag">&#128203; Full written report + personal tutor call</span>
+        <h4>Live Demo &mdash; Teaching + One Diagnostic Insight</h4>
+        <p>Your child gets a real 1-on-1 session with the tutor. We teach something new and share one specific insight from their Learning Snapshot &mdash; so you leave knowing exactly how your child thinks, not just how they performed.</p>
+        <span class="step-tag">&#128172; No pressure to decide on the spot &mdash; we&rsquo;ll follow up by email</span>
       </div>
     </div>
     <div class="process-step fade-up">
-      <div class="step-num">4</div>
+      <div class="step-num highlight-step">4</div>
       <div class="step-content">
-        <h4>Foundation Plan (if needed)</h4>
-        <p>If the assessment reveals gaps, we recommend a personalised Foundation Programme &mdash; 8 private sessions to fix the essentials and build a strong base. You choose whether to take it up. No pressure either way.</p>
-        <span class="step-tag">&#9889; 8 sessions &middot; Private 1-on-1 &middot; Gap-focused</span>
+        <h4>Parent Enrols</h4>
+        <p>If you love it, enrol your child. Simple payment, instant confirmation. Your child&rsquo;s tutor is assigned and your first session is scheduled within 48 hours.</p>
+        <span class="step-tag">&#9889; Instant confirmation &middot; Dedicated tutor assigned</span>
       </div>
     </div>
     <div class="process-step fade-up">
       <div class="step-num">5</div>
       <div class="step-content">
-        <h4>Placed in the Right Batch</h4>
-        <p>Based on assessment results, your child is placed in the Regular Batch or Advanced Batch &mdash; with students at the same level, moving at the right pace. No child is put into a group before they are ready.</p>
-        <span class="step-tag">&#127775; Regular Batch or Advanced Batch</span>
+        <h4>Full Diagnostic in the First Session</h4>
+        <p>The first class is a full diagnostic session. The tutor goes deep &mdash; identifying gaps, reasoning patterns, and the specific concepts that need attention. This is not a test. It is a conversation.</p>
+        <span class="step-tag">&#128269; Deep diagnostic &middot; No grades &middot; Just understanding</span>
+      </div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h4>Personalised Learning Profile + 8-Week Plan</h4>
+        <p>Based on the diagnostic, we build your child&rsquo;s Learning Profile &mdash; strengths, gaps, learning style, and an 8-week plan with weekly targets. You receive this as a written report before the second session.</p>
+        <span class="step-tag">&#128196; Written Learning Profile &middot; 8-week personalised plan</span>
+      </div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h4>Regular Classes Begin</h4>
+        <p>Weekly sessions follow the plan. Every class ends with a personalised practice set. Every session is recorded and shared with you. Every month you receive a progress snapshot from your child&rsquo;s tutor.</p>
+        <span class="step-tag">&#127775; Weekly sessions &middot; Recordings &middot; Monthly progress report</span>
       </div>
     </div>
   </div>
@@ -804,33 +900,52 @@
 <section class="tutors">
   <div class="tutors-header container fade-up">
     <div class="section-label">The Team</div>
-    <h2 class="section-title">Meet our <em>tutors</em></h2>
-    <p class="section-intro">Every TutorKlub tutor is hand-picked, rigorously trained, and deeply committed to teaching the way each child learns best.</p>
+    <h2 class="section-title">Tutors who know your child<br /><em>not just their subject</em></h2>
+    <p class="section-intro">Every TutorKlub tutor remembers your child&rsquo;s name, their learning gaps, their confidence levels, and what makes them click. This is not a platform where your child is a seat. They are known.</p>
+    <p class="section-intro" style="margin-top:0.75rem;">Our heritage language tutors &mdash; Telugu, Hindi, Sanskrit &mdash; understand what it means to raise a child between two cultures. So your child can talk to their grandparents, feel proud of where they come from, and carry their language with them for life.</p>
   </div>
   <div class="tutors-grid container">
+    <!-- TODO: Replace placeholder avatar with real photo. Add full last name and a real credential line (degree / years teaching / certification). -->
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#0e8a7c;">SR</div>
-      <div class="tutor-name">Sunita R.</div>
+      <div class="tutor-name">Sunita R. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
       <div class="tutor-subject">Mathematics &middot; Grades 3&ndash;5</div>
       <p class="tutor-bio">&ldquo;I believe every child can love Maths once they understand it &mdash; and my job is to find the moment it clicks.&rdquo;</p>
+      <div class="tutor-credential">[ADD CREDENTIAL: e.g. B.Ed &middot; 6 yrs teaching experience]</div>
     </div>
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#4a6fa5;">PK</div>
-      <div class="tutor-name">Priya K.</div>
+      <div class="tutor-name">Priya K. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
       <div class="tutor-subject">English &middot; Grades 1&ndash;5</div>
       <p class="tutor-bio">&ldquo;Reading is not a skill, it is a superpower. I give every child the tools to find their voice and their confidence.&rdquo;</p>
+      <div class="tutor-credential">[ADD CREDENTIAL: e.g. M.A. English &middot; 4 yrs teaching experience]</div>
     </div>
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#c9922a;">RV</div>
-      <div class="tutor-name">Rajesh V.</div>
+      <div class="tutor-name">Rajesh V. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
       <div class="tutor-subject">Telugu &middot; Hindi &middot; Sanskrit</div>
       <p class="tutor-bio">&ldquo;Language is identity. I help children and adults reconnect with where they come from through the beauty of their mother tongue.&rdquo;</p>
+      <div class="tutor-credential">[ADD CREDENTIAL: e.g. Native speaker &middot; 5 yrs teaching experience]</div>
     </div>
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#9b59b6;">AM</div>
-      <div class="tutor-name">Ananya M.</div>
+      <div class="tutor-name">Ananya M. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
       <div class="tutor-subject">AI for Kids &middot; Mathematics</div>
       <p class="tutor-bio">&ldquo;Curiosity is the best teacher. I build lessons around questions children actually ask &mdash; and then we find the answers together.&rdquo;</p>
+      <div class="tutor-credential">[ADD CREDENTIAL: e.g. B.Tech &middot; 3 yrs teaching experience]</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER NOTE -->
+<!-- TODO: Replace placeholder photo/initials and the quote below with Raj's real photo and his own words on why he started TutorKlub. Keep it short — 3-4 sentences, first person. -->
+<section class="founder-section">
+  <div class="founder-inner">
+    <div class="founder-photo">[PHOTO]</div>
+    <div>
+      <p class="founder-quote">&ldquo;[ADD FOUNDER STORY HERE &mdash; e.g. why you started TutorKlub, what you saw missing in online tutoring, what you want every parent to feel when their child finishes a class. 3&ndash;4 sentences, first person.]&rdquo;</p>
+      <div class="founder-name">[Founder Full Name]</div>
+      <div class="founder-role">Founder, TutorKlub</div>
     </div>
   </div>
 </section>
@@ -877,14 +992,109 @@
   </div>
 </section>
 
-<!-- MISSED A CLASS -->
+<!-- MISSED A CLASS / RECORDINGS -->
 <section class="missed-class">
   <div class="missed-class-inner container fade-up">
     <div class="missed-icon">&#127910;</div>
     <div>
-      <h3>Missed a class? We&rsquo;ve got you covered.</h3>
-      <p>Every session is recorded on Google Meet. Miss a class and the recording link is sent to you automatically within 24 hours &mdash; available for 7 days so your child never falls behind.</p>
-      <p class="consent-note">&#128274; Recordings are shared only with enrolled parents. Parental consent is confirmed at enrolment. All recordings are deleted after 7 days.</p>
+      <h3>Every session recorded. Every gap followed up. Every month reported.</h3>
+      <p>Every class is recorded on Google Meet and shared with you within 24 hours &mdash; so your child can rewatch before exams and you can see exactly what was covered. After every session, your child receives a <strong>personalised practice set</strong> targeting exactly what was taught that day. Every month, you receive a <strong>written progress report</strong> with your tutor&rsquo;s personal observations.</p>
+      <p class="consent-note">&#128274; Recordings shared only with enrolled parents. Parental consent confirmed at enrolment. Recordings deleted after 30 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING MODEL -->
+<section class="teaching-model">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;">
+      <div class="section-label">How We Teach</div>
+      <h2 class="section-title">A teaching model built for<br /><em>how children actually learn</em></h2>
+      <p class="section-intro">Every principle below is practised in every session &mdash; not as a policy, but as a habit.</p>
+    </div>
+    <div class="teaching-grid">
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#129302;</div>
+        <h4>Confidence Before Content</h4>
+        <p>A child who believes they can will always outperform a child who doesn&rsquo;t. We build that belief first. Confidence is the foundation, not the outcome.</p>
+      </div>
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#129309;</div>
+        <h4>Emotional Safety</h4>
+        <p>We never belittle. Every question is a good question. Every mistake is a learning moment. No child is made to feel small in our class.</p>
+      </div>
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#129504;</div>
+        <h4>Inference-Based Reasoning</h4>
+        <p>We don&rsquo;t just ask &ldquo;what is the answer?&rdquo; We ask &ldquo;how did you get there?&rdquo; Thinking is the skill, not recall.</p>
+      </div>
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#127775;</div>
+        <h4>Emotional Resilience</h4>
+        <p>We build children who can sit with difficulty, try again, and grow. That skill follows them for life &mdash; far beyond any exam.</p>
+      </div>
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#128260;</div>
+        <h4>Spaced Repetition</h4>
+        <p>We revisit concepts at the right intervals so children retain, not just remember for the test. Every practice set is designed with this in mind.</p>
+      </div>
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#128172;</div>
+        <h4>Think-Aloud Practice</h4>
+        <p>Children narrate their reasoning out loud. This builds metacognition and catches hidden gaps before they become exam mistakes.</p>
+      </div>
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#128221;</div>
+        <h4>Post-Session Practice Sets</h4>
+        <p>Not generic worksheets &mdash; exercises built around your child&rsquo;s specific gap from that day&rsquo;s session. Targeted, short, and effective.</p>
+      </div>
+      <div class="teaching-card fade-up">
+        <div class="teaching-icon">&#127757;</div>
+        <h4>AI-Era Readiness</h4>
+        <p>We teach children to think, question, and reason &mdash; skills no AI can replace. The child who knows how to ask the right question wins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARENT PROMISE -->
+<section class="parent-promise">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;">
+      <div class="section-label">Our Promise</div>
+      <h2 class="section-title">What every TutorKlub parent<br /><em>can count on</em></h2>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-item fade-up">
+        <div class="promise-icon">&#128247;</div>
+        <div><h5>Session recordings shared after every class</h5><p>Google Meet recording sent to you within 24 hours. Your child can rewatch before exams. Nothing is lost.</p></div>
+      </div>
+      <div class="promise-item fade-up">
+        <div class="promise-icon">&#128221;</div>
+        <div><h5>Personalised practice set after every session</h5><p>Built around exactly what was covered that day &mdash; not a generic worksheet.</p></div>
+      </div>
+      <div class="promise-item fade-up">
+        <div class="promise-icon">&#128202;</div>
+        <div><h5>Monthly progress report</h5><p>What was taught, what clicked, what needs more time &mdash; in plain language, with your tutor&rsquo;s personal observations.</p></div>
+      </div>
+      <div class="promise-item fade-up">
+        <div class="promise-icon">&#128101;</div>
+        <div><h5>A tutor who knows your child personally</h5><p>Not just their grade and subject &mdash; their learning style, their confidence gaps, and what makes them click.</p></div>
+      </div>
+      <div class="promise-item fade-up">
+        <div class="promise-icon">&#10084;</div>
+        <div><h5>A classroom where no child feels small</h5><p>Every question is a good question. Every mistake is a learning moment. Always.</p></div>
+      </div>
+      <div class="promise-item fade-up">
+        <div class="promise-icon">&#127758;</div>
+        <div><h5>Your timezone, your schedule</h5><p>Classes available across US, UK, Australia, and Gulf timezones. We fit around your family, not the other way around.</p></div>
+      </div>
+    </div>
+    <div class="timezone-badges fade-up">
+      <span class="tz-badge">&#127482;&#127480; US &mdash; EST &middot; CST &middot; PST</span>
+      <span class="tz-badge">&#127468;&#127463; UK &mdash; GMT &middot; BST</span>
+      <span class="tz-badge">&#127462;&#127482; Australia &mdash; AEST &middot; AEDT</span>
+      <span class="tz-badge">&#127462;&#127466; Gulf &mdash; GST &middot; AST</span>
     </div>
   </div>
 </section>
@@ -930,10 +1140,11 @@
     <h2 class="section-title">Simple, transparent pricing</h2>
   </div>
   <p class="pricing-belief fade-up">Confident learners are made, not born &mdash; and we build them one child at a time.</p>
+  <p class="pricing-belief fade-up" style="font-size:0.82rem; opacity:0.7; margin-top:-0.5rem;">All prices in USD.</p>
   <div class="pricing-grid container">
     <div class="pricing-card fade-up">
       <div class="plan-name">Group Class</div>
-      <div class="price-amount">$25</div>
+      <div class="price-amount">$25 <span style="font-size:0.45em; font-weight:600; opacity:0.65;">USD</span></div>
       <div class="price-period">per lesson &middot; max 5 students</div>
       <p class="plan-desc">Small-group learning with the energy of peers and the attention of a personal tutor.</p>
       <ul class="plan-features">
@@ -951,7 +1162,7 @@
     <div class="pricing-card featured fade-up">
       <div class="popular-tag">Recommended</div>
       <div class="plan-name">Private Class</div>
-      <div class="price-amount">$35&ndash;$40</div>
+      <div class="price-amount">$35&ndash;$40 <span style="font-size:0.45em; font-weight:600; opacity:0.65;">USD</span></div>
       <div class="price-period">per lesson &middot; 1-on-1</div>
       <p class="plan-desc">Fully personalised. Exact rate based on grade, subject, and complexity. Confirmed at enrolment.</p>
       <ul class="plan-features">
@@ -1022,7 +1233,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">What is the difference between the Group Class and Private Class? <span class="faq-chevron">&#9662;</span></button>
-        <div class="faq-a"><p class="faq-a-inner">Group classes (max 5 students, $25/lesson) offer structured curriculum-based learning with the energy of peers. Private classes ($35&ndash;$40/lesson, 1-on-1) are fully personalised to your child &mdash; pace, schedule, and content are built around them specifically. Private classes are ideal for children on a Foundation Programme or who need intensive attention. The exact private class rate is confirmed at enrolment based on grade and subject.</p></div>
+        <div class="faq-a"><p class="faq-a-inner">Group classes (max 5 students, $25/lesson) offer structured curriculum-based learning with the energy of peers. Private classes ($35&ndash;$40/lesson, 1-on-1) are fully personalised to your child &mdash; pace, schedule, and content are built around them specifically. Private classes are ideal for children on a Foundation Programme or who need intensive attention. The exact private class rate is confirmed at enrolment based on grade and subject. All prices are in USD.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">What happens during the assessment? <span class="faq-chevron">&#9662;</span></button>
@@ -1060,189 +1271,22 @@
   </div>
 </section>
 
-<!-- BOOKING SECTION -->
-<section class="booking-section" id="book-trial">
-  <div class="booking-inner container">
-    <div class="booking-info fade-up">
-      <div class="section-label">Book Your Spot</div>
-      <h2 class="section-title">Your first class<br /><em>is completely free</em></h2>
-      <p class="section-intro">Pick a subject, choose a time that works for your family. No payment required upfront.</p>
-      <div class="booking-perks">
-        <div class="booking-perk">
-          <div class="perk-icon">&#9989;</div>
-          <div class="perk-text"><h5>Instant Google Meet link</h5><p>The moment you book, Cal.com sends your Google Meet link automatically &mdash; no waiting, no manual confirmation.</p></div>
-        </div>
-        <div class="booking-perk">
-          <div class="perk-icon">&#127891;</div>
-          <div class="perk-text"><h5>Your tutor is notified automatically</h5><p>Your assigned tutor receives your child&rsquo;s name, subject, and the Meet link the moment you book.</p></div>
-        </div>
-        <div class="booking-perk">
-          <div class="perk-icon">&#128337;</div>
-          <div class="perk-text"><h5>Reminders sent automatically</h5><p>24 hours before and 1 hour before &mdash; with the Google Meet link in every reminder.</p></div>
-        </div>
-        <div class="booking-perk">
-          <div class="perk-icon">&#129309;</div>
-          <div class="perk-text"><h5>No commitment required</h5><p>The demo is completely free. If you love it, we talk about next steps. If not, no obligation whatsoever.</p></div>
-        </div>
-      </div>
-      <div class="calendly-note">
-        <strong>After booking:</strong> Check your inbox for a confirmation from Cal.com with your Google Meet link. If you do not see it within 2 minutes, check your spam folder.
-      </div>
+<!-- FREE ASSESSMENT SECTION -->
+<section style="background:var(--cream);padding:5.5rem 2rem;" id="assessment">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:680px;margin:0 auto 3rem;">
+      <div class="section-label">Free Assessment</div>
+      <h2 class="section-title">Find out exactly where<br /><em>your child stands</em></h2>
+      <p class="section-intro">Complete this form and we&rsquo;ll reach out on WhatsApp to send your child&rsquo;s personalised assessment link. No fake numbers please &mdash; we verify every request personally before sending the link.</p>
     </div>
-    <div class="fade-up">
-      <div class="cal-embed-wrap">
-        <div id="inlineCalWidget" style="min-width:320px;height:680px;"></div>
-      </div>
-      <p style="text-align:center;font-size:0.75rem;color:var(--text-soft);margin-top:0.75rem;">Scheduling powered by Cal.com &middot; Meetings held on Google Meet</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="cta-banner">
-  <div class="cta-inner fade-up">
-    <h2>The way your child learns is unique.<br /><em>So is our approach.</em></h2>
-    <p>Book a free demo today. No commitment, no contracts &mdash; just great teaching in a small, focused group.</p>
-    <div class="cta-actions">
-      <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-primary">Book a Free Demo</button>
-      <a href="mailto:hello@tutorklub.com" class="btn-ghost">Contact Us</a>
-      <span style="font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.5rem;display:block;">hello@tutorklub.com</span>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="#" class="logo">Tutor<span>Klub</span></a>
-      <p class="footer-tagline">We teach the way your child likes to learn.<br />Because confident learners are made, not born.</p>
-      <div class="social-links">
-        <a href="#" class="social-link" aria-label="Facebook">f</a>
-        <a href="#" class="social-link" aria-label="Instagram">ig</a>
-        <a href="#" class="social-link" aria-label="YouTube">yt</a>
-        <a href="https://wa.me/919985555222" class="social-link" aria-label="WhatsApp">wa</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h5>Courses</h5>
-      <ul>
-        <li><a href="#courses">Mathematics</a></li>
-        <li><a href="#courses">English</a></li>
-        <li><a href="#courses">Telugu</a></li>
-        <li><a href="#courses">Hindi</a></li>
-        <li><a href="#courses">Sanskrit</a></li>
-        <li><a href="#courses">AI for Kids</a></li>
-        <li><a href="#courses">Adult Language Classes</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Company</h5>
-      <ul>
-        <li><a href="#why-us">Why TutorKlub</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Support</h5>
-      <ul>
-        <li><a href="mailto:hello@tutorklub.com">hello@tutorklub.com</a></li>
-        <li><a href="https://wa.me/919985555222">WhatsApp Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2025 TutorKlub.com &middot; All rights reserved</span>
-    <span>Built with care for every learner</span>
-  </div>
-</footer>
-
-
-<!-- STICKY CTA -->
-<div class="sticky-cta" id="stickyCta">
-  <button class="sticky-cta-btn" data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}'>
-    <span class="sticky-cta-pulse"></span>
-    Book a Free Demo
-  </button>
-</div>
-
-<!-- CAL.COM SCRIPT -->
-<script type="text/javascript">
-(function (C, A, L) {
-  let p = function (a, ar) { a.q.push(ar); };
-  let d = C.document;
-  C.Cal = C.Cal || function () {
-    let cal = C.Cal; let ar = arguments;
-    if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || [];
-      d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
-    if (ar[0] === L) { const api = function () { p(api, arguments); };
-      const namespace = ar[1]; api.q = api.q || [];
-      if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api;
-        p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; }
-    p(cal, ar);
-  };
-})(window, 'https://app.cal.com/embed/embed.js', 'init');
-Cal('init', 'free-demo', { origin: 'https://cal.com' });
-Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' });
-</script>
-
-<!-- SITE JAVASCRIPT -->
-<script>
-  // Scroll-triggered fade-up
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Stagger animation delays
-  document.querySelectorAll('.diff-grid .diff-card, .tutors-grid .tutor-card, .testimonials-grid .testi-card, .pricing-grid .pricing-card').forEach((el, i) => {
-    el.style.transitionDelay = (i * 0.1) + 's';
-  });
-
-
-  // Sticky CTA — show after scrolling past hero
-  const stickyCta = document.getElementById('stickyCta');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      stickyCta.classList.add('visible');
-    } else {
-      stickyCta.classList.remove('visible');
-    }
-  });
-
-  // Course tab switching
-  function switchTab(type, e) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    document.querySelectorAll('.kids-course, .adult-course').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.' + type + '-course').forEach(c => c.classList.add('active'));
-  }
-
-  // FAQ accordion
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-
-  // Cal.com inline widget in booking section
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      if (window.Cal) {
-        Cal.ns['free-demo']('inline', {
-          elementOrSelector: '#inlineCalWidget',
-          calLink: 'tutorklub/free-demo',
-          config: { layout: 'month_view' }
-        });
-      }
-    }, 500);
-  });
-</script>
-
-</body>
-</html>
+    <div style="max-width:560px;margin:0 auto;background:var(--white);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow-card);border:1px solid rgba(26,39,68,0.07);" class="fade-up">
+      <div id="assess-form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+          <div>
+            <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Child&rsquo;s Name</label>
+            <input id="af-name" type="text" placeholder="e.g. Arjun" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;box-sizing:border-box;" />
+          </div>
+          <div>
+            <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Grade</label>
+            <select id="af-grade" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;background:white;box-sizing:border-box;">
+              
