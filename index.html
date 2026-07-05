@@ -63,6 +63,8 @@
     .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, transparent, transparent 60px, rgba(14,138,124,0.04) 60px, rgba(14,138,124,0.04) 61px); pointer-events: none; }
     .hero::after { content: ''; position: absolute; top: -120px; right: -80px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(14,168,150,0.18) 0%, transparent 70%); pointer-events: none; }
     .hero-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .hero-content { color: var(--white); }
+    @media(max-width:900px){ .hero-inner { grid-template-columns: 1fr; } .story-card { display: none; } }
     .story-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 2rem; position: relative; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; }
     .story-grade { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #6de4d8; margin-bottom: 1.25rem; }
     .story-row { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem; }
@@ -383,7 +385,6 @@
     /* RESPONSIVE */
     @media(max-width:900px){
       .hero-inner, .belief-inner, .ai-inner, .community-inner, .booking-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .story-card { min-height: auto; }
       .diff-grid, .process-flow { grid-template-columns: 1fr; }
       .trust-strip-inner { grid-template-columns: repeat(2,1fr); }
       .courses-grid, .testimonials-grid, .tutors-grid { grid-template-columns: 1fr; }
@@ -494,14 +495,14 @@
   <div class="belief-inner container">
     <div class="belief-image-grid fade-up">
       <div class="photo-block tall">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=416&fit=crop&q=80" alt="Child learning with a tutor" />
+        <img src="https://picsum.photos/seed/tutor1/400/416" alt="Child learning with a tutor" />
       </div>
       <div style="display:flex;flex-direction:column;gap:1rem;">
         <div class="photo-block short">
-          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&h=196&fit=crop&q=80" alt="Small group learning session" />
+          <img src="https://picsum.photos/seed/tutor2/400/196" alt="Small group learning session" />
         </div>
         <div class="photo-block short">
-          <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=196&fit=crop&q=80" alt="Student reading and studying" />
+          <img src="https://picsum.photos/seed/tutor3/400/196" alt="Student reading and studying" />
         </div>
       </div>
     </div>
@@ -1289,4 +1290,270 @@
           <div>
             <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Grade</label>
             <select id="af-grade" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;background:white;box-sizing:border-box;">
-              
+              <option value="">Select grade</option>
+              <option>Grade 1</option><option>Grade 2</option><option>Grade 3</option>
+              <option>Grade 4</option><option>Grade 5</option><option>Grade 6</option>
+              <option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+              <option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Subject</label>
+          <select id="af-subject" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;background:white;box-sizing:border-box;">
+            <option value="">Select subject</option>
+            <option>Mathematics</option><option>English</option><option>Telugu</option>
+            <option>Hindi</option><option>Sanskrit</option><option>AI for Kids</option>
+          </select>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Parent WhatsApp Number</label>
+          <input id="af-phone" type="tel" placeholder="e.g. +1 415 555 0123" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;box-sizing:border-box;" />
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Best Time to Contact</label>
+          <select id="af-time" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;background:white;box-sizing:border-box;">
+            <option value="">Select preferred time</option>
+            <option>Morning (8am&ndash;12pm)</option>
+            <option>Afternoon (12pm&ndash;4pm)</option>
+            <option>Evening (4pm&ndash;8pm)</option>
+            <option>Any time</option>
+          </select>
+        </div>
+        <button onclick="submitAssessmentForm()" style="width:100%;background:var(--teal);color:white;border:none;border-radius:50px;padding:1rem;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit;">Request Free Assessment &#8594;</button>
+        <p id="af-error" style="font-size:0.8rem;color:#c0392b;margin-top:0.75rem;display:none;"></p>
+        <p style="font-size:0.72rem;color:var(--text-soft);margin-top:0.75rem;text-align:center;">&#128272; We verify every request personally. Your assessment link arrives on WhatsApp within a few hours.</p>
+      </div>
+      <div id="assess-thanks" style="display:none;text-align:center;padding:1rem 0;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">&#129395;</div>
+        <h3 style="font-family:var(--font-display);color:var(--navy);margin-bottom:0.75rem;">Request received!</h3>
+        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;">We&rsquo;ll WhatsApp you at the number you provided within a few hours with your child&rsquo;s personalised assessment link. Please make sure WhatsApp is active on that number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING SECTION -->
+<section class="booking-section" id="book-trial">
+  <div class="booking-inner container">
+    <div class="booking-info fade-up">
+      <div class="section-label">Book Your Spot</div>
+      <h2 class="section-title">Your first class<br /><em>is completely free</em></h2>
+      <p class="section-intro">Pick a subject, choose a time that works for your family. No payment required upfront.</p>
+      <div class="booking-perks">
+        <div class="booking-perk">
+          <div class="perk-icon">&#9989;</div>
+          <div class="perk-text"><h5>Instant Google Meet link</h5><p>The moment you book, Cal.com sends your Google Meet link automatically &mdash; no waiting, no manual confirmation.</p></div>
+        </div>
+        <div class="booking-perk">
+          <div class="perk-icon">&#127891;</div>
+          <div class="perk-text"><h5>Your tutor is notified automatically</h5><p>Your assigned tutor receives your child&rsquo;s name, subject, and the Meet link the moment you book.</p></div>
+        </div>
+        <div class="booking-perk">
+          <div class="perk-icon">&#128337;</div>
+          <div class="perk-text"><h5>Reminders sent automatically</h5><p>24 hours before and 1 hour before &mdash; with the Google Meet link in every reminder.</p></div>
+        </div>
+        <div class="booking-perk">
+          <div class="perk-icon">&#129309;</div>
+          <div class="perk-text"><h5>No commitment required</h5><p>The demo is completely free. If you love it, we talk about next steps. If not, no obligation whatsoever.</p></div>
+        </div>
+      </div>
+      <div class="calendly-note">
+        <strong>After booking:</strong> Check your inbox for a confirmation from Cal.com with your Google Meet link. If you do not see it within 2 minutes, check your spam folder.
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="cal-embed-wrap">
+        <div id="inlineCalWidget" style="min-width:320px;height:680px;"></div>
+      </div>
+      <p style="text-align:center;font-size:0.75rem;color:var(--text-soft);margin-top:0.75rem;">Scheduling powered by Cal.com &middot; Meetings held on Google Meet</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-inner fade-up">
+    <h2>The way your child learns is unique.<br /><em>So is our approach.</em></h2>
+    <p>Book a free demo today. No commitment, no contracts &mdash; just great teaching in a small, focused group.</p>
+    <div class="cta-actions">
+      <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-primary">Book a Free Demo</button>
+      <a href="mailto:hello@tutorklub.com" class="btn-ghost">Have Questions? Email Us</a>
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.5rem;display:block;">hello@tutorklub.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">Tutor<span>Klub</span></a>
+      <p class="footer-tagline">We teach the way your child likes to learn.<br />Because confident learners are made, not born.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook">f</a>
+        <a href="#" class="social-link" aria-label="Instagram">ig</a>
+        <a href="#" class="social-link" aria-label="YouTube">yt</a>
+        <a href="https://wa.me/919985555222" class="social-link" aria-label="WhatsApp">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Courses</h5>
+      <ul>
+        <li><a href="#courses">Mathematics</a></li>
+        <li><a href="#courses">English</a></li>
+        <li><a href="#courses">Telugu</a></li>
+        <li><a href="#courses">Hindi</a></li>
+        <li><a href="#courses">Sanskrit</a></li>
+        <li><a href="#courses">AI for Kids</a></li>
+        <li><a href="#courses">Adult Language Classes</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#why-us">Why TutorKlub</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="mailto:hello@tutorklub.com">hello@tutorklub.com</a></li>
+        <li><a href="https://wa.me/919985555222">WhatsApp Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 TutorKlub.com &middot; All rights reserved</span>
+    <span>Built with care for every learner</span>
+  </div>
+</footer>
+
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <button class="sticky-cta-btn" data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}'>
+    <span class="sticky-cta-pulse"></span>
+    Book a Free Demo
+  </button>
+</div>
+
+<!-- CAL.COM SCRIPT -->
+<script type="text/javascript">
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal; let ar = arguments;
+    if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || [];
+      d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
+    if (ar[0] === L) { const api = function () { p(api, arguments); };
+      const namespace = ar[1]; api.q = api.q || [];
+      if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api;
+        p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; }
+    p(cal, ar);
+  };
+})(window, 'https://app.cal.com/embed/embed.js', 'init');
+Cal('init', 'free-demo', { origin: 'https://cal.com' });
+Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+</script>
+
+<!-- SITE JAVASCRIPT -->
+<script>
+  // Scroll-triggered fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Stagger animation delays
+  document.querySelectorAll('.diff-grid .diff-card, .tutors-grid .tutor-card, .testimonials-grid .testi-card, .pricing-grid .pricing-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.1) + 's';
+  });
+
+
+  // Sticky CTA — show after scrolling past hero
+  const stickyCta = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  });
+
+  // Course tab switching
+  function switchTab(type, e) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    document.querySelectorAll('.kids-course, .adult-course').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.' + type + '-course').forEach(c => c.classList.add('active'));
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Cal.com inline widget in booking section
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      if (window.Cal) {
+        Cal.ns['free-demo']('inline', {
+          elementOrSelector: '#inlineCalWidget',
+          calLink: 'tutorklub/free-demo',
+          config: { layout: 'month_view' }
+        });
+      }
+    }, 500);
+  });
+
+  // Assessment form
+  function submitAssessmentForm() {
+    var name = document.getElementById('af-name').value.trim();
+    var grade = document.getElementById('af-grade').value;
+    var subject = document.getElementById('af-subject').value;
+    var phone = document.getElementById('af-phone').value.trim();
+    var time = document.getElementById('af-time').value;
+    var err = document.getElementById('af-error');
+    if (!name || !grade || !subject || !phone || !time) {
+      err.textContent = 'Please fill in all fields.';
+      err.style.display = 'block';
+      return;
+    }
+    err.style.display = 'none';
+    // Send WhatsApp notification to Raj
+    var msg = encodeURIComponent(
+      '📋 *New Assessment Request*\n' +
+      '👦 Child: ' + name + '\n' +
+      '📚 Grade: ' + grade + '\n' +
+      '📖 Subject: ' + subject + '\n' +
+      '📱 Parent WhatsApp: ' + phone + '\n' +
+      '🕐 Best time: ' + time
+    );
+    window.open('https://wa.me/919985555222?text=' + msg, '_blank');
+    document.getElementById('assess-form').style.display = 'none';
+    document.getElementById('assess-thanks').style.display = 'block';
+  }
+
+  // Story card rotation
+  let currentStory = 0;
+  const totalStories = 4;
+  function goStory(n) {
+    document.querySelectorAll('.story-slide').forEach((s,i) => s.classList.toggle('active', i===n));
+    document.querySelectorAll('.story-dot').forEach((d,i) => d.classList.toggle('active', i===n));
+    currentStory = n;
+  }
+  setInterval(() => goStory((currentStory + 1) % totalStories), 4500);
+</script>
+
+</body>
+</html>
