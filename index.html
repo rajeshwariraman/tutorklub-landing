@@ -3,8 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TutorKlub — We Teach the Way Your Child Likes to Learn</title>
-  <meta name="description" content="TutorKlub offers expert online tutoring in Math, English, Telugu, Hindi, Sanskrit and AI for Kids for Grades 1-5, plus adult language classes. Maximum 5 students per class, AI-powered personalisation, Google Meet sessions." />
+  <title>TutorKlub — Online Tutoring for K-12, Languages &amp; AI for Kids</title>
+  <meta name="description" content="Expert online tutoring in Maths, English, Telugu, Hindi, Sanskrit and AI for Kids — K-12 and adult learners. Max 5 students per class. Human tutors + AI support. Book a free demo today." />
+  <meta name="keywords" content="online tutoring, K-12 tutor, Telugu tutor, Hindi tutor, Sanskrit tutor, AI for kids, diaspora education, online maths tutor, English tutor, small group tutoring" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.tutorklub.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.tutorklub.com/" />
+  <meta property="og:title" content="TutorKlub — We Teach the Way Your Child Likes to Learn" />
+  <meta property="og:description" content="Expert online tutoring in Maths, English, Telugu, Hindi, Sanskrit and AI for Kids. Max 5 students per class. Human tutors + AI support. Book a free demo." />
+  <meta property="og:image" content="https://www.tutorklub.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TutorKlub" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TutorKlub — We Teach the Way Your Child Likes to Learn" />
+  <meta name="twitter:description" content="Expert online tutoring in Maths, English, Telugu, Hindi, Sanskrit and AI for Kids. Max 5 students per class. Book a free demo." />
+  <meta name="twitter:image" content="https://www.tutorklub.com/images/og-image.jpg" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "TutorKlub",
+    "url": "https://www.tutorklub.com",
+    "logo": "https://www.tutorklub.com/images/founder.jpg",
+    "description": "Expert online tutoring in Maths, English, Telugu, Hindi, Sanskrit and AI for Kids for K-12 students and adult learners. Maximum 5 students per class.",
+    "founder": {
+      "@type": "Person",
+      "name": "Rajeshwari R."
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@tutorklub.com",
+      "availableLanguage": ["English", "Telugu", "Hindi"]
+    },
+    "sameAs": [
+      "https://wa.me/919985555222"
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Group Class",
+        "description": "Small group online tutoring — max 5 students",
+        "price": "25",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Private Class",
+        "description": "1-on-1 personalised online tutoring",
+        "price": "35",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:wght@300;400;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -259,6 +320,15 @@
     .teaching-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
     .teaching-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
     .parent-promise { background: var(--navy); padding: 5.5rem 2rem; }
+    .dash-preview { background: var(--white); padding: 5.5rem 2rem; }
+    .dash-grid { max-width: 1120px; margin: 2.5rem auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .dash-panel { position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(26,39,68,0.1); box-shadow: var(--shadow-card); }
+    .dash-mock { filter: blur(3px); pointer-events: none; user-select: none; transform: scale(1.02); }
+    .dash-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,39,68,0) 30%, rgba(26,39,68,0.85) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; }
+    .dash-overlay h4 { font-family: var(--font-display); font-size: 1.05rem; color: var(--white); margin-bottom: 0.3rem; }
+    .dash-overlay p { font-size: 0.8rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+    .dash-cta { text-align: center; margin-top: 2.5rem; }
+    @media(max-width:900px){ .dash-grid { grid-template-columns: 1fr; max-width: 440px; } }
     .parent-promise .section-label { color: #6de4d8; }
     .parent-promise .section-title { color: var(--white); }
     .promise-grid { max-width: 960px; margin: 2.5rem auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
@@ -1077,6 +1147,90 @@
         <h4>Your Child Will Feel the Difference After One Class</h4>
         <p>Not after a term. Not after exams. After one session, your child will come away having understood something they didn&rsquo;t before &mdash; and feeling good about it.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD PREVIEW -->
+<section class="dash-preview" id="dashboard-preview">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:680px;margin:0 auto;">
+      <div class="section-label">The Parent Dashboard</div>
+      <h2 class="section-title">See exactly how your child<br /><em>thinks, struggles, and improves</em></h2>
+      <p class="section-intro">Every TutorKlub parent gets access to their child&rsquo;s live learning dashboard &mdash; not just marks, but the thinking behind every answer.</p>
+    </div>
+    <div class="dash-grid">
+
+      <!-- Panel 1: Score overview -->
+      <div class="dash-panel fade-up">
+        <div class="dash-mock" style="background:#f0f2f5;padding:1.25rem;">
+          <div style="background:var(--navy);border-radius:12px;padding:1rem;margin-bottom:0.75rem;">
+            <div style="font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6de4d8;margin-bottom:0.2rem;">Assessment Results</div>
+            <div style="font-family:var(--font-display);font-size:1.1rem;color:white;font-weight:700;">Arjun R. &middot; Grade 3</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+            <div style="background:white;border-radius:10px;padding:0.75rem;"><div style="font-size:0.9rem;">✅</div><div style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#16a34a;">2</div><div style="font-size:0.58rem;color:#8491a8;font-weight:600;">Correct</div></div>
+            <div style="background:white;border-radius:10px;padding:0.75rem;"><div style="font-size:0.9rem;">📌</div><div style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#dc2626;">3</div><div style="font-size:0.58rem;color:#8491a8;font-weight:600;">Need Attention</div></div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:0.75rem;margin-top:0.5rem;text-align:center;">
+            <svg width="72" height="72" viewBox="0 0 128 128" style="margin:0 auto;">
+              <circle cx="64" cy="64" r="50" fill="none" stroke="#f0f0f0" stroke-width="10"/>
+              <circle cx="64" cy="64" r="50" fill="none" stroke="#dc2626" stroke-width="10" stroke-dasharray="125.6 188.4" stroke-linecap="round" transform="rotate(-90 64 64)"/>
+              <text x="64" y="70" text-anchor="middle" font-size="24" font-weight="700" fill="#1a2744">2/5</text>
+            </svg>
+          </div>
+        </div>
+        <div class="dash-overlay">
+          <h4>See exactly where they stand</h4>
+          <p>Not just a score &mdash; a full picture of what your child knows and what needs attention.</p>
+        </div>
+      </div>
+
+      <!-- Panel 2: AI insight -->
+      <div class="dash-panel fade-up">
+        <div class="dash-mock" style="background:#f0f2f5;padding:1.25rem;">
+          <div style="background:white;border-radius:12px;padding:1rem;border:2px solid #fee2e2;">
+            <div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;">Q2: Fractions <span style="background:#fef2f2;color:#dc2626;font-size:0.55rem;padding:0.15rem 0.5rem;border-radius:50px;margin-left:0.3rem;">✗ Needs Attention</span></div>
+            <div style="font-size:0.68rem;color:#5a6478;margin-bottom:0.75rem;">1 out of 4 equal parts shaded. This fraction is:</div>
+            <div style="background:#eff6ff;border-radius:8px;padding:0.6rem;margin-bottom:0.4rem;">
+              <div style="font-size:0.52rem;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">🤖 AI Analysis</div>
+              <div style="font-size:0.62rem;color:#1e40af;line-height:1.5;">Pattern detected: writing total parts as numerator. Conceptual gap &mdash; not careless.</div>
+            </div>
+            <div style="background:#f0fdf4;border-radius:8px;padding:0.6rem;">
+              <div style="font-size:0.52rem;font-weight:700;color:#16a34a;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">💡 How to Correct</div>
+              <div style="font-size:0.62rem;color:#166534;line-height:1.5;">Draw a circle, shade 1 of 4 parts. Ask: "How many shaded? How many total?"</div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-overlay">
+          <h4>Know why they got it wrong</h4>
+          <p>Our AI identifies the thinking error behind every mistake &mdash; so it gets fixed, not repeated.</p>
+        </div>
+      </div>
+
+      <!-- Panel 3: Learning plan -->
+      <div class="dash-panel fade-up">
+        <div class="dash-mock" style="background:#f0f2f5;padding:1.25rem;">
+          <div style="background:var(--navy);border-radius:10px;padding:0.75rem;margin-bottom:0.6rem;">
+            <div style="font-size:0.55rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#6de4d8;">Personalised Plan</div>
+            <div style="font-family:var(--font-display);font-size:0.85rem;color:white;font-weight:700;">10-Day Foundation Programme</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <div style="background:white;border-radius:8px;overflow:hidden;"><div style="background:#dc2626;padding:0.3rem 0.6rem;font-size:0.5rem;font-weight:700;color:white;letter-spacing:0.07em;">DAY 1 &middot; FOUNDATION 🎯</div><div style="padding:0.5rem 0.6rem;font-size:0.62rem;font-weight:700;color:var(--navy);">Fractions — Reteach concept</div></div>
+            <div style="background:white;border-radius:8px;overflow:hidden;"><div style="background:#d97706;padding:0.3rem 0.6rem;font-size:0.5rem;font-weight:700;color:white;letter-spacing:0.07em;">DAY 2 &middot; GUIDED PRACTICE 📝</div><div style="padding:0.5rem 0.6rem;font-size:0.62rem;font-weight:700;color:var(--navy);">Fractions — Step by step</div></div>
+            <div style="background:white;border-radius:8px;overflow:hidden;"><div style="background:#0e8a7c;padding:0.3rem 0.6rem;font-size:0.5rem;font-weight:700;color:white;letter-spacing:0.07em;">DAY 9 &middot; EXTENSION ⭐</div><div style="padding:0.5rem 0.6rem;font-size:0.62rem;font-weight:700;color:var(--navy);">Multiplication — Next level</div></div>
+          </div>
+        </div>
+        <div class="dash-overlay">
+          <h4>A plan built for your child</h4>
+          <p>Every gap gets its own session. Every strength gets extended. Nothing generic.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="dash-cta fade-up">
+      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.25rem;">This is what you&rsquo;ll see after your child&rsquo;s first assessment &mdash; shown to you live during the demo session.</p>
+      <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-primary">Book a Free Demo &amp; See Your Child&rsquo;s Dashboard</button>
     </div>
   </div>
 </section>
