@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter to Every Parent — TutorKlub</title>
+  <meta name="description" content="Why Rajeshwari Raman founded TutorKlub — a personal letter to every parent considering us for their child." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:wght@300;400;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:#1a2744; --navy-deep:#0f1a30; --teal:#0e8a7c; --teal-mid:#14a896;
+      --teal-light:#e6f5f3; --cream:#faf8f4; --white:#ffffff;
+      --radius-md:12px; --radius-lg:20px;
+      --font-display:'Playfair Display',Georgia,serif;
+      --font-serif:'Source Serif 4',Georgia,serif;
+      --font-body:'Nunito',sans-serif;
+      --text-main:#1a2744; --text-muted:#4a5568; --text-soft:#718096;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-body);background:var(--cream);color:var(--text-main);line-height:1.7;overflow-x:hidden;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(250,248,244,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,39,68,0.08);padding:0 2rem;}
+    .nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+    .logo{font-family:var(--font-display);font-size:1.45rem;font-weight:700;color:var(--navy);text-decoration:none;}
+    .logo span{color:var(--teal);}
+    .btn-primary{display:inline-block;background:var(--teal);color:var(--white);font-family:var(--font-body);font-size:0.9rem;font-weight:700;padding:0.85rem 2rem;border-radius:50px;text-decoration:none;border:none;cursor:pointer;transition:background 0.22s,transform 0.18s;}
+    .btn-primary:hover{background:var(--teal-mid);transform:translateY(-2px);}
+    .btn-ghost{display:inline-block;color:var(--navy);font-weight:600;font-size:0.9rem;text-decoration:none;padding:0.6rem 1.25rem;border-radius:50px;border:1.5px solid rgba(26,39,68,0.18);transition:border-color 0.2s;}
+    .btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+    .letter-hero{background:var(--navy-deep);padding:6rem 2rem 4rem;text-align:center;}
+    .letter-label{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6de4d8;margin-bottom:1.5rem;display:block;}
+    .letter-hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.5rem;}
+    .letter-hero h1 em{font-style:italic;color:#6de4d8;}
+    .letter-hero p{font-family:var(--font-serif);font-size:1.1rem;color:rgba(255,255,255,0.65);max-width:600px;margin:0 auto;line-height:1.8;}
+    .letter-divider{width:60px;height:2px;background:var(--teal);margin:2.5rem auto 0;}
+    .letter-body{max-width:740px;margin:0 auto;padding:5rem 2rem 6rem;}
+    .letter-greeting{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:2rem;}
+    .letter-body p{font-family:var(--font-serif);font-size:1.08rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.5rem;}
+    .letter-body p.pull{font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--navy);border-left:3px solid var(--teal);padding-left:1.25rem;margin:2.5rem 0;}
+    .letter-signature{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(26,39,68,0.1);}
+    .sig-closing{font-family:var(--font-serif);font-size:1rem;color:var(--text-muted);margin-bottom:1.25rem;}
+    .sig-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;margin-bottom:1rem;border:3px solid var(--teal-light);}
+    .sig-name{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem;}
+    .sig-role{font-size:0.85rem;color:var(--teal);font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}
+    .letter-cta{background:var(--teal-light);padding:4rem 2rem;text-align:center;}
+    .letter-cta h2{font-family:var(--font-display);font-size:1.8rem;color:var(--navy);margin-bottom:0.75rem;}
+    .letter-cta p{font-family:var(--font-serif);color:var(--text-muted);margin-bottom:2rem;font-size:1rem;}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    footer{background:var(--navy-deep);padding:2rem;text-align:center;}
+    footer p{font-size:0.8rem;color:rgba(255,255,255,0.4);}
+    footer a{color:#6de4d8;text-decoration:none;}
+    @media(max-width:640px){.letter-body{padding:3rem 1.25rem 4rem;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Tutor<span>Klub</span></a>
+    <a href="index.html" class="btn-ghost">&larr; Back to Home</a>
+  </div>
+</nav>
+
+<section class="letter-hero">
+  <span class="letter-label">From Our Founder</span>
+  <h1>A Letter to<br /><em>Every Parent</em></h1>
+  <p>Every child deserves to be understood before they are taught.</p>
+  <div class="letter-divider"></div>
+</section>
+
+<div class="letter-body">
+  <p class="letter-greeting">Dear Parent,</p>
+
+  <p>Thank you for visiting TutorKlub.</p>
+
+  <p>Before you decide whether we&rsquo;re the right place for your child, I&rsquo;d like to tell you why TutorKlub exists.</p>
+
+  <p>As a child, I believed I wasn&rsquo;t good at studies.</p>
+
+  <p>Not because I didn&rsquo;t want to learn &mdash; I just couldn&rsquo;t understand the way I was being taught. Over time, I began to carry a quiet belief that learning came naturally to everyone else, but not to me.</p>
+
+  <p class="pull">That belief was wrong. But nobody told me that for a long time.</p>
+
+  <p>What changed wasn&rsquo;t that I suddenly became smarter. Someone simply took the time to teach me differently. For the first time, things made sense. And as understanding came, something I hadn&rsquo;t expected came with it &mdash; confidence.</p>
+
+  <p>Looking back, my life didn&rsquo;t change because I became better at studies.</p>
+
+  <p class="pull">It changed because I stopped believing I wasn&rsquo;t capable.</p>
+
+  <p>That shift opened doors I once thought were closed to me. Opportunities I had quietly ruled out became possible. A career I couldn&rsquo;t have imagined began to take shape.</p>
+
+  <p>But the greatest lesson from that journey had nothing to do with grades or achievements.</p>
+
+  <p>It was this: <em>every child can learn &mdash; when they&rsquo;re taught in a way that works for them.</em></p>
+
+  <p>Over the years, I&rsquo;ve met many children who are bright, curious and full of potential &mdash; yet have quietly convinced themselves they are &ldquo;not good at Maths,&rdquo; &ldquo;not good at English,&rdquo; or simply &ldquo;not good at studies.&rdquo;</p>
+
+  <p>Children who ask good questions in class but go quiet when they get something wrong. Children whose eyes say they understand more than their answers show.</p>
+
+  <p>I don&rsquo;t think the problem is ability.</p>
+
+  <p class="pull">I think too many children are taught before they are understood.</p>
+
+  <p>That is why I started TutorKlub.</p>
+
+  <p>We don&rsquo;t begin with a syllabus. We begin with the child. We take the time to understand how they think, where they&rsquo;re getting stuck, and what they need to move forward &mdash; not just in their subject, but in how they feel about learning itself.</p>
+
+  <p>Our goal isn&rsquo;t simply to improve marks. It&rsquo;s to help children enjoy learning, think independently, and ask questions without fear.</p>
+
+  <p>Because when a child believes in themselves, better grades are often just the beginning.</p>
+
+  <p>Thank you for considering TutorKlub. If we can be the people who teach your child differently &mdash; the way someone once did for me &mdash; it would be a privilege.</p>
+
+  <div class="letter-signature">
+    <p class="sig-closing">With warm regards,</p>
+    <img src="images/founder.jpg" alt="Rajeshwari Raman" class="sig-photo" />
+    <div class="sig-name">Rajeshwari R.</div>
+    <div class="sig-role">Founder, TutorKlub</div>
+  </div>
+</div>
+
+<section class="letter-cta">
+  <h2>Ready to take the first step?</h2>
+  <p>Book a free 30-minute demo. No pressure, no commitment &mdash; just a conversation about your child.</p>
+  <div class="cta-buttons">
+    <a href="index.html#book-trial" class="btn-primary">Book a Free Demo</a>
+    <a href="https://wa.me/919985555222" class="btn-ghost">Questions? WhatsApp Us</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 TutorKlub &middot; <a href="index.html">Home</a> &middot; <a href="mailto:hello@tutorklub.com">hello@tutorklub.com</a></p>
+</footer>
+
+</body>
+</html>
