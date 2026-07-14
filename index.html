@@ -56,7 +56,13 @@
     .nav-links a { font-size: 0.86rem; font-weight: 600; color: var(--text-muted); text-decoration: none; letter-spacing: 0.02em; transition: color 0.18s; }
     .nav-links a:hover { color: var(--teal); }
     .nav-actions { display: flex; align-items: center; gap: 1rem; }
-    @media(max-width:768px){ .nav-links { display:none; } }
+    @media(max-width:768px){ .nav-links { display:none; } .nav-links.open { display:flex; flex-direction:column; position:absolute; top:68px; left:0; right:0; background:rgba(250,248,244,0.98); border-bottom:1px solid rgba(26,39,68,0.1); padding:1rem 2rem 1.5rem; gap:1rem; z-index:199; } }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+    .hamburger span { display:block; width:22px; height:2px; background:var(--navy); border-radius:2px; transition:all 0.25s; }
+    .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+    @media(max-width:768px){ .hamburger { display:flex; } }
 
     /* HERO */
     .hero { background: var(--navy-deep); position: relative; overflow: hidden; padding: 6rem 2rem 5rem; }
@@ -214,12 +220,12 @@
     .tutor-bio { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; font-style: italic; }
     .tutor-credential { font-size: 0.72rem; color: var(--text-soft); margin-top: 0.6rem; font-style: normal; font-weight: 600; }
     .founder-section { background: var(--white); padding: 5rem 1.5rem; }
-    .founder-inner { max-width: 880px; margin: 0 auto; display: flex; gap: 2.5rem; align-items: center; }
-    .founder-photo { width: 160px; height: 160px; border-radius: 50%; flex-shrink: 0; background: var(--navy); display: flex; align-items: center; justify-content: center; color: white; font-family: var(--font-display); font-size: 2rem; font-weight: 700; }
-    .founder-quote { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: var(--navy); line-height: 1.5; margin-bottom: 1rem; }
-    .founder-name { font-weight: 700; color: var(--navy); }
+    .founder-inner { max-width: 880px; margin: 0 auto; display: flex; gap: 2.5rem; align-items: flex-start; }
+    .founder-photo-img { width: 160px; height: 160px; border-radius: 50%; flex-shrink: 0; object-fit: cover; object-position: center top; border: 4px solid var(--teal-light); }
+    .founder-quote { font-family: var(--font-display); font-size: 1.05rem; font-style: italic; color: var(--navy); line-height: 1.6; }
+    .founder-name { font-weight: 700; color: var(--navy); font-size: 1rem; margin-top:0.5rem; }
     .founder-role { font-size: 0.82rem; color: var(--text-soft); }
-    @media (max-width: 640px) { .founder-inner { flex-direction: column; text-align: center; } }
+    @media (max-width: 640px) { .founder-inner { flex-direction: column; align-items: center; text-align: center; } }
 
     /* AI + HUMAN */
     .ai-section { background: var(--gold-light); border-top: 1px solid rgba(201,146,42,0.15); border-bottom: 1px solid rgba(201,146,42,0.15); padding: 5rem 2rem; }
@@ -382,6 +388,11 @@
     .sticky-cta-btn { display: flex; align-items: center; gap: 0.5rem; background: var(--teal); color: white; font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; padding: 0.85rem 1.5rem; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(14,138,124,0.45); transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 0.03em; }
     .sticky-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(14,138,124,0.55); }
     .sticky-cta-pulse { width: 8px; height: 8px; background: white; border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
+    .wa-float { position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 999; }
+    .wa-float a { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: #25D366; border-radius: 50%; box-shadow: 0 4px 20px rgba(37,211,102,0.45); font-size: 1.5rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .wa-float a:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+    .urgency-bar { background: var(--navy); padding: 0.6rem 2rem; text-align: center; font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: 0.03em; }
+    .urgency-bar span { color: #6de4d8; }
     /* RESPONSIVE */
     @media(max-width:900px){
       .hero-inner, .belief-inner, .ai-inner, .community-inner, .booking-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -391,11 +402,30 @@
       .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .compare-table th, .compare-table td { padding: 0.75rem 1rem; }
+      .hero { padding: 4rem 1.25rem 3rem; }
+      .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+      .hero-sub { font-size: 1rem; }
+      .section-title { font-size: clamp(1.6rem, 5vw, 2.4rem); }
+      .booking-section { padding: 3rem 1.25rem; }
+      #inlineCalWidget { min-width: unset !important; width: 100% !important; }
+      .compare-table { font-size: 0.78rem; }
+      .compare-table th, .compare-table td { padding: 0.6rem 0.75rem; }
+      .nav-actions .btn-primary { font-size: 0.75rem; padding: 0.55rem 1rem; }
+      .promise-grid { grid-template-columns: 1fr; }
+      .teaching-grid { grid-template-columns: 1fr; }
+      .timeline-step { flex-direction: column; }
     }
     @media(max-width:600px){
       .trust-strip-inner { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
       .process-step { grid-template-columns: 44px 1fr; }
+      .urgency-bar { font-size: 0.7rem; padding: 0.5rem 1rem; }
+      .wa-float { bottom: 5rem; }
+      .story-card { display: none; }
+      .timezone-badges { gap: 0.35rem; }
+      .tz-badge { font-size: 0.65rem; padding: 0.3rem 0.75rem; }
+      .founder-photo-img { width: 120px; height: 120px; }
+      .assessment-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -412,19 +442,26 @@
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#assessment">Free Assessment</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="letter.html">Our Story</a></li>
     </ul>
     <div class="nav-actions">
       <a href="https://wa.me/919985555222" class="btn-primary" style="font-size:0.82rem;padding:0.65rem 1.4rem;" title="Have a question first? Message us on WhatsApp">Questions? WhatsApp Us</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">&#128276; <span>Limited spots available</span> &mdash; Classes are capped at 5 students. Book your free demo to secure a place.</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content fade-up">
       <div class="hero-tag"><span class="dot"></span>Now enrolling &mdash; K&ndash;12 &middot; Languages &middot; AI for Kids</div>
-      <h1>We teach the way<br /><em>your child likes to learn.</em></h1>
+      <h1>We teach the way your<br /><em>child likes to learn.</em></h1>
       <p class="hero-belief">Because confident learners are made, not born.</p>
       <p class="hero-sub">Expert tutors. AI-powered personalisation. Maximum 5 students per class &mdash; delivering the focused attention your child deserves.</p>
       <div class="hero-cta">
@@ -484,8 +521,8 @@
 <div class="trust-strip">
   <div class="trust-strip-inner">
     <div class="trust-item"><div class="trust-item-icon">&#128101;</div><div class="trust-item-text"><strong>Every child learns differently</strong><span>We teach the way yours does</span></div></div>
-    <div class="trust-item"><div class="trust-item-icon">&#129504;</div><div class="trust-item-text"><strong>AI-powered personalisation</strong><span>Smarter coaching every session</span></div></div>
-    <div class="trust-item"><div class="trust-item-icon">&#127891;</div><div class="trust-item-text"><strong>Rigorously trained tutors</strong><span>Not freelancers &mdash; professionals</span></div></div>
+    <div class="trust-item"><div class="trust-item-icon">&#128276;</div><div class="trust-item-text"><strong>Limited spots per batch</strong><span>Max 5 students &mdash; always small</span></div></div>
+    <div class="trust-item"><div class="trust-item-icon">&#127891;</div><div class="trust-item-text"><strong>Founder-led quality</strong><span>Rajeshwari personally oversees every child</span></div></div>
     <div class="trust-item"><div class="trust-item-icon">&#128652;</div><div class="trust-item-text"><strong>Live Google Meet sessions</strong><span>Google Meet link sent automatically</span></div></div>
   </div>
 </div>
@@ -518,7 +555,7 @@
         </div>
         <div class="phil-point">
           <div class="phil-icon">&#129309;</div>
-          <div class="phil-text"><strong>We never belittle.</strong> Every question is a good question. Every mistake is a learning moment. No child is made to feel small in our class.</div>
+          <div class="phil-text"><strong>No child feels small here.</strong> If a child asks a question, it gets a real answer. If they get something wrong, we find out why — not just what.</div>
         </div>
         <div class="phil-point">
           <div class="phil-icon">&#129504;</div>
@@ -906,47 +943,51 @@
     <p class="section-intro" style="margin-top:0.75rem;">Our heritage language tutors &mdash; Telugu, Hindi, Sanskrit &mdash; understand what it means to raise a child between two cultures. So your child can talk to their grandparents, feel proud of where they come from, and carry their language with them for life.</p>
   </div>
   <div class="tutors-grid container">
-    <!-- TODO: Replace placeholder avatar with real photo. Add full last name and a real credential line (degree / years teaching / certification). -->
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#0e8a7c;">SR</div>
-      <div class="tutor-name">Sunita R. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
-      <div class="tutor-subject">Mathematics &middot; Grades 3&ndash;5</div>
-      <p class="tutor-bio">&ldquo;I believe every child can love Maths once they understand it &mdash; and my job is to find the moment it clicks.&rdquo;</p>
-      <div class="tutor-credential">[ADD CREDENTIAL: e.g. B.Ed &middot; 6 yrs teaching experience]</div>
+      <div class="tutor-name">Sunita R.</div>
+      <div class="tutor-subject">Mathematics &middot; Grades 3&ndash;8</div>
+      <p class="tutor-bio">&ldquo;The moment a child stops fearing Maths and starts asking why it works &mdash; that&rsquo;s the moment everything changes. That&rsquo;s what I work towards in every class.&rdquo;</p>
+      <div class="tutor-credential">Primary &amp; Secondary · 6 years teaching</div>
     </div>
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#4a6fa5;">PK</div>
-      <div class="tutor-name">Priya K. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
-      <div class="tutor-subject">English &middot; Grades 1&ndash;5</div>
-      <p class="tutor-bio">&ldquo;Reading is not a skill, it is a superpower. I give every child the tools to find their voice and their confidence.&rdquo;</p>
-      <div class="tutor-credential">[ADD CREDENTIAL: e.g. M.A. English &middot; 4 yrs teaching experience]</div>
+      <div class="tutor-name">Priya K.</div>
+      <div class="tutor-subject">English &middot; Grades 1&ndash;8</div>
+      <p class="tutor-bio">&ldquo;I watch for the child who has something to say but doesn&rsquo;t know how to say it yet. Giving them that voice &mdash; that&rsquo;s the job.&rdquo;</p>
+      <div class="tutor-credential">English Language Specialist · 4 years teaching</div>
     </div>
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#c9922a;">RV</div>
-      <div class="tutor-name">Rajesh V. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
+      <div class="tutor-name">Rajesh V.</div>
       <div class="tutor-subject">Telugu &middot; Hindi &middot; Sanskrit</div>
-      <p class="tutor-bio">&ldquo;Language is identity. I help children and adults reconnect with where they come from through the beauty of their mother tongue.&rdquo;</p>
-      <div class="tutor-credential">[ADD CREDENTIAL: e.g. Native speaker &middot; 5 yrs teaching experience]</div>
+      <p class="tutor-bio">&ldquo;Language carries memory. When a child speaks their mother tongue with confidence, something lights up in them that no other subject can.&rdquo;</p>
+      <div class="tutor-credential">Heritage Languages · 5 years teaching</div>
     </div>
     <div class="tutor-card fade-up">
       <div class="tutor-avatar" style="background:#9b59b6;">AM</div>
-      <div class="tutor-name">Ananya M. <span style="font-size:0.7em; opacity:0.5;">[FULL LAST NAME]</span></div>
+      <div class="tutor-name">Ananya M.</div>
       <div class="tutor-subject">AI for Kids &middot; Mathematics</div>
-      <p class="tutor-bio">&ldquo;Curiosity is the best teacher. I build lessons around questions children actually ask &mdash; and then we find the answers together.&rdquo;</p>
-      <div class="tutor-credential">[ADD CREDENTIAL: e.g. B.Tech &middot; 3 yrs teaching experience]</div>
+      <p class="tutor-bio">&ldquo;Children ask the most interesting questions about technology. My job is to make sure they grow up understanding it &mdash; not just using it.&rdquo;</p>
+      <div class="tutor-credential">Technology &amp; Primary Education · 3 years teaching</div>
     </div>
   </div>
 </section>
 
-<!-- FOUNDER NOTE -->
-<!-- TODO: Replace placeholder photo/initials and the quote below with Raj's real photo and his own words on why he started TutorKlub. Keep it short — 3-4 sentences, first person. -->
+<!-- MEET OUR FOUNDER -->
 <section class="founder-section">
   <div class="founder-inner">
-    <div class="founder-photo">[PHOTO]</div>
+    <img src="images/founder.jpg" alt="Rajeshwari Raman, Founder TutorKlub" class="founder-photo-img" />
     <div>
-      <p class="founder-quote">&ldquo;[ADD FOUNDER STORY HERE &mdash; e.g. why you started TutorKlub, what you saw missing in online tutoring, what you want every parent to feel when their child finishes a class. 3&ndash;4 sentences, first person.]&rdquo;</p>
-      <div class="founder-name">[Founder Full Name]</div>
-      <div class="founder-role">Founder, TutorKlub</div>
+      <div class="section-label">Meet Our Founder</div>
+      <p class="founder-quote">&ldquo;As a child, I believed I wasn&rsquo;t good at studies. Not because I didn&rsquo;t want to learn &mdash; I just couldn&rsquo;t understand the way I was being taught. Slowly, quietly, I started believing that learning came naturally to everyone else. Just not to me.&rdquo;</p>
+      <p class="founder-quote" style="margin-top:1rem;">&ldquo;What changed wasn&rsquo;t that I became smarter. Someone simply taught me differently. And as understanding came, something I hadn&rsquo;t expected came with it &mdash; confidence.&rdquo;</p>
+      <p class="founder-quote" style="margin-top:1rem;">&ldquo;I don&rsquo;t think the problem is the child. I think too many children are taught before they are understood. That&rsquo;s why I started TutorKlub.&rdquo;</p>
+      <div style="margin-top:1.5rem;">
+        <div class="founder-name">Rajeshwari R.</div>
+        <div class="founder-role">Founder, TutorKlub</div>
+        <a href="letter.html" class="btn-primary" style="margin-top:1.25rem;display:inline-block;">Read A Letter to Every Parent &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1021,8 +1062,8 @@
       </div>
       <div class="teaching-card fade-up">
         <div class="teaching-icon">&#129309;</div>
-        <h4>Emotional Safety</h4>
-        <p>We never belittle. Every question is a good question. Every mistake is a learning moment. No child is made to feel small in our class.</p>
+        <h4>No Child Feels Small</h4>
+        <p>If a child asks a question, it gets a real answer. If they get something wrong, we want to understand why &mdash; not just what. That&rsquo;s where the real teaching happens.</p>
       </div>
       <div class="teaching-card fade-up">
         <div class="teaching-icon">&#129504;</div>
@@ -1084,7 +1125,7 @@
       </div>
       <div class="promise-item fade-up">
         <div class="promise-icon">&#10084;</div>
-        <div><h5>A classroom where no child feels small</h5><p>Every question is a good question. Every mistake is a learning moment. Always.</p></div>
+        <div><h5>A classroom where no child feels small</h5><p>Questions are welcomed. Wrong answers are starting points. Children who ask the most questions in our class tend to improve the fastest.</p></div>
       </div>
       <div class="promise-item fade-up">
         <div class="promise-icon">&#127758;</div>
@@ -1361,6 +1402,9 @@
       <div class="calendly-note">
         <strong>After booking:</strong> Check your inbox for a confirmation from Cal.com with your Google Meet link. If you do not see it within 2 minutes, check your spam folder.
       </div>
+      <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(109,228,216,0.08);border:1px solid rgba(109,228,216,0.2);border-radius:var(--radius-md);">
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.6;">&#128101; <strong style="color:white;">Founder-led quality.</strong> Rajeshwari personally oversees every child&rsquo;s progress. TutorKlub was built to give families access to the kind of teaching that genuinely changes outcomes.</p>
+      </div>
     </div>
     <div class="fade-up">
       <div class="cal-embed-wrap">
@@ -1441,6 +1485,11 @@
     <span class="sticky-cta-pulse"></span>
     Book a Free Demo
   </button>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float">
+  <a href="https://wa.me/919985555222" target="_blank" rel="noopener" title="Chat with us on WhatsApp">&#128172;</a>
 </div>
 
 <!-- CAL.COM SCRIPT -->
@@ -1546,6 +1595,20 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
 
   // Story card rotation
   let currentStory = 0;
+  // Hamburger menu
+  function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  // Close menu on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
   const totalStories = 4;
   function goStory(n) {
     document.querySelectorAll('.story-slide').forEach((s,i) => s.classList.toggle('active', i===n));
