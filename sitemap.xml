@@ -40,4 +40,24 @@
     <lastmod>2026-10-21</lastmod>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://www.tutorklub.com/blog</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tutorklub.com/blog/teach-your-child-telugu-abroad</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tutorklub.com/privacy</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.tutorklub.com/terms</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.2</priority>
+  </url>
 </urlset>
