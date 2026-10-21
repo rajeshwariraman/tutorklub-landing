@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tutorklub.com/sitemap.xml
+Sitemap: https://www.tutorklub.com/sitemap.xml
