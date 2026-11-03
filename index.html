@@ -1582,9 +1582,11 @@
         <p style="font-size:0.72rem;color:var(--text-soft);margin-top:0.75rem;text-align:center;">&#128272; We verify every request personally. Your assessment link arrives on WhatsApp within a few hours.</p>
       </div>
       <div id="assess-thanks" style="display:none;text-align:center;padding:1rem 0;">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">&#129395;</div>
-        <h3 style="font-family:var(--font-display);color:var(--navy);margin-bottom:0.75rem;">Request received!</h3>
-        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;">We&rsquo;ll WhatsApp you at the number you provided within a few hours with your child&rsquo;s personalised assessment link. Please make sure WhatsApp is active on that number.</p>
+        <h3 style="font-family:var(--font-display);color:var(--navy);margin-bottom:0.75rem;">Thank you &mdash; one last step</h3>
+        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:0.75rem;">WhatsApp has opened with your request to TutorKlub. Please press <strong>Send</strong> in WhatsApp so we receive it.</p>
+        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">We will reply on WhatsApp within a few hours with your child&rsquo;s assessment link and login. You can also book a free demo class now.</p>
+        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" style="background:var(--teal);color:white;border:none;border-radius:50px;padding:0.9rem 1.75rem;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit;">Book a free demo class</button>
+        <p style="font-size:0.8rem;color:var(--text-soft);margin-top:1rem;">TutorKlub &middot; hello@tutorklub.com &middot; WhatsApp +91 99855 55222</p>
       </div>
     </div>
   </div>
@@ -1809,12 +1811,15 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
     err.style.display = 'none';
     // Send WhatsApp notification to Raj
     var msg = encodeURIComponent(
-      '📋 *New Assessment Request*\n' +
-      '👦 Child: ' + name + '\n' +
-      '📚 Grade: ' + grade + '\n' +
-      '📖 Subject: ' + subject + '\n' +
-      '📱 Parent WhatsApp: ' + phone + '\n' +
-      '🕐 Best time: ' + time
+      'Hello TutorKlub,\n\n' +
+      'I would like to request a free assessment for my child.\n\n' +
+      '*Free Assessment Request*\n' +
+      'Child\'s name: ' + name + '\n' +
+      'Grade: ' + grade + '\n' +
+      'Subject: ' + subject + '\n' +
+      'Parent WhatsApp: ' + phone + '\n' +
+      'Best time to contact: ' + time + '\n\n' +
+      'Thank you.'
     );
     window.open('https://wa.me/919985555222?text=' + msg, '_blank');
     document.getElementById('assess-form').style.display = 'none';
