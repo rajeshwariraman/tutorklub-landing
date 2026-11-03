@@ -349,8 +349,8 @@
     .pricing-header .section-label { color: #6de4d8; }
     .pricing-header .section-title { color: var(--white); }
     .pricing-belief { text-align: center; font-family: var(--font-serif); font-size: 1.05rem; font-style: italic; color: #6de4d8; margin-bottom: 3rem; }
-    .pricing-grid { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
-    .pricing-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2.25rem; position: relative; transition: box-shadow 0.25s, transform 0.25s; }
+    .pricing-grid { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
+    .pricing-card { display: flex; flex-direction: column; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2.25rem; position: relative; transition: box-shadow 0.25s, transform 0.25s; }
     .pricing-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.3); transform: translateY(-4px); }
     .pricing-card.featured { background: var(--teal); border-color: var(--teal); }
     .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: white; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 50px; white-space: nowrap; }
@@ -361,12 +361,12 @@
     .pricing-card.featured .price-period { color: rgba(255,255,255,0.8); }
     .plan-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 1.5rem; }
     .pricing-card.featured .plan-desc { color: rgba(255,255,255,0.85); }
-    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; flex-grow: 1; }
     .plan-features li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: rgba(255,255,255,0.7); }
     .pricing-card.featured .plan-features li { color: white; }
     .plan-features .check { color: #6de4d8; font-weight: 700; flex-shrink: 0; }
     .pricing-card.featured .plan-features .check { color: white; }
-    .plan-btn { width: 100%; padding: 0.85rem; border-radius: 50px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.04em; border: 2px solid rgba(255,255,255,0.4); background: transparent; color: white; cursor: pointer; transition: all 0.22s; }
+    .plan-btn { margin-top: auto; width: 100%; padding: 0.85rem; border-radius: 50px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.04em; border: 2px solid rgba(255,255,255,0.4); background: transparent; color: white; cursor: pointer; transition: all 0.22s; }
     .plan-btn:hover { background: rgba(255,255,255,0.15); border-color: white; }
     .pricing-card.featured .plan-btn { background: white; color: var(--teal); border-color: white; }
     .pricing-card.featured .plan-btn:hover { background: rgba(255,255,255,0.9); }
@@ -1562,7 +1562,10 @@
         </div>
         <div style="margin-bottom:1rem;">
           <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Parent WhatsApp Number</label>
-          <input id="af-phone" type="tel" placeholder="e.g. +1 415 555 0123" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;box-sizing:border-box;" />
+          <div style="display:flex;gap:0.5rem;">
+            <select id="af-cc" aria-label="Country code" style="flex:0 0 42%;padding:0.8rem 0.5rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;background:white;box-sizing:border-box;"><option value="+1">US / Canada +1</option><option value="+44">UK +44</option><option value="+61">Australia +61</option><option value="+64">New Zealand +64</option><option value="+971">UAE +971</option><option value="+966">Saudi Arabia +966</option><option value="+974">Qatar +974</option><option value="+965">Kuwait +965</option><option value="+968">Oman +968</option><option value="+973">Bahrain +973</option><option value="+65">Singapore +65</option><option value="+353">Ireland +353</option><option value="+49">Germany +49</option><option value="+91">India +91</option><option value="other">Other (type with +)</option></select>
+            <input id="af-phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="Phone number" aria-label="WhatsApp number without country code" style="flex:1;min-width:0;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;box-sizing:border-box;" />
+          </div>
         </div>
         <div style="margin-bottom:1.5rem;">
           <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Best Time to Contact</label>
@@ -1783,11 +1786,23 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
     var name = document.getElementById('af-name').value.trim();
     var grade = document.getElementById('af-grade').value;
     var subject = document.getElementById('af-subject').value;
-    var phone = document.getElementById('af-phone').value.trim();
+    var cc = document.getElementById('af-cc').value;
+    var rawPhone = document.getElementById('af-phone').value.trim();
+    var digits = rawPhone.replace(/[^0-9]/g, '');
+    var phone = '';
+    if (rawPhone) {
+      if (cc === 'other') { phone = rawPhone.charAt(0) === '+' ? '+' + digits : ''; }
+      else { phone = cc + ' ' + digits.replace(/^0+/, ''); }
+    }
     var time = document.getElementById('af-time').value;
     var err = document.getElementById('af-error');
     if (!name || !grade || !subject || !phone || !time) {
       err.textContent = 'Please fill in all fields.';
+      err.style.display = 'block';
+      return;
+    }
+    if (cc !== 'other' && (digits.replace(/^0+/, '').length < 6 || digits.length > 13)) {
+      err.textContent = 'Please enter a valid WhatsApp number (without the country code).';
       err.style.display = 'block';
       return;
     }
