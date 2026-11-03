@@ -1567,6 +1567,7 @@
             <input id="af-phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="Phone number" aria-label="WhatsApp number without country code" style="flex:1;min-width:0;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;box-sizing:border-box;" />
           </div>
         </div>
+        <input id="af-website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
         <div style="margin-bottom:1.5rem;">
           <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Best Time to Contact</label>
           <select id="af-time" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;background:white;box-sizing:border-box;">
@@ -1822,6 +1823,15 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
       'Thank you.'
     );
     window.open('https://wa.me/919985555222?text=' + msg, '_blank');
+    // Also email the request to the tutor inbox (runs in the background)
+    try {
+      fetch('/api/assessment-request', {
+        method: 'POST', keepalive: true,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, grade: grade, subject: subject, phone: phone, time: time,
+          website: document.getElementById('af-website').value })
+      }).catch(function(){});
+    } catch (e) {}
     document.getElementById('assess-form').style.display = 'none';
     document.getElementById('assess-thanks').style.display = 'block';
   }
