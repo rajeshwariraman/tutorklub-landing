@@ -1568,26 +1568,17 @@
           </div>
         </div>
         <input id="af-website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
-        <div style="margin-bottom:1.5rem;">
-          <label style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);display:block;margin-bottom:0.4rem;">Best Time to Contact</label>
-          <select id="af-time" style="width:100%;padding:0.8rem;border:1.5px solid #e0ddd6;border-radius:10px;font-size:0.9rem;font-family:inherit;color:var(--navy);outline:none;background:white;box-sizing:border-box;">
-            <option value="">Select preferred time</option>
-            <option>Morning (8am&ndash;12pm)</option>
-            <option>Afternoon (12pm&ndash;4pm)</option>
-            <option>Evening (4pm&ndash;8pm)</option>
-            <option>Any time</option>
-          </select>
-        </div>
-        <button onclick="submitAssessmentForm()" style="width:100%;background:var(--teal);color:white;border:none;border-radius:50px;padding:1rem;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit;">Request Free Assessment &#8594;</button>
+        <div style="margin-bottom:1.5rem;"></div>
+        <button onclick="submitAssessmentForm()" style="width:100%;background:var(--teal);color:white;border:none;border-radius:50px;padding:1rem;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit;">Next: choose a time slot &#8594;</button>
         <p id="af-error" style="font-size:0.8rem;color:#c0392b;margin-top:0.75rem;display:none;"></p>
         <p style="font-size:0.72rem;color:var(--text-soft);margin-top:0.75rem;text-align:center;">&#128272; We verify every request personally. Your assessment link arrives on WhatsApp within a few hours.</p>
       </div>
-      <div id="assess-thanks" style="display:none;text-align:center;padding:1rem 0;">
-        <h3 style="font-family:var(--font-display);color:var(--navy);margin-bottom:0.75rem;">Thank you &mdash; one last step</h3>
-        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:0.75rem;">WhatsApp has opened with your request to TutorKlub. Please press <strong>Send</strong> in WhatsApp so we receive it.</p>
-        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">We will reply on WhatsApp within a few hours with your child&rsquo;s assessment link and login. You can also book a free demo class now.</p>
-        <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" style="background:var(--teal);color:white;border:none;border-radius:50px;padding:0.9rem 1.75rem;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit;">Book a free demo class</button>
-        <p style="font-size:0.8rem;color:var(--text-soft);margin-top:1rem;">TutorKlub &middot; hello@tutorklub.com &middot; WhatsApp +91 99855 55222</p>
+      <div id="assess-thanks" style="display:none;text-align:center;padding:0.5rem 0;">
+        <h3 style="font-family:var(--font-display);color:var(--navy);margin-bottom:0.5rem;">Choose a time with your tutor</h3>
+        <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:0.5rem;">Pick a slot below. Times show in your own time zone. You will get a Google Meet link by email straight away.</p>
+        <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;">WhatsApp has also opened with your request &mdash; please press <strong>Send</strong> there so we have your number.</p>
+        <div id="assessCalWidget" style="width:100%;min-height:520px;overflow:auto;text-align:left;"></div>
+        <p style="font-size:0.8rem;color:var(--text-soft);margin-top:1rem;">Calendar not loading? <a href="https://cal.com/tutorklub/free-demo" target="_blank" rel="noopener">Open it here</a> &middot; TutorKlub &middot; hello@tutorklub.com &middot; WhatsApp +91 99855 55222</p>
       </div>
     </div>
   </div>
@@ -1797,7 +1788,7 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
       if (cc === 'other') { phone = rawPhone.charAt(0) === '+' ? '+' + digits : ''; }
       else { phone = cc + ' ' + digits.replace(/^0+/, ''); }
     }
-    var time = document.getElementById('af-time').value;
+    var time = 'Choosing a slot on the TutorKlub calendar';
     var err = document.getElementById('af-error');
     if (!name || !grade || !subject || !phone || !time) {
       err.textContent = 'Please fill in all fields.';
@@ -1819,7 +1810,7 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
       'Grade: ' + grade + '\n' +
       'Subject: ' + subject + '\n' +
       'Parent WhatsApp: ' + phone + '\n' +
-      'Best time to contact: ' + time + '\n\n' +
+      'I am choosing a demo slot on the TutorKlub calendar now.\n\n' +
       'Thank you.'
     );
     window.open('https://wa.me/919985555222?text=' + msg, '_blank');
@@ -1834,6 +1825,18 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
     } catch (e) {}
     document.getElementById('assess-form').style.display = 'none';
     document.getElementById('assess-thanks').style.display = 'block';
+    try {
+      if (window.Cal) {
+        if (!Cal.ns.assess) Cal('init', 'assess', { origin: 'https://cal.com' });
+        Cal.ns.assess('inline', {
+          elementOrSelector: '#assessCalWidget',
+          calLink: 'tutorklub/free-demo',
+          config: { layout: 'month_view', name: name,
+            notes: 'Child: ' + name + ' | ' + grade + ' | ' + subject + ' | Parent WhatsApp: ' + phone }
+        });
+      }
+    } catch (e) {}
+    document.getElementById('assess-thanks').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // Story card rotation
