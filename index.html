@@ -181,6 +181,26 @@
     .diff-card .highlight { display: inline-flex; align-items: center; gap: 0.35rem; background: var(--teal-light); color: var(--teal); font-size: 0.75rem; font-weight: 700; padding: 0.28rem 0.75rem; border-radius: 50px; margin-top: 1rem; letter-spacing: 0.04em; }
 
     /* HOW IT WORKS */
+    /* LEARNING FRAMEWORK */
+    .framework { background: var(--cream); padding: 4.5rem 2rem; border-bottom: 1px solid rgba(26,39,68,0.07); }
+    .framework-inner { max-width: 1120px; margin: 0 auto; }
+    .framework-header { text-align: center; margin-bottom: 2.25rem; }
+    .framework-header .section-intro { margin: 0 auto; }
+    .framework-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .fw-card { background: var(--white); border: 1px solid rgba(26,39,68,0.06); border-radius: var(--radius-md); padding: 1.25rem 1.25rem 1.4rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .fw-card:hover { border-color: rgba(14,138,124,0.3); box-shadow: var(--shadow-card); }
+    .fw-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+    .fw-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--teal-light); color: var(--teal); display: flex; align-items: center; justify-content: center; }
+    .fw-icon svg { width: 20px; height: 20px; }
+    .fw-step { font-size: 0.78rem; font-weight: 700; color: var(--text-soft); }
+    .fw-card h3 { font-family: var(--font-body); font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 0 0 0.45rem; }
+    .fw-card p { font-family: var(--font-body); font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin: 0; }
+    .fw-path { margin-top: 1rem; background: var(--navy); color: var(--white); border-radius: var(--radius-md); padding: 1.1rem 1.25rem; text-align: center; }
+    .fw-path strong { display: block; font-size: 1.02rem; font-weight: 700; }
+    .fw-path span { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-top: 0.3rem; }
+    @media (max-width: 960px) { .framework-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .framework { padding: 3.25rem 1rem; } .framework-header { margin-bottom: 1.5rem; } .framework-grid { gap: 0.7rem; } .fw-card { padding: 1rem 0.9rem 1.1rem; } .fw-top { margin-bottom: 0.7rem; } .fw-icon { width: 34px; height: 34px; } .fw-icon svg { width: 17px; height: 17px; } .fw-card h3 { font-size: 1rem; } .fw-card p { font-size: 0.85rem; line-height: 1.5; } .fw-path strong { font-size: 0.92rem; } }
+    @media (max-width: 360px) { .framework-grid { grid-template-columns: 1fr; } }
     .process { background: var(--navy); padding: 5.5rem 2rem; }
     section[id] { scroll-margin-top: 80px; }
     .process-header { text-align: center; margin-bottom: 3.5rem; }
@@ -712,6 +732,43 @@
       </div>
       <p class="belief-result">Children who understand concepts more deeply. Parents who know exactly how their child is progressing. Learners who become more confident with every class.</p>
       <button data-cal-link="tutorklub/free-demo" data-cal-namespace="free-demo" data-cal-config='{"layout":"month_view"}' class="btn-outline" style="margin-top:0.5rem;">Book a Free Demo</button>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING FRAMEWORK -->
+<section class="framework" id="approach" aria-labelledby="approach-title">
+  <div class="framework-inner">
+    <div class="framework-header">
+      <div class="section-label">The TutorKlub Approach</div>
+      <h2 class="section-title" id="approach-title">Every Child. A Clearer Path Forward.</h2>
+      <p class="section-intro">Four thoughtful steps from insight to progress.</p>
+    </div>
+    <ol class="framework-grid">
+      <li class="fw-card">
+        <div class="fw-top"><div class="fw-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><span class="fw-step">01</span></div>
+        <h3>Understand</h3>
+        <p>Discover strengths, learning gaps and how your child approaches problems.</p>
+      </li>
+      <li class="fw-card">
+        <div class="fw-top"><div class="fw-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h7"/></svg></div><span class="fw-step">02</span></div>
+        <h3>Personalise</h3>
+        <p>Create a learning pathway built around your child&rsquo;s needs.</p>
+      </li>
+      <li class="fw-card">
+        <div class="fw-top"><div class="fw-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div><span class="fw-step">03</span></div>
+        <h3>Develop</h3>
+        <p>Strengthen concepts, reasoning and independent thinking.</p>
+      </li>
+      <li class="fw-card">
+        <div class="fw-top"><div class="fw-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V14"/><path d="M10 20V10"/><path d="M16 20v-4"/><path d="M3 9l6-4 5 4 7-5"/></svg></div><span class="fw-step">04</span></div>
+        <h3>Measure</h3>
+        <p>Track progress, celebrate growth and plan what&rsquo;s next.</p>
+      </li>
+    </ol>
+    <div class="fw-path">
+      <strong>Understand &rarr; Personalise &rarr; Develop &rarr; Measure</strong>
+      <span>A learning journey that evolves with your child.</span>
     </div>
   </div>
 </section>
