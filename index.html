@@ -924,10 +924,11 @@
   <div class="courses-header container fade-up">
     <div class="section-label">Our Curriculum</div>
     <h2 class="section-title">Courses &amp; Programmes</h2>
-    <p class="section-intro">Structured for Grades 1&ndash;5, Ages 12&ndash;15, and Adult Learners. Each course is built around your child&rsquo;s needs &mdash; not a fixed template.</p>
+    <p class="section-intro">Structured for Grades 1&ndash;12 and Adult Learners. Each course is built around your child&rsquo;s needs &mdash; not a fixed template.</p>
+    <p class="section-intro" style="margin-top:0.75rem;"><strong>Special 1:1 classes also available:</strong> Algebra, Geometry, Trigonometry, Precalculus, Calculus and SAT/ACT Math. Choose &ldquo;Special class&rdquo; as the subject when you book.</p>
   </div>
   <div class="courses-tabs">
-    <button class="tab-btn active" onclick="switchTab('kids', event)">Grades 1&ndash;5</button>
+    <button class="tab-btn active" onclick="switchTab('kids', event)">Grades 1&ndash;12</button>
     <button class="tab-btn" onclick="switchTab('adult', event)">Adult Learners</button>
   </div>
   <div class="courses-grid container">
@@ -937,9 +938,9 @@
       <div class="course-header">
         <div class="course-icon-wrap">
           <div class="course-icon ci-math">&#128290;</div>
-          <div><div class="course-name">Mathematics</div><div class="course-grades">Grades 1&ndash;5 &middot; Ages 6&ndash;11</div></div>
+          <div><div class="course-name">Mathematics</div><div class="course-grades">Grades 1&ndash;12</div></div>
         </div>
-        <span class="course-level-badge level-kids">Grades 1&ndash;5</span>
+        <span class="course-level-badge level-kids">Grades 1&ndash;12</span>
       </div>
       <p class="course-desc">We build genuine mathematical thinking &mdash; not just procedure drilling. From number sense in Grade 1 through fractions, decimals, and data interpretation in Grade 5, every concept is taught with inference-based questions that make children reason, not just recall.</p>
       <ul class="curriculum-list">
@@ -961,9 +962,9 @@
       <div class="course-header">
         <div class="course-icon-wrap">
           <div class="course-icon ci-english">&#128218;</div>
-          <div><div class="course-name">English</div><div class="course-grades">Grades 1&ndash;5 &middot; Ages 6&ndash;11</div></div>
+          <div><div class="course-name">English</div><div class="course-grades">Grades 1&ndash;12</div></div>
         </div>
-        <span class="course-level-badge level-kids">Grades 1&ndash;5</span>
+        <span class="course-level-badge level-kids">Grades 1&ndash;12</span>
       </div>
       <p class="course-desc">Confident readers and expressive writers. We develop language skills from phonics and decoding in early grades through to comprehension, vocabulary, grammar, and structured writing &mdash; always with space for the child&rsquo;s own voice.</p>
       <ul class="curriculum-list">
@@ -985,7 +986,7 @@
       <div class="course-header">
         <div class="course-icon-wrap">
           <div class="course-icon ci-telugu">&#127793;</div>
-          <div><div class="course-name">Telugu</div><div class="course-grades">Grades 1&ndash;5 &middot; All levels</div></div>
+          <div><div class="course-name">Telugu</div><div class="course-grades">Grades 1&ndash;12 &middot; All levels</div></div>
         </div>
         <span class="course-level-badge level-both">Kids &amp; Adults</span>
       </div>
@@ -1008,7 +1009,7 @@
       <div class="course-header">
         <div class="course-icon-wrap">
           <div class="course-icon ci-hindi">&#127381;</div>
-          <div><div class="course-name">Hindi</div><div class="course-grades">Grades 1&ndash;5 &middot; All levels</div></div>
+          <div><div class="course-name">Hindi</div><div class="course-grades">Grades 1&ndash;12 &middot; All levels</div></div>
         </div>
         <span class="course-level-badge level-both">Kids &amp; Adults</span>
       </div>
@@ -1031,7 +1032,7 @@
       <div class="course-header">
         <div class="course-icon-wrap">
           <div class="course-icon ci-sanskrit">&#128149;</div>
-          <div><div class="course-name">Sanskrit</div><div class="course-grades">Grades 1&ndash;5 &middot; Adult learners</div></div>
+          <div><div class="course-name">Sanskrit</div><div class="course-grades">Grades 1&ndash;12 &middot; Adult learners</div></div>
         </div>
         <span class="course-level-badge level-both">Kids &amp; Adults</span>
       </div>
@@ -1476,7 +1477,7 @@
       <div class="popular-tag">Recommended</div>
       <div class="plan-name">Private Class</div>
       <div class="price-period">1-on-1 &middot; fully personalised</div>
-      <p class="plan-desc">Fully personalised to your child. Fees shared at enrolment based on grade, subject, and complexity.</p>
+      <p class="plan-desc">Fully personalised to your child. Also available as special subject classes: Algebra, Geometry, Trigonometry, Precalculus, Calculus. Fees shared at enrolment based on grade, subject, and complexity.</p>
       <ul class="plan-features">
         <li><span class="check">&#10003;</span> Everything in Group Class</li>
         <li><span class="check">&#10003;</span> Dedicated 1-on-1 with your tutor</li>
@@ -1615,6 +1616,10 @@
             <option value="">Select subject</option>
             <option>Mathematics</option><option>English</option><option>Telugu</option>
             <option>Hindi</option><option>Sanskrit</option><option>AI for Kids</option>
+            <optgroup label="Special class (1:1)">
+              <option>Special class: Algebra</option><option>Special class: Geometry</option><option>Special class: Trigonometry</option>
+              <option>Special class: Precalculus</option><option>Special class: Calculus</option><option>Special class: SAT/ACT Math</option>
+            </optgroup>
           </select>
         </div>
         <div style="margin-bottom:1rem;">
@@ -1647,7 +1652,7 @@
     <div class="booking-info fade-up">
       <div class="section-label">Book Your Spot</div>
       <h2 class="section-title">Your first class<br /><em>is completely free</em></h2>
-      <p class="section-intro">Pick a subject, choose a time that works for your family. No payment required upfront.</p>
+      <p class="section-intro">Pick a subject or a special class (Algebra, Calculus and more), then choose a time that works for your family. No payment required upfront.</p>
       <div class="booking-perks">
         <div class="booking-perk">
           <div class="perk-icon">&#9989;</div>
