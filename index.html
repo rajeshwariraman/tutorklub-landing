@@ -672,11 +672,51 @@
         <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">One question changed it</div><div class="story-text">&ldquo;So you have 1.12 rupees &mdash; that&rsquo;s more than 1.3 rupees?&rdquo; Aditya stared at his paper for 5 seconds. Got it.</div></div></div>
       </div>
 
+      <div class="story-slide" id="slide-4">
+        <div class="story-grade">Grade 2 &middot; English</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Arjun wrote</div><div class="story-text">&ldquo;Yesterday I goed to the park and runned.&rdquo;</div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">He had learned the &ldquo;add -ed&rdquo; rule perfectly &mdash; and used it everywhere. A smart mistake, not a careless one.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">One game later</div><div class="story-text">Tutor read out &ldquo;go &ndash; went, run &ndash; ran&rdquo; as rule-breaker pairs. Arjun started spotting them in his own stories.</div></div></div>
+      </div>
+
+      <div class="story-slide" id="slide-5">
+        <div class="story-grade">Grade 3 &middot; Hindi</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Ananya wrote</div><div class="story-text"><span lang="hi">मेरा किताब कहाँ है?</span></div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">She didn&rsquo;t know <span lang="hi">किताब</span> is feminine in Hindi. English nouns have no gender, so nobody had told her the word before it must change.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">One question later</div><div class="story-text">&ldquo;Is <span lang="hi">किताब</span> a he or a she?&rdquo; She paused, then wrote <span lang="hi">मेरी किताब</span> &mdash; and fixed <span lang="hi">मेरी गाड़ी</span> on her own.</div></div></div>
+      </div>
+
+      <div class="story-slide" id="slide-6">
+        <div class="story-grade">Grade 2 &middot; Telugu</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Karthik wrote</div><div class="story-text">Asked to write &ldquo;pen&rdquo;, he wrote <span lang="te">కాలం</span> (time)</div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">He heard short and long vowels as the same sound. The dheergham wasn&rsquo;t in his ear yet &mdash; a listening gap, not a spelling one.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">After one clapping game</div><div class="story-text">Tutor clapped <span lang="te">కలం</span> short and <span lang="te">కాలం</span> long. Karthik clapped back, then corrected his own word.</div></div></div>
+      </div>
+
+      <div class="story-slide" id="slide-7">
+        <div class="story-grade">Grade 5 &middot; Sanskrit</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Diya wrote</div><div class="story-text"><span lang="sa">बालकाः पठति</span></div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">She made the boys plural but left the verb singular. In English, &ldquo;read&rdquo; hardly changes &mdash; so she never expected the verb to.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">One chart later</div><div class="story-text">Tutor wrote <span lang="sa">पठति / पठन्ति</span> side by side. &ldquo;Many boys &mdash; so the verb must know it too.&rdquo; Diya never mixed them again.</div></div></div>
+      </div>
+
+      <div class="story-slide" id="slide-8">
+        <div class="story-grade">Grade 4 &middot; AI for Kids</div>
+        <div class="story-row"><div class="story-icon">❌</div><div><div class="story-label">What Ishaan said</div><div class="story-text">&ldquo;The robot is broken.&rdquo; (It was trained only on red apples, and said a green apple was not an apple.)</div></div></div>
+        <div class="story-row"><div class="story-icon">🔍</div><div><div class="story-label">What the tutor saw</div><div class="story-text">He thought AI simply &ldquo;knows&rdquo; things. He hadn&rsquo;t linked what an AI answers to the examples it learned from.</div></div></div>
+        <div class="story-row"><div class="story-icon">✅</div><div><div class="story-label">After he trained one himself</div><div class="story-text">He added green apples to the training pictures. &ldquo;So it only knows what we show it!&rdquo;</div></div></div>
+      </div>
+
       <div class="story-dots">
         <div class="story-dot active" onclick="goStory(0)"></div>
         <div class="story-dot" onclick="goStory(1)"></div>
         <div class="story-dot" onclick="goStory(2)"></div>
         <div class="story-dot" onclick="goStory(3)"></div>
+        <div class="story-dot" onclick="goStory(4)"></div>
+        <div class="story-dot" onclick="goStory(5)"></div>
+        <div class="story-dot" onclick="goStory(6)"></div>
+        <div class="story-dot" onclick="goStory(7)"></div>
+        <div class="story-dot" onclick="goStory(8)"></div>
       </div>
     </div>
 
@@ -1918,7 +1958,7 @@ Cal.ns['free-demo']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
       document.getElementById('hamburger').classList.remove('open');
     });
   });
-  const totalStories = 4;
+  const totalStories = document.querySelectorAll('.story-slide').length;
   function goStory(n) {
     document.querySelectorAll('.story-slide').forEach((s,i) => s.classList.toggle('active', i===n));
     document.querySelectorAll('.story-dot').forEach((d,i) => d.classList.toggle('active', i===n));
