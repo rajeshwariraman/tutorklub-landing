@@ -97,7 +97,15 @@
     .nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
     .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: -0.01em; }
     .logo span { color: var(--teal); }
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.6rem; list-style: none; }
+    .nav-links a, .nav-login { white-space: nowrap; }
+    .nav-actions { display: flex; align-items: center; gap: 1rem; }
+    .nav-login { font-size: 0.84rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .nav-login:hover { color: var(--teal); }
+    .nav-wa { font-size: 0.82rem; padding: 0.6rem 1.2rem; white-space: nowrap; }
+    .nav-login-mobile { display: none; }
+    @media(max-width:1100px){ .nav-links { display:none; } .hamburger { display:flex !important; } .nav-links.open { display:flex; flex-direction:column; position:absolute; top:68px; left:0; right:0; background:rgba(250,248,244,0.98); border-bottom:1px solid rgba(26,39,68,0.1); padding:1rem 2rem 1.5rem; gap:1rem; z-index:199; } }
+    @media(max-width:600px){ .nav-login { display:none; } .nav-login-mobile { display:list-item; } }
     .nav-links a { font-size: 0.86rem; font-weight: 600; color: var(--text-muted); text-decoration: none; letter-spacing: 0.02em; transition: color 0.18s; }
     .nav-links a:hover { color: var(--teal); }
     .nav-actions { display: flex; align-items: center; gap: 1rem; }
@@ -602,18 +610,18 @@
   <div class="nav-inner">
     <a href="#" class="logo">Tutor<span>Klub</span></a>
     <ul class="nav-links">
-      <li><a href="#why-us">Why Us</a></li>
       <li><a href="#courses">Courses</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#pricing">Plans</a></li>
       <li><a href="#assessment">Free Assessment</a></li>
-      <li><a href="#faq">FAQ</a></li>
       <li><a href="letter.html">Our Story</a></li>
       <li><a href="/blog">Blog</a></li>
-            <li><a href="https://tutorklub-portal.vercel.app/doubts">Student Login</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li class="nav-login-mobile"><a href="https://learn.tutorklub.com/doubts">Student Login</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wa.me/919985555222" class="btn-primary" style="font-size:0.82rem;padding:0.65rem 1.4rem;" title="Have a question first? Message us on WhatsApp">Questions? WhatsApp Us</a>
+      <a href="https://learn.tutorklub.com/doubts" class="nav-login">Student Login</a>
+      <a href="https://wa.me/919985555222" class="btn-primary nav-wa" title="Have a question first? Message us on WhatsApp">WhatsApp Us</a>
       <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </button>
@@ -1083,7 +1091,7 @@
         <li>Beginners: Devanagari script, basic Sanskrit alphabet, pronunciation</li>
         <li>Grade 1&ndash;3: Simple vocabulary, numbers, body parts, nature words</li>
         <li>Grade 4&ndash;5: Basic grammar (vibhakti), simple sentences, shlokas</li>
-        <li>Adults: Conversational Sanskrit, Vedic texts, grammar deepdive</li>
+        <li>Adults: Conversational Sanskrit, Vedic texts, grammar deep dive</li>
       </ul>
       <p style="margin:0.5rem 0 0;font-size:0.85rem;"><a href="/learn-sanskrit-online" style="color:#0e8a7c;font-weight:700;">More about our online Sanskrit classes &rarr;</a></p>
       <div class="course-footer">
