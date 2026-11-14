@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://www.tutorklub.com/blog</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -68,6 +68,21 @@
   <url>
     <loc>https://www.tutorklub.com/blog/teach-your-child-hindi-abroad</loc>
     <lastmod>2026-11-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tutorklub.com/blog/why-your-child-keeps-making-the-same-math-mistake</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tutorklub.com/blog/help-your-child-become-a-confident-reader</loc>
+    <lastmod>2026-11-14</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.tutorklub.com/blog/should-kids-learn-ai</loc>
+    <lastmod>2026-11-14</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>
